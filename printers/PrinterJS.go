@@ -45,7 +45,7 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 	path := importDeclaration.Child(1).Content()
 	path = strings.ReplaceAll(path, ".", "/") + ".js"
 	_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
-	printer.Println()
+	printer.Println(";")
 }
 
 func (printer *PrinterJS) printExpr(exprNode *jolang2.Node) {
@@ -74,8 +74,12 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 		}
 		printer.Print(name)
 		params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+		block := methodDeclaration.FindNodeByType(nodetype.BLOCK)
 		printer.printFormalParams(params)
-		printer.Println("{}")
+		printer.Indent++
+		printer.Visit(block)
+		printer.Indent--
+
 		//constructorDeclaration.PrintAST()
 	}
 }
@@ -128,7 +132,7 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 			} else {
 				expr := eq.NextSibling()
 				printer.Print(fieldName, "= ")
-				printer.printExpr(expr)
+				printer.Visit(expr)
 				printer.Println(";")
 			}
 		}
@@ -151,4 +155,37 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node) {
 
 func (printer *PrinterJS) Filename(unit *jolang2.Unit) string {
 	return strings.ReplaceAll(unit.AbsName(), ".", "/") + ".js"
+}
+
+func (printer *PrinterJS) VisitChildrenOf(node *jolang2.Node) {
+	for _, child := range node.Children() {
+		printer.Visit(child)
+	}
+}
+
+func (printer *PrinterJS) printIntegerLiteral(node *jolang2.Node) {
+	content := node.Content()
+	content = strings.ReplaceAll(content, "L", "")
+	printer.Print(content)
+}
+
+func (printer *PrinterJS) Visit(node *jolang2.Node) {
+	switch node.Type() {
+	case nodetype.BLOCK:
+		printer.VisitChildrenOf(node)
+	case nodetype.LEFT_BRACE:
+		printer.Println(nodetype.LEFT_BRACE.String())
+	case nodetype.RIGHT_BRACE:
+		printer.Println(nodetype.RIGHT_BRACE.String())
+	case nodetype.EXPRESSION_STATEMENT:
+		printer.Println(node.Content())
+	case nodetype.DECIMAL_INTEGER_LITERAL:
+		printer.printIntegerLiteral(node)
+	case nodetype.LOCAL_VARIABLE_DECLARATION:
+		printer.Print("let ")
+		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
+		printer.Println(";")
+	default:
+		printer.Print(node.Content())
+	}
 }

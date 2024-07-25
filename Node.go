@@ -47,6 +47,14 @@ func (n *Node) Children() []*Node {
 	return children
 }
 
+//func (n *Node) ChildrenFromTo(from, to int) []*Node {
+//	children := n.Children()
+//	if to < 0 {
+//		to = len(children) + to
+//	}
+//	return children[from:to]
+//}
+
 func (n *Node) Traverse(level int, handler NodeHandlerFunc) {
 	handler(n, level)
 	for _, child := range n.Children() {

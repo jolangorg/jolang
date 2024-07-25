@@ -5,6 +5,8 @@ import (
 	"jolang2"
 	"jolang2/printers"
 	"log"
+	"os"
+	"path/filepath"
 )
 
 func main() {
@@ -38,6 +40,19 @@ func main() {
 		printer := printers.NewPrinterJS(project)
 		content := printer.PrintUnit(unit)
 		filename := printer.Filename(unit)
+		filename = filepath.Join("output", filename)
+
+		err = os.MkdirAll(filepath.Dir(filename), os.ModePerm)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+
+		err = os.WriteFile(filename, []byte(content), os.ModePerm)
+		if err != nil {
+			log.Println(err)
+			return
+		}
 
 		fmt.Println(filename)
 		fmt.Println(content)
