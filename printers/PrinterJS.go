@@ -169,6 +169,12 @@ func (printer *PrinterJS) printIntegerLiteral(node *jolang2.Node) {
 	printer.Print(content)
 }
 
+func (printer *PrinterJS) printFloatLiteral(node *jolang2.Node) {
+	content := node.Content()
+	content = strings.ReplaceAll(content, "f", "")
+	printer.Print(content)
+}
+
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	switch node.Type() {
 
@@ -193,6 +199,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.DECIMAL_INTEGER_LITERAL:
 		printer.printIntegerLiteral(node)
 
+	case nodetype.DECIMAL_FLOATING_POINT_LITERAL:
+		printer.printFloatLiteral(node)
+
 	case nodetype.LOCAL_VARIABLE_DECLARATION:
 		printer.Print("let ")
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
@@ -212,7 +221,10 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 			}
 		}
 	default:
-		printer.VisitChildrenOf(node)
-		//printer.Print(node.Content())
+		if node.ChildCount() > 0 {
+			printer.VisitChildrenOf(node)
+		} else {
+			printer.Print(" " + node.Content() + " ")
+		}
 	}
 }
