@@ -121,6 +121,15 @@ func (n *Node) FindNodesByTypeRecursive(t nodetype.NodeType) NodeList {
 }
 
 func (n *Node) GetName() string {
+
+	if n.Type() == nodetype.METHOD_DECLARATION {
+		id := n.FindNodeByType(nodetype.IDENTIFIER)
+		if id == nil {
+			return ""
+		}
+		return id.Content()
+	}
+
 	id := n.FindNodeByTypeRecursive(nodetype.IDENTIFIER)
 	if id == nil {
 		return ""

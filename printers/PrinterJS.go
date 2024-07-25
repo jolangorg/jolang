@@ -111,6 +111,24 @@ func (printer *PrinterJS) printFormalParams(params []*jolang2.Node) {
 
 func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
+	methodsByName := map[string]jolang2.NodeList{}
+
+	for _, methodDeclaration := range methodDeclarations {
+		name := methodDeclaration.GetName()
+		if _, ok := methodsByName[name]; ok {
+			methodsByName[name] = methodsByName[name].Add(methodDeclaration)
+		} else {
+			methodsByName[name] = jolang2.NodeList{methodDeclaration}
+		}
+	}
+
+	//show overloaded methods
+	for name, list := range methodsByName {
+		if len(list) > 1 {
+			fmt.Println(name)
+		}
+	}
+
 	for _, methodDeclaration := range methodDeclarations {
 		printer.Println()
 		printer.Println()
