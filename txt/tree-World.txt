@@ -544,64 +544,16 @@ program org
 		scoped_identifier org
 			scoped_identifier org
 				scoped_identifier org
-					scoped_identifier org
-						identifier 
-						. 
-						identifier 
+					identifier 
 					. 
 					identifier 
 				. 
 				identifier 
 			. 
 			identifier 
-		; 
-	import_declaration org
-		import 
-		scoped_identifier org
-			scoped_identifier org
-				scoped_identifier org
-					scoped_identifier org
-						identifier 
-						. 
-						identifier 
-					. 
-					identifier 
-				. 
-				identifier 
-			. 
-			identifier 
-		; 
-	import_declaration org
-		import 
-		scoped_identifier org
-			scoped_identifier org
-				scoped_identifier org
-					scoped_identifier org
-						identifier 
-						. 
-						identifier 
-					. 
-					identifier 
-				. 
-				identifier 
-			. 
-			identifier 
-		; 
-	import_declaration org
-		import 
-		scoped_identifier org
-			scoped_identifier org
-				scoped_identifier org
-					scoped_identifier org
-						identifier 
-						. 
-						identifier 
-					. 
-					identifier 
-				. 
-				identifier 
-			. 
-			identifier 
+		. 
+		asterisk 
+			* 
 		; 
 	import_declaration org
 		import 
@@ -10319,13 +10271,7 @@ program org
 				variable_declarator LIQUID_INT
 					identifier 
 					= 
-					object_creation_expression 
-						new 
-						type_identifier 
-						argument_list 
-							( 
-							decimal_integer_literal 
-							) 
+					decimal_integer_literal 
 				; 
 			field_declaration liquidLength
 				modifiers 

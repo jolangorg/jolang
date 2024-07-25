@@ -183,7 +183,10 @@ func (n *Node) Parents() NodeList {
 
 func (n *Node) FindDeclaration() *Node {
 	parents := n.Parents()
-	isMethodInvocation := parents[0].Type() == nodetype.METHOD_INVOCATION
+	firstParent := parents[0]
+
+	//check if node n is method that will call now
+	isMethodInvocation := firstParent.Type() == nodetype.METHOD_INVOCATION && len(firstParent.FindNodesByType(nodetype.IDENTIFIER)) == 1
 
 	for _, parent := range parents {
 		if isMethodInvocation {

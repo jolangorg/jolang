@@ -494,6 +494,52 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 	}
 }
 
+// print "this." or "ClassName." if needed
+func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
+	if p := node.FindParent(nodetype.METHOD_DECLARATION); p != nil {
+		if p.GetName() == "initializeRegisters" && node.Content() == "pool" {
+			fmt.Println(p.GetName(), node.Content())
+		}
+	}
+
+	prev := node.PrevSibling()
+	firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
+	parent := node.Parent()
+
+	if !firstIdentifier {
+		return
+	}
+
+	if parent.Type() == nodetype.VARIABLE_DECLARATOR {
+		return
+	}
+
+	decl := node.FindDeclaration()
+	if decl == nil {
+		return
+	}
+
+	if decl.Type() == nodetype.VARIABLE_DECLARATOR {
+		declParent := decl.Parent()
+		if declParent == nil || declParent.Type() != nodetype.FIELD_DECLARATION {
+			return
+		}
+
+		if declParent.IsStatic() {
+			clsDecl := declParent.FindParent(nodetype.CLASS_DECLARATION)
+			printer.Print(clsDecl.GetName() + ".")
+		} else {
+			printer.Print("this.")
+		}
+
+		return
+	}
+
+	if decl.Type() == nodetype.METHOD_DECLARATION {
+		printer.Print("this.")
+	}
+}
+
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	switch node.Type() {
 	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE, nodetype.CASE:
@@ -507,28 +553,7 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Println(node.Content())
 
 	case nodetype.IDENTIFIER:
-		prev := node.PrevSibling()
-		firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
-		parent := node.Parent()
-
-		if firstIdentifier && parent.Type() != nodetype.VARIABLE_DECLARATOR {
-			decl := node.FindDeclaration()
-			if decl != nil {
-				if decl.Type() == nodetype.VARIABLE_DECLARATOR {
-					declParent := decl.Parent()
-					if declParent != nil && declParent.Type() == nodetype.FIELD_DECLARATION {
-						if declParent.IsStatic() {
-							clsDecl := declParent.FindParent(nodetype.CLASS_DECLARATION)
-							printer.Print(clsDecl.GetName() + ".")
-						} else {
-							printer.Print("this.")
-						}
-					}
-				} else if decl.Type() == nodetype.METHOD_DECLARATION {
-					printer.Print("this.")
-				}
-			}
-		}
+		printer.printFullPath(node)
 
 		printer.Print(node.Content())
 
