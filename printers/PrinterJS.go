@@ -669,7 +669,18 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Visit(node.Child(2))
 
 	case nodetype.LEFT_BRACE:
-		printer.Println(node.Content())
+		if node.Parent().Type() == nodetype.ARRAY_INITIALIZER {
+			printer.Print("[")
+		} else {
+			printer.Println(node.Content())
+		}
+
+	case nodetype.RIGHT_BRACE:
+		if node.Parent().Type() == nodetype.ARRAY_INITIALIZER {
+			printer.Print("]")
+		} else {
+			printer.Println(node.Content())
+		}
 
 	case nodetype.EQUAL:
 		printer.Print(" ")
@@ -682,7 +693,7 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.NOT_EQUAL:
 		printer.Print(" !== ")
 
-	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON:
+	case nodetype.SEMICOLON:
 		printer.Print(node.Content())
 
 	case nodetype.DECIMAL_INTEGER_LITERAL:

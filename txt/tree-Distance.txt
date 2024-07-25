@@ -1,0 +1,5237 @@
+program org
+	block_comment 
+	package_declaration org.jbox2d.collision
+		package 
+		scoped_identifier org
+			scoped_identifier org
+				identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	line_comment 
+	block_comment 
+	class_declaration Distance
+		modifiers 
+			public 
+		class 
+		identifier 
+		class_body MAX_ITERS
+			{ 
+			field_declaration MAX_ITERS
+				modifiers 
+					public 
+					static 
+					final 
+				integral_type 
+					int 
+				variable_declarator MAX_ITERS
+					identifier 
+					= 
+					decimal_integer_literal 
+				; 
+			field_declaration GJK_CALLS
+				modifiers 
+					public 
+					static 
+				integral_type 
+					int 
+				variable_declarator GJK_CALLS
+					identifier 
+					= 
+					decimal_integer_literal 
+				; 
+			field_declaration GJK_ITERS
+				modifiers 
+					public 
+					static 
+				integral_type 
+					int 
+				variable_declarator GJK_ITERS
+					identifier 
+					= 
+					decimal_integer_literal 
+				; 
+			field_declaration GJK_MAX_ITERS
+				modifiers 
+					public 
+					static 
+				integral_type 
+					int 
+				variable_declarator GJK_MAX_ITERS
+					identifier 
+					= 
+					decimal_integer_literal 
+				; 
+			block_comment 
+			class_declaration SimplexVertex
+				modifiers 
+					private 
+				class 
+				identifier 
+				class_body wA
+					{ 
+					field_declaration wA
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator wA
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					line_comment 
+					field_declaration wB
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator wB
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					line_comment 
+					field_declaration w
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator w
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					line_comment 
+					field_declaration a
+						modifiers 
+							public 
+						floating_point_type 
+							float 
+						variable_declarator a
+							identifier 
+						; 
+					line_comment 
+					field_declaration indexA
+						modifiers 
+							public 
+						integral_type 
+							int 
+						variable_declarator indexA
+							identifier 
+						; 
+					line_comment 
+					field_declaration indexB
+						modifiers 
+							public 
+						integral_type 
+							int 
+						variable_declarator indexB
+							identifier 
+						; 
+					line_comment 
+					method_declaration set
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters sv
+							( 
+							formal_parameter sv
+								type_identifier 
+								identifier 
+							) 
+						block wA
+							{ 
+							expression_statement wA
+								method_invocation wA
+									identifier 
+									. 
+									identifier 
+									argument_list sv
+										( 
+										field_access sv
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement wB
+								method_invocation wB
+									identifier 
+									. 
+									identifier 
+									argument_list sv
+										( 
+										field_access sv
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement w
+								method_invocation w
+									identifier 
+									. 
+									identifier 
+									argument_list sv
+										( 
+										field_access sv
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement a
+								assignment_expression a
+									identifier 
+									= 
+									field_access sv
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexA
+								assignment_expression indexA
+									identifier 
+									= 
+									field_access sv
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexB
+								assignment_expression indexB
+									identifier 
+									= 
+									field_access sv
+										identifier 
+										. 
+										identifier 
+								; 
+							} 
+					} 
+			block_comment 
+			class_declaration SimplexCache
+				modifiers 
+					public 
+					static 
+				class 
+				identifier 
+				class_body metric
+					{ 
+					block_comment 
+					field_declaration metric
+						modifiers 
+							public 
+						floating_point_type 
+							float 
+						variable_declarator metric
+							identifier 
+						; 
+					field_declaration count
+						modifiers 
+							public 
+						integral_type 
+							int 
+						variable_declarator count
+							identifier 
+						; 
+					block_comment 
+					field_declaration indexA
+						modifiers 
+							public 
+							final 
+						integral_type 
+							int 
+						variable_declarator indexA
+							identifier 
+							dimensions 
+								[ 
+								] 
+							= 
+							array_creation_expression 
+								new 
+								integral_type 
+									int 
+								dimensions_expr 
+									[ 
+									decimal_integer_literal 
+									] 
+						; 
+					block_comment 
+					field_declaration indexB
+						modifiers 
+							public 
+							final 
+						integral_type 
+							int 
+						variable_declarator indexB
+							identifier 
+							dimensions 
+								[ 
+								] 
+							= 
+							array_creation_expression 
+								new 
+								integral_type 
+									int 
+								dimensions_expr 
+									[ 
+									decimal_integer_literal 
+									] 
+						; 
+					constructor_declaration SimplexCache
+						modifiers 
+							public 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						constructor_body metric
+							{ 
+							expression_statement metric
+								assignment_expression metric
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							expression_statement count
+								assignment_expression count
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							expression_statement indexA
+								assignment_expression indexA
+									array_access indexA
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexA
+								assignment_expression indexA
+									array_access indexA
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexA
+								assignment_expression indexA
+									array_access indexA
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexB
+								assignment_expression indexB
+									array_access indexB
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexB
+								assignment_expression indexB
+									array_access indexB
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement indexB
+								assignment_expression indexB
+									array_access indexB
+										identifier 
+										[ 
+										decimal_integer_literal 
+										] 
+									= 
+									field_access Integer
+										identifier 
+										. 
+										identifier 
+								; 
+							} 
+					method_declaration set
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters sc
+							( 
+							formal_parameter sc
+								type_identifier 
+								identifier 
+							) 
+						block System
+							{ 
+							expression_statement System
+								method_invocation System
+									identifier 
+									. 
+									identifier 
+									argument_list sc
+										( 
+										field_access sc
+											identifier 
+											. 
+											identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										field_access indexA
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement System
+								method_invocation System
+									identifier 
+									. 
+									identifier 
+									argument_list sc
+										( 
+										field_access sc
+											identifier 
+											. 
+											identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										field_access indexB
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement metric
+								assignment_expression metric
+									identifier 
+									= 
+									field_access sc
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement count
+								assignment_expression count
+									identifier 
+									= 
+									field_access sc
+										identifier 
+										. 
+										identifier 
+								; 
+							} 
+					} 
+			class_declaration Simplex
+				modifiers 
+					private 
+				class 
+				identifier 
+				class_body m_v1
+					{ 
+					field_declaration m_v1
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator m_v1
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration m_v2
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator m_v2
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration m_v3
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator m_v3
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration vertices
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						variable_declarator vertices
+							identifier 
+							dimensions 
+								[ 
+								] 
+							= 
+							array_initializer m_v1
+								{ 
+								identifier 
+								, 
+								identifier 
+								, 
+								identifier 
+								} 
+						; 
+					field_declaration m_count
+						modifiers 
+							public 
+						integral_type 
+							int 
+						variable_declarator m_count
+							identifier 
+						; 
+					method_declaration readCache
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters cache
+							( 
+							formal_parameter cache
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter proxyA
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter transformA
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter proxyB
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter transformB
+								type_identifier 
+								identifier 
+							) 
+						block cache
+							{ 
+							assert_statement cache
+								assert 
+								parenthesized_expression cache
+									( 
+									binary_expression cache
+										field_access cache
+											identifier 
+											. 
+											identifier 
+										<= 
+										decimal_integer_literal 
+									) 
+								; 
+							line_comment 
+							expression_statement m_count
+								assignment_expression m_count
+									identifier 
+									= 
+									field_access cache
+										identifier 
+										. 
+										identifier 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									++ 
+									identifier 
+								) 
+								block v
+									{ 
+									local_variable_declaration v
+										type_identifier 
+										variable_declarator v
+											identifier 
+											= 
+											array_access vertices
+												identifier 
+												[ 
+												identifier 
+												] 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											= 
+											array_access cache
+												field_access cache
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											= 
+											array_access cache
+												field_access cache
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+										; 
+									local_variable_declaration wALocal
+										type_identifier 
+										variable_declarator wALocal
+											identifier 
+											= 
+											method_invocation proxyA
+												identifier 
+												. 
+												identifier 
+												argument_list v
+													( 
+													field_access v
+														identifier 
+														. 
+														identifier 
+													) 
+										; 
+									local_variable_declaration wBLocal
+										type_identifier 
+										variable_declarator wBLocal
+											identifier 
+											= 
+											method_invocation proxyB
+												identifier 
+												. 
+												identifier 
+												argument_list v
+													( 
+													field_access v
+														identifier 
+														. 
+														identifier 
+													) 
+										; 
+									expression_statement Transform
+										method_invocation Transform
+											identifier 
+											. 
+											identifier 
+											argument_list transformA
+												( 
+												identifier 
+												, 
+												identifier 
+												, 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement Transform
+										method_invocation Transform
+											identifier 
+											. 
+											identifier 
+											argument_list transformB
+												( 
+												identifier 
+												, 
+												identifier 
+												, 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement v
+										method_invocation v
+											method_invocation v
+												field_access v
+													identifier 
+													. 
+													identifier 
+												. 
+												identifier 
+												argument_list v
+													( 
+													field_access v
+														identifier 
+														. 
+														identifier 
+													) 
+											. 
+											identifier 
+											argument_list v
+												( 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									} 
+							line_comment 
+							line_comment 
+							if_statement m_count
+								if 
+								parenthesized_expression m_count
+									( 
+									binary_expression m_count
+										identifier 
+										> 
+										decimal_integer_literal 
+									) 
+								block metric1
+									{ 
+									local_variable_declaration metric1
+										floating_point_type 
+											float 
+										variable_declarator metric1
+											identifier 
+											= 
+											field_access cache
+												identifier 
+												. 
+												identifier 
+										; 
+									local_variable_declaration metric2
+										floating_point_type 
+											float 
+										variable_declarator metric2
+											identifier 
+											= 
+											method_invocation getMetric
+												identifier 
+												argument_list 
+													( 
+													) 
+										; 
+									if_statement metric2
+										if 
+										parenthesized_expression metric2
+											( 
+											binary_expression metric2
+												binary_expression metric2
+													binary_expression metric2
+														identifier 
+														< 
+														binary_expression metric1
+															decimal_floating_point_literal 
+															* 
+															identifier 
+													|| 
+													binary_expression metric1
+														binary_expression metric1
+															decimal_floating_point_literal 
+															* 
+															identifier 
+														< 
+														identifier 
+												|| 
+												binary_expression metric2
+													identifier 
+													< 
+													field_access Settings
+														identifier 
+														. 
+														identifier 
+											) 
+										block m_count
+											{ 
+											line_comment 
+											expression_statement m_count
+												assignment_expression m_count
+													identifier 
+													= 
+													decimal_integer_literal 
+												; 
+											} 
+									} 
+							line_comment 
+							if_statement m_count
+								if 
+								parenthesized_expression m_count
+									( 
+									binary_expression m_count
+										identifier 
+										== 
+										decimal_integer_literal 
+									) 
+								block v
+									{ 
+									local_variable_declaration v
+										type_identifier 
+										variable_declarator v
+											identifier 
+											= 
+											array_access vertices
+												identifier 
+												[ 
+												decimal_integer_literal 
+												] 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									local_variable_declaration wALocal
+										type_identifier 
+										variable_declarator wALocal
+											identifier 
+											= 
+											method_invocation proxyA
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													decimal_integer_literal 
+													) 
+										; 
+									local_variable_declaration wBLocal
+										type_identifier 
+										variable_declarator wBLocal
+											identifier 
+											= 
+											method_invocation proxyB
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													decimal_integer_literal 
+													) 
+										; 
+									expression_statement Transform
+										method_invocation Transform
+											identifier 
+											. 
+											identifier 
+											argument_list transformA
+												( 
+												identifier 
+												, 
+												identifier 
+												, 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement Transform
+										method_invocation Transform
+											identifier 
+											. 
+											identifier 
+											argument_list transformB
+												( 
+												identifier 
+												, 
+												identifier 
+												, 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement v
+										method_invocation v
+											method_invocation v
+												field_access v
+													identifier 
+													. 
+													identifier 
+												. 
+												identifier 
+												argument_list v
+													( 
+													field_access v
+														identifier 
+														. 
+														identifier 
+													) 
+											. 
+											identifier 
+											argument_list v
+												( 
+												field_access v
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									} 
+							} 
+					method_declaration writeCache
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters cache
+							( 
+							formal_parameter cache
+								type_identifier 
+								identifier 
+							) 
+						block cache
+							{ 
+							expression_statement cache
+								assignment_expression cache
+									field_access cache
+										identifier 
+										. 
+										identifier 
+									= 
+									method_invocation getMetric
+										identifier 
+										argument_list 
+											( 
+											) 
+								; 
+							expression_statement cache
+								assignment_expression cache
+									field_access cache
+										identifier 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									++ 
+									identifier 
+								) 
+								block cache
+									{ 
+									expression_statement cache
+										assignment_expression cache
+											array_access cache
+												field_access cache
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											parenthesized_expression vertices
+												( 
+												field_access vertices
+													array_access vertices
+														identifier 
+														[ 
+														identifier 
+														] 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement cache
+										assignment_expression cache
+											array_access cache
+												field_access cache
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											parenthesized_expression vertices
+												( 
+												field_access vertices
+													array_access vertices
+														identifier 
+														[ 
+														identifier 
+														] 
+													. 
+													identifier 
+												) 
+										; 
+									} 
+							} 
+					field_declaration e12
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator e12
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					method_declaration getSearchDirection
+						modifiers 
+							public 
+							final 
+						void_type 
+						identifier 
+						formal_parameters out
+							( 
+							formal_parameter out
+								modifiers 
+									final 
+								type_identifier 
+								identifier 
+							) 
+						block m_count
+							{ 
+							switch_expression m_count
+								switch 
+								parenthesized_expression m_count
+									( 
+									identifier 
+									) 
+								switch_block out
+									{ 
+									switch_block_statement_group out
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement out
+											method_invocation out
+												method_invocation out
+													identifier 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									switch_block_statement_group e12
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement e12
+											method_invocation e12
+												method_invocation e12
+													identifier 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										line_comment 
+										expression_statement out
+											method_invocation out
+												method_invocation out
+													identifier 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										local_variable_declaration sgn
+											floating_point_type 
+												float 
+											variable_declarator sgn
+												identifier 
+												= 
+												method_invocation Vec2
+													identifier 
+													. 
+													identifier 
+													argument_list e12
+														( 
+														identifier 
+														, 
+														identifier 
+														) 
+											; 
+										if_statement sgn
+											if 
+											parenthesized_expression sgn
+												( 
+												binary_expression sgn
+													identifier 
+													> 
+													decimal_floating_point_literal 
+												) 
+											block Vec2
+												{ 
+												line_comment 
+												expression_statement Vec2
+													method_invocation Vec2
+														identifier 
+														. 
+														identifier 
+														argument_list e12
+															( 
+															decimal_floating_point_literal 
+															, 
+															identifier 
+															, 
+															identifier 
+															) 
+													; 
+												return_statement 
+													return 
+													; 
+												} 
+											else 
+											block Vec2
+												{ 
+												line_comment 
+												expression_statement Vec2
+													method_invocation Vec2
+														identifier 
+														. 
+														identifier 
+														argument_list e12
+															( 
+															identifier 
+															, 
+															decimal_floating_point_literal 
+															, 
+															identifier 
+															) 
+													; 
+												return_statement 
+													return 
+													; 
+												} 
+									switch_block_statement_group out
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									} 
+							} 
+					line_comment 
+					field_declaration case2
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator case2
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration case22
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator case22
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					block_comment 
+					method_declaration getClosestPoint
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters out
+							( 
+							formal_parameter out
+								modifiers 
+									final 
+								type_identifier 
+								identifier 
+							) 
+						block m_count
+							{ 
+							switch_expression m_count
+								switch 
+								parenthesized_expression m_count
+									( 
+									identifier 
+									) 
+								switch_block out
+									{ 
+									switch_block_statement_group out
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									switch_block_statement_group out
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									switch_block_statement_group case22
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement case22
+											method_invocation case22
+												method_invocation case22
+													identifier 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v2
+													( 
+													field_access m_v2
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement case2
+											method_invocation case2
+												method_invocation case2
+													method_invocation case2
+														identifier 
+														. 
+														identifier 
+														argument_list m_v1
+															( 
+															field_access m_v1
+																identifier 
+																. 
+																identifier 
+															) 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list case22
+													( 
+													identifier 
+													) 
+											; 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list case2
+													( 
+													identifier 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									switch_block_statement_group out
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									switch_block_statement_group out
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										expression_statement out
+											method_invocation out
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										return_statement 
+											return 
+											; 
+									} 
+							} 
+					line_comment 
+					field_declaration case3
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator case3
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration case33
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator case33
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					method_declaration getWitnessPoints
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters pA
+							( 
+							formal_parameter pA
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter pB
+								type_identifier 
+								identifier 
+							) 
+						block m_count
+							{ 
+							switch_expression m_count
+								switch 
+								parenthesized_expression m_count
+									( 
+									identifier 
+									) 
+								switch_block pA
+									{ 
+									switch_block_statement_group 
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group pA
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement pA
+											method_invocation pA
+												identifier 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement pB
+											method_invocation pB
+												identifier 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group case2
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement case2
+											method_invocation case2
+												method_invocation case2
+													identifier 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement pA
+											method_invocation pA
+												method_invocation pA
+													method_invocation pA
+														identifier 
+														. 
+														identifier 
+														argument_list m_v2
+															( 
+															field_access m_v2
+																identifier 
+																. 
+																identifier 
+															) 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list case2
+													( 
+													identifier 
+													) 
+											; 
+										line_comment 
+										line_comment 
+										expression_statement case2
+											method_invocation case2
+												method_invocation case2
+													identifier 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement pB
+											method_invocation pB
+												method_invocation pB
+													method_invocation pB
+														identifier 
+														. 
+														identifier 
+														argument_list m_v2
+															( 
+															field_access m_v2
+																identifier 
+																. 
+																identifier 
+															) 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list case2
+													( 
+													identifier 
+													) 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group pA
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement pA
+											method_invocation pA
+												method_invocation pA
+													identifier 
+													. 
+													identifier 
+													argument_list m_v1
+														( 
+														field_access m_v1
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement case3
+											method_invocation case3
+												method_invocation case3
+													identifier 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v2
+													( 
+													field_access m_v2
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement case33
+											method_invocation case33
+												method_invocation case33
+													identifier 
+													. 
+													identifier 
+													argument_list m_v3
+														( 
+														field_access m_v3
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v3
+													( 
+													field_access m_v3
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement pA
+											method_invocation pA
+												method_invocation pA
+													identifier 
+													. 
+													identifier 
+													argument_list case3
+														( 
+														identifier 
+														) 
+												. 
+												identifier 
+												argument_list case33
+													( 
+													identifier 
+													) 
+											; 
+										expression_statement pB
+											method_invocation pB
+												identifier 
+												. 
+												identifier 
+												argument_list pA
+													( 
+													identifier 
+													) 
+											; 
+										line_comment 
+										line_comment 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group 
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										break_statement 
+											break 
+											; 
+									} 
+							} 
+					line_comment 
+					method_declaration getMetric
+						modifiers 
+							public 
+						floating_point_type 
+							float 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						block m_count
+							{ 
+							switch_expression m_count
+								switch 
+								parenthesized_expression m_count
+									( 
+									identifier 
+									) 
+								switch_block MathUtils
+									{ 
+									switch_block_statement_group 
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										return_statement 
+											return 
+											decimal_floating_point_literal 
+											; 
+									switch_block_statement_group 
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										return_statement 
+											return 
+											decimal_floating_point_literal 
+											; 
+									switch_block_statement_group MathUtils
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										return_statement MathUtils
+											return 
+											method_invocation MathUtils
+												identifier 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													, 
+													field_access m_v2
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+									switch_block_statement_group case3
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement case3
+											method_invocation case3
+												method_invocation case3
+													identifier 
+													. 
+													identifier 
+													argument_list m_v2
+														( 
+														field_access m_v2
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement case33
+											method_invocation case33
+												method_invocation case33
+													identifier 
+													. 
+													identifier 
+													argument_list m_v3
+														( 
+														field_access m_v3
+															identifier 
+															. 
+															identifier 
+														) 
+												. 
+												identifier 
+												argument_list m_v1
+													( 
+													field_access m_v1
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										line_comment 
+										return_statement Vec2
+											return 
+											method_invocation Vec2
+												identifier 
+												. 
+												identifier 
+												argument_list case3
+													( 
+													identifier 
+													, 
+													identifier 
+													) 
+											; 
+									switch_block_statement_group 
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+										return_statement 
+											return 
+											decimal_floating_point_literal 
+											; 
+									} 
+							} 
+					line_comment 
+					block_comment 
+					method_declaration solve2
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						block w1
+							{ 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							local_variable_declaration w1
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator w1
+									identifier 
+									= 
+									field_access m_v1
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration w2
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator w2
+									identifier 
+									= 
+									field_access m_v2
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement e12
+								method_invocation e12
+									method_invocation e12
+										identifier 
+										. 
+										identifier 
+										argument_list w2
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list w1
+										( 
+										identifier 
+										) 
+								; 
+							line_comment 
+							local_variable_declaration d12_2
+								floating_point_type 
+									float 
+								variable_declarator d12_2
+									identifier 
+									= 
+									unary_expression Vec2
+										- 
+										method_invocation Vec2
+											identifier 
+											. 
+											identifier 
+											argument_list w1
+												( 
+												identifier 
+												, 
+												identifier 
+												) 
+								; 
+							if_statement d12_2
+								if 
+								parenthesized_expression d12_2
+									( 
+									binary_expression d12_2
+										identifier 
+										<= 
+										decimal_floating_point_literal 
+									) 
+								block m_v1
+									{ 
+									line_comment 
+									expression_statement m_v1
+										assignment_expression m_v1
+											field_access m_v1
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							local_variable_declaration d12_1
+								floating_point_type 
+									float 
+								variable_declarator d12_1
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w2
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							if_statement d12_1
+								if 
+								parenthesized_expression d12_1
+									( 
+									binary_expression d12_1
+										identifier 
+										<= 
+										decimal_floating_point_literal 
+									) 
+								block m_v2
+									{ 
+									line_comment 
+									expression_statement m_v2
+										assignment_expression m_v2
+											field_access m_v2
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement m_v1
+										method_invocation m_v1
+											identifier 
+											. 
+											identifier 
+											argument_list m_v2
+												( 
+												identifier 
+												) 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							local_variable_declaration inv_d12
+								floating_point_type 
+									float 
+								variable_declarator inv_d12
+									identifier 
+									= 
+									binary_expression d12_1
+										decimal_floating_point_literal 
+										/ 
+										parenthesized_expression d12_1
+											( 
+											binary_expression d12_1
+												identifier 
+												+ 
+												identifier 
+											) 
+								; 
+							expression_statement m_v1
+								assignment_expression m_v1
+									field_access m_v1
+										identifier 
+										. 
+										identifier 
+									= 
+									binary_expression d12_1
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_v2
+								assignment_expression m_v2
+									field_access m_v2
+										identifier 
+										. 
+										identifier 
+									= 
+									binary_expression d12_2
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_count
+								assignment_expression m_count
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							} 
+					line_comment 
+					field_declaration e13
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator e13
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration e23
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator e23
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration w1
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator w1
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration w2
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator w2
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					field_declaration w3
+						modifiers 
+							private 
+							final 
+						type_identifier 
+						variable_declarator w3
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					block_comment 
+					method_declaration solve3
+						modifiers 
+							public 
+						void_type 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						block w1
+							{ 
+							expression_statement w1
+								method_invocation w1
+									identifier 
+									. 
+									identifier 
+									argument_list m_v1
+										( 
+										field_access m_v1
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement w2
+								method_invocation w2
+									identifier 
+									. 
+									identifier 
+									argument_list m_v2
+										( 
+										field_access m_v2
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement w3
+								method_invocation w3
+									identifier 
+									. 
+									identifier 
+									argument_list m_v3
+										( 
+										field_access m_v3
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							expression_statement e12
+								method_invocation e12
+									method_invocation e12
+										identifier 
+										. 
+										identifier 
+										argument_list w2
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list w1
+										( 
+										identifier 
+										) 
+								; 
+							local_variable_declaration w1e12
+								floating_point_type 
+									float 
+								variable_declarator w1e12
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w1
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration w2e12
+								floating_point_type 
+									float 
+								variable_declarator w2e12
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w2
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration d12_1
+								floating_point_type 
+									float 
+								variable_declarator d12_1
+									identifier 
+									= 
+									identifier 
+								; 
+							local_variable_declaration d12_2
+								floating_point_type 
+									float 
+								variable_declarator d12_2
+									identifier 
+									= 
+									unary_expression w1e12
+										- 
+										identifier 
+								; 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							expression_statement e13
+								method_invocation e13
+									method_invocation e13
+										identifier 
+										. 
+										identifier 
+										argument_list w3
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list w1
+										( 
+										identifier 
+										) 
+								; 
+							local_variable_declaration w1e13
+								floating_point_type 
+									float 
+								variable_declarator w1e13
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w1
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration w3e13
+								floating_point_type 
+									float 
+								variable_declarator w3e13
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w3
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration d13_1
+								floating_point_type 
+									float 
+								variable_declarator d13_1
+									identifier 
+									= 
+									identifier 
+								; 
+							local_variable_declaration d13_2
+								floating_point_type 
+									float 
+								variable_declarator d13_2
+									identifier 
+									= 
+									unary_expression w1e13
+										- 
+										identifier 
+								; 
+							line_comment 
+							line_comment 
+							line_comment 
+							line_comment 
+							expression_statement e23
+								method_invocation e23
+									method_invocation e23
+										identifier 
+										. 
+										identifier 
+										argument_list w3
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list w2
+										( 
+										identifier 
+										) 
+								; 
+							local_variable_declaration w2e23
+								floating_point_type 
+									float 
+								variable_declarator w2e23
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w2
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration w3e23
+								floating_point_type 
+									float 
+								variable_declarator w3e23
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list w3
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration d23_1
+								floating_point_type 
+									float 
+								variable_declarator d23_1
+									identifier 
+									= 
+									identifier 
+								; 
+							local_variable_declaration d23_2
+								floating_point_type 
+									float 
+								variable_declarator d23_2
+									identifier 
+									= 
+									unary_expression w2e23
+										- 
+										identifier 
+								; 
+							line_comment 
+							local_variable_declaration n123
+								floating_point_type 
+									float 
+								variable_declarator n123
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list e12
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							local_variable_declaration d123_1
+								floating_point_type 
+									float 
+								variable_declarator d123_1
+									identifier 
+									= 
+									binary_expression n123
+										identifier 
+										* 
+										method_invocation Vec2
+											identifier 
+											. 
+											identifier 
+											argument_list w2
+												( 
+												identifier 
+												, 
+												identifier 
+												) 
+								; 
+							local_variable_declaration d123_2
+								floating_point_type 
+									float 
+								variable_declarator d123_2
+									identifier 
+									= 
+									binary_expression n123
+										identifier 
+										* 
+										method_invocation Vec2
+											identifier 
+											. 
+											identifier 
+											argument_list w3
+												( 
+												identifier 
+												, 
+												identifier 
+												) 
+								; 
+							local_variable_declaration d123_3
+								floating_point_type 
+									float 
+								variable_declarator d123_3
+									identifier 
+									= 
+									binary_expression n123
+										identifier 
+										* 
+										method_invocation Vec2
+											identifier 
+											. 
+											identifier 
+											argument_list w1
+												( 
+												identifier 
+												, 
+												identifier 
+												) 
+								; 
+							line_comment 
+							if_statement d12_2
+								if 
+								parenthesized_expression d12_2
+									( 
+									binary_expression d12_2
+										binary_expression d12_2
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+										&& 
+										binary_expression d13_2
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block m_v1
+									{ 
+									expression_statement m_v1
+										assignment_expression m_v1
+											field_access m_v1
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							if_statement d12_1
+								if 
+								parenthesized_expression d12_1
+									( 
+									binary_expression d12_1
+										binary_expression d12_1
+											binary_expression d12_1
+												identifier 
+												> 
+												decimal_floating_point_literal 
+											&& 
+											binary_expression d12_2
+												identifier 
+												> 
+												decimal_floating_point_literal 
+										&& 
+										binary_expression d123_3
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block inv_d12
+									{ 
+									local_variable_declaration inv_d12
+										floating_point_type 
+											float 
+										variable_declarator inv_d12
+											identifier 
+											= 
+											binary_expression d12_1
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression d12_1
+													( 
+													binary_expression d12_1
+														identifier 
+														+ 
+														identifier 
+													) 
+										; 
+									expression_statement m_v1
+										assignment_expression m_v1
+											field_access m_v1
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d12_1
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_v2
+										assignment_expression m_v2
+											field_access m_v2
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d12_2
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							if_statement d13_1
+								if 
+								parenthesized_expression d13_1
+									( 
+									binary_expression d13_1
+										binary_expression d13_1
+											binary_expression d13_1
+												identifier 
+												> 
+												decimal_floating_point_literal 
+											&& 
+											binary_expression d13_2
+												identifier 
+												> 
+												decimal_floating_point_literal 
+										&& 
+										binary_expression d123_2
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block inv_d13
+									{ 
+									local_variable_declaration inv_d13
+										floating_point_type 
+											float 
+										variable_declarator inv_d13
+											identifier 
+											= 
+											binary_expression d13_1
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression d13_1
+													( 
+													binary_expression d13_1
+														identifier 
+														+ 
+														identifier 
+													) 
+										; 
+									expression_statement m_v1
+										assignment_expression m_v1
+											field_access m_v1
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d13_1
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_v3
+										assignment_expression m_v3
+											field_access m_v3
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d13_2
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement m_v2
+										method_invocation m_v2
+											identifier 
+											. 
+											identifier 
+											argument_list m_v3
+												( 
+												identifier 
+												) 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							if_statement d12_1
+								if 
+								parenthesized_expression d12_1
+									( 
+									binary_expression d12_1
+										binary_expression d12_1
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+										&& 
+										binary_expression d23_2
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block m_v2
+									{ 
+									expression_statement m_v2
+										assignment_expression m_v2
+											field_access m_v2
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement m_v1
+										method_invocation m_v1
+											identifier 
+											. 
+											identifier 
+											argument_list m_v2
+												( 
+												identifier 
+												) 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							if_statement d13_1
+								if 
+								parenthesized_expression d13_1
+									( 
+									binary_expression d13_1
+										binary_expression d13_1
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+										&& 
+										binary_expression d23_1
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block m_v3
+									{ 
+									expression_statement m_v3
+										assignment_expression m_v3
+											field_access m_v3
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement m_v1
+										method_invocation m_v1
+											identifier 
+											. 
+											identifier 
+											argument_list m_v3
+												( 
+												identifier 
+												) 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							if_statement d23_1
+								if 
+								parenthesized_expression d23_1
+									( 
+									binary_expression d23_1
+										binary_expression d23_1
+											binary_expression d23_1
+												identifier 
+												> 
+												decimal_floating_point_literal 
+											&& 
+											binary_expression d23_2
+												identifier 
+												> 
+												decimal_floating_point_literal 
+										&& 
+										binary_expression d123_1
+											identifier 
+											<= 
+											decimal_floating_point_literal 
+									) 
+								block inv_d23
+									{ 
+									local_variable_declaration inv_d23
+										floating_point_type 
+											float 
+										variable_declarator inv_d23
+											identifier 
+											= 
+											binary_expression d23_1
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression d23_1
+													( 
+													binary_expression d23_1
+														identifier 
+														+ 
+														identifier 
+													) 
+										; 
+									expression_statement m_v2
+										assignment_expression m_v2
+											field_access m_v2
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d23_1
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_v3
+										assignment_expression m_v3
+											field_access m_v3
+												identifier 
+												. 
+												identifier 
+											= 
+											binary_expression d23_2
+												identifier 
+												* 
+												identifier 
+										; 
+									expression_statement m_count
+										assignment_expression m_count
+											identifier 
+											= 
+											decimal_integer_literal 
+										; 
+									expression_statement m_v1
+										method_invocation m_v1
+											identifier 
+											. 
+											identifier 
+											argument_list m_v3
+												( 
+												identifier 
+												) 
+										; 
+									return_statement 
+										return 
+										; 
+									} 
+							line_comment 
+							local_variable_declaration inv_d123
+								floating_point_type 
+									float 
+								variable_declarator inv_d123
+									identifier 
+									= 
+									binary_expression d123_1
+										decimal_floating_point_literal 
+										/ 
+										parenthesized_expression d123_1
+											( 
+											binary_expression d123_1
+												binary_expression d123_1
+													identifier 
+													+ 
+													identifier 
+												+ 
+												identifier 
+											) 
+								; 
+							expression_statement m_v1
+								assignment_expression m_v1
+									field_access m_v1
+										identifier 
+										. 
+										identifier 
+									= 
+									binary_expression d123_1
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_v2
+								assignment_expression m_v2
+									field_access m_v2
+										identifier 
+										. 
+										identifier 
+									= 
+									binary_expression d123_2
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_v3
+								assignment_expression m_v3
+									field_access m_v3
+										identifier 
+										. 
+										identifier 
+									= 
+									binary_expression d123_3
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_count
+								assignment_expression m_count
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							} 
+					} 
+			block_comment 
+			class_declaration DistanceProxy
+				modifiers 
+					public 
+					static 
+				class 
+				identifier 
+				class_body m_vertices
+					{ 
+					field_declaration m_vertices
+						modifiers 
+							public 
+							final 
+						array_type 
+							type_identifier 
+							dimensions 
+								[ 
+								] 
+						variable_declarator m_vertices
+							identifier 
+						; 
+					field_declaration m_count
+						modifiers 
+							public 
+						integral_type 
+							int 
+						variable_declarator m_count
+							identifier 
+						; 
+					field_declaration m_radius
+						modifiers 
+							public 
+						floating_point_type 
+							float 
+						variable_declarator m_radius
+							identifier 
+						; 
+					field_declaration m_buffer
+						modifiers 
+							public 
+							final 
+						array_type 
+							type_identifier 
+							dimensions 
+								[ 
+								] 
+						variable_declarator m_buffer
+							identifier 
+						; 
+					constructor_declaration DistanceProxy
+						modifiers 
+							public 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						constructor_body m_vertices
+							{ 
+							expression_statement m_vertices
+								assignment_expression m_vertices
+									identifier 
+									= 
+									array_creation_expression Settings
+										new 
+										type_identifier 
+										dimensions_expr Settings
+											[ 
+											field_access Settings
+												identifier 
+												. 
+												identifier 
+											] 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									field_access m_vertices
+										identifier 
+										. 
+										identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block m_vertices
+									{ 
+									expression_statement m_vertices
+										assignment_expression m_vertices
+											array_access m_vertices
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											object_creation_expression 
+												new 
+												type_identifier 
+												argument_list 
+													( 
+													) 
+										; 
+									} 
+							expression_statement m_buffer
+								assignment_expression m_buffer
+									identifier 
+									= 
+									array_creation_expression 
+										new 
+										type_identifier 
+										dimensions_expr 
+											[ 
+											decimal_integer_literal 
+											] 
+								; 
+							expression_statement m_count
+								assignment_expression m_count
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							expression_statement m_radius
+								assignment_expression m_radius
+									identifier 
+									= 
+									decimal_floating_point_literal 
+								; 
+							} 
+					block_comment 
+					method_declaration set
+						modifiers 
+							public 
+							final 
+						void_type 
+						identifier 
+						formal_parameters shape
+							( 
+							formal_parameter shape
+								modifiers 
+									final 
+								type_identifier 
+								identifier 
+							, 
+							formal_parameter index
+								integral_type 
+									int 
+								identifier 
+							) 
+						block shape
+							{ 
+							switch_expression shape
+								switch 
+								parenthesized_expression shape
+									( 
+									method_invocation shape
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+									) 
+								switch_block CIRCLE
+									{ 
+									switch_block_statement_group CIRCLE
+										switch_label CIRCLE
+											case 
+											identifier 
+										: 
+										local_variable_declaration circle
+											modifiers 
+												final 
+											type_identifier 
+											variable_declarator circle
+												identifier 
+												= 
+												cast_expression shape
+													( 
+													type_identifier 
+													) 
+													identifier 
+											; 
+										expression_statement m_vertices
+											method_invocation m_vertices
+												array_access m_vertices
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												. 
+												identifier 
+												argument_list circle
+													( 
+													field_access circle
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement m_count
+											assignment_expression m_count
+												identifier 
+												= 
+												decimal_integer_literal 
+											; 
+										expression_statement m_radius
+											assignment_expression m_radius
+												identifier 
+												= 
+												field_access circle
+													identifier 
+													. 
+													identifier 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group POLYGON
+										switch_label POLYGON
+											case 
+											identifier 
+										: 
+										local_variable_declaration poly
+											modifiers 
+												final 
+											type_identifier 
+											variable_declarator poly
+												identifier 
+												= 
+												cast_expression shape
+													( 
+													type_identifier 
+													) 
+													identifier 
+											; 
+										expression_statement m_count
+											assignment_expression m_count
+												identifier 
+												= 
+												field_access poly
+													identifier 
+													. 
+													identifier 
+											; 
+										expression_statement m_radius
+											assignment_expression m_radius
+												identifier 
+												= 
+												field_access poly
+													identifier 
+													. 
+													identifier 
+											; 
+										for_statement i
+											for 
+											( 
+											local_variable_declaration i
+												integral_type 
+													int 
+												variable_declarator i
+													identifier 
+													= 
+													decimal_integer_literal 
+												; 
+											binary_expression i
+												identifier 
+												< 
+												identifier 
+											; 
+											update_expression i
+												identifier 
+												++ 
+											) 
+											block m_vertices
+												{ 
+												expression_statement m_vertices
+													method_invocation m_vertices
+														array_access m_vertices
+															identifier 
+															[ 
+															identifier 
+															] 
+														. 
+														identifier 
+														argument_list poly
+															( 
+															array_access poly
+																field_access poly
+																	identifier 
+																	. 
+																	identifier 
+																[ 
+																identifier 
+																] 
+															) 
+													; 
+												} 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group CHAIN
+										switch_label CHAIN
+											case 
+											identifier 
+										: 
+										local_variable_declaration chain
+											modifiers 
+												final 
+											type_identifier 
+											variable_declarator chain
+												identifier 
+												= 
+												cast_expression shape
+													( 
+													type_identifier 
+													) 
+													identifier 
+											; 
+										assert_statement index
+											assert 
+											parenthesized_expression index
+												( 
+												binary_expression index
+													binary_expression index
+														decimal_integer_literal 
+														<= 
+														identifier 
+													&& 
+													binary_expression index
+														identifier 
+														< 
+														field_access chain
+															identifier 
+															. 
+															identifier 
+												) 
+											; 
+										expression_statement m_buffer
+											assignment_expression m_buffer
+												array_access m_buffer
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												= 
+												array_access chain
+													field_access chain
+														identifier 
+														. 
+														identifier 
+													[ 
+													identifier 
+													] 
+											; 
+										if_statement index
+											if 
+											parenthesized_expression index
+												( 
+												binary_expression index
+													binary_expression index
+														identifier 
+														+ 
+														decimal_integer_literal 
+													< 
+													field_access chain
+														identifier 
+														. 
+														identifier 
+												) 
+											block m_buffer
+												{ 
+												expression_statement m_buffer
+													assignment_expression m_buffer
+														array_access m_buffer
+															identifier 
+															[ 
+															decimal_integer_literal 
+															] 
+														= 
+														array_access chain
+															field_access chain
+																identifier 
+																. 
+																identifier 
+															[ 
+															binary_expression index
+																identifier 
+																+ 
+																decimal_integer_literal 
+															] 
+													; 
+												} 
+											else 
+											block m_buffer
+												{ 
+												expression_statement m_buffer
+													assignment_expression m_buffer
+														array_access m_buffer
+															identifier 
+															[ 
+															decimal_integer_literal 
+															] 
+														= 
+														array_access chain
+															field_access chain
+																identifier 
+																. 
+																identifier 
+															[ 
+															decimal_integer_literal 
+															] 
+													; 
+												} 
+										expression_statement m_vertices
+											method_invocation m_vertices
+												array_access m_vertices
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												. 
+												identifier 
+												argument_list m_buffer
+													( 
+													array_access m_buffer
+														identifier 
+														[ 
+														decimal_integer_literal 
+														] 
+													) 
+											; 
+										expression_statement m_vertices
+											method_invocation m_vertices
+												array_access m_vertices
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												. 
+												identifier 
+												argument_list m_buffer
+													( 
+													array_access m_buffer
+														identifier 
+														[ 
+														decimal_integer_literal 
+														] 
+													) 
+											; 
+										expression_statement m_count
+											assignment_expression m_count
+												identifier 
+												= 
+												decimal_integer_literal 
+											; 
+										expression_statement m_radius
+											assignment_expression m_radius
+												identifier 
+												= 
+												field_access chain
+													identifier 
+													. 
+													identifier 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group EDGE
+										switch_label EDGE
+											case 
+											identifier 
+										: 
+										local_variable_declaration edge
+											type_identifier 
+											variable_declarator edge
+												identifier 
+												= 
+												cast_expression shape
+													( 
+													type_identifier 
+													) 
+													identifier 
+											; 
+										expression_statement m_vertices
+											method_invocation m_vertices
+												array_access m_vertices
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												. 
+												identifier 
+												argument_list edge
+													( 
+													field_access edge
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement m_vertices
+											method_invocation m_vertices
+												array_access m_vertices
+													identifier 
+													[ 
+													decimal_integer_literal 
+													] 
+												. 
+												identifier 
+												argument_list edge
+													( 
+													field_access edge
+														identifier 
+														. 
+														identifier 
+													) 
+											; 
+										expression_statement m_count
+											assignment_expression m_count
+												identifier 
+												= 
+												decimal_integer_literal 
+											; 
+										expression_statement m_radius
+											assignment_expression m_radius
+												identifier 
+												= 
+												field_access edge
+													identifier 
+													. 
+													identifier 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group 
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+									} 
+							} 
+					block_comment 
+					method_declaration getSupport
+						modifiers 
+							public 
+							final 
+						integral_type 
+							int 
+						identifier 
+						formal_parameters d
+							( 
+							formal_parameter d
+								modifiers 
+									final 
+								type_identifier 
+								identifier 
+							) 
+						block bestIndex
+							{ 
+							local_variable_declaration bestIndex
+								integral_type 
+									int 
+								variable_declarator bestIndex
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							local_variable_declaration bestValue
+								floating_point_type 
+									float 
+								variable_declarator bestValue
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list m_vertices
+											( 
+											array_access m_vertices
+												identifier 
+												[ 
+												decimal_integer_literal 
+												] 
+											, 
+											identifier 
+											) 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block value
+									{ 
+									local_variable_declaration value
+										floating_point_type 
+											float 
+										variable_declarator value
+											identifier 
+											= 
+											method_invocation Vec2
+												identifier 
+												. 
+												identifier 
+												argument_list m_vertices
+													( 
+													array_access m_vertices
+														identifier 
+														[ 
+														identifier 
+														] 
+													, 
+													identifier 
+													) 
+										; 
+									if_statement value
+										if 
+										parenthesized_expression value
+											( 
+											binary_expression value
+												identifier 
+												> 
+												identifier 
+											) 
+										block bestIndex
+											{ 
+											expression_statement bestIndex
+												assignment_expression bestIndex
+													identifier 
+													= 
+													identifier 
+												; 
+											expression_statement bestValue
+												assignment_expression bestValue
+													identifier 
+													= 
+													identifier 
+												; 
+											} 
+									} 
+							return_statement bestIndex
+								return 
+								identifier 
+								; 
+							} 
+					block_comment 
+					method_declaration getSupportVertex
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						identifier 
+						formal_parameters d
+							( 
+							formal_parameter d
+								modifiers 
+									final 
+								type_identifier 
+								identifier 
+							) 
+						block bestIndex
+							{ 
+							local_variable_declaration bestIndex
+								integral_type 
+									int 
+								variable_declarator bestIndex
+									identifier 
+									= 
+									decimal_integer_literal 
+								; 
+							local_variable_declaration bestValue
+								floating_point_type 
+									float 
+								variable_declarator bestValue
+									identifier 
+									= 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list m_vertices
+											( 
+											array_access m_vertices
+												identifier 
+												[ 
+												decimal_integer_literal 
+												] 
+											, 
+											identifier 
+											) 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block value
+									{ 
+									local_variable_declaration value
+										floating_point_type 
+											float 
+										variable_declarator value
+											identifier 
+											= 
+											method_invocation Vec2
+												identifier 
+												. 
+												identifier 
+												argument_list m_vertices
+													( 
+													array_access m_vertices
+														identifier 
+														[ 
+														identifier 
+														] 
+													, 
+													identifier 
+													) 
+										; 
+									if_statement value
+										if 
+										parenthesized_expression value
+											( 
+											binary_expression value
+												identifier 
+												> 
+												identifier 
+											) 
+										block bestIndex
+											{ 
+											expression_statement bestIndex
+												assignment_expression bestIndex
+													identifier 
+													= 
+													identifier 
+												; 
+											expression_statement bestValue
+												assignment_expression bestValue
+													identifier 
+													= 
+													identifier 
+												; 
+											} 
+									} 
+							return_statement m_vertices
+								return 
+								array_access m_vertices
+									identifier 
+									[ 
+									identifier 
+									] 
+								; 
+							} 
+					block_comment 
+					method_declaration getVertexCount
+						modifiers 
+							public 
+							final 
+						integral_type 
+							int 
+						identifier 
+						formal_parameters 
+							( 
+							) 
+						block m_count
+							{ 
+							return_statement m_count
+								return 
+								identifier 
+								; 
+							} 
+					block_comment 
+					method_declaration getVertex
+						modifiers 
+							public 
+							final 
+						type_identifier 
+						identifier 
+						formal_parameters index
+							( 
+							formal_parameter index
+								integral_type 
+									int 
+								identifier 
+							) 
+						block index
+							{ 
+							assert_statement index
+								assert 
+								parenthesized_expression index
+									( 
+									binary_expression index
+										binary_expression index
+											decimal_integer_literal 
+											<= 
+											identifier 
+										&& 
+										binary_expression index
+											identifier 
+											< 
+											identifier 
+									) 
+								; 
+							return_statement m_vertices
+								return 
+								array_access m_vertices
+									identifier 
+									[ 
+									identifier 
+									] 
+								; 
+							} 
+					} 
+			field_declaration simplex
+				modifiers 
+					private 
+				type_identifier 
+				variable_declarator simplex
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration saveA
+				modifiers 
+					private 
+				array_type 
+					integral_type 
+						int 
+					dimensions 
+						[ 
+						] 
+				variable_declarator saveA
+					identifier 
+					= 
+					array_creation_expression 
+						new 
+						integral_type 
+							int 
+						dimensions_expr 
+							[ 
+							decimal_integer_literal 
+							] 
+				; 
+			field_declaration saveB
+				modifiers 
+					private 
+				array_type 
+					integral_type 
+						int 
+					dimensions 
+						[ 
+						] 
+				variable_declarator saveB
+					identifier 
+					= 
+					array_creation_expression 
+						new 
+						integral_type 
+							int 
+						dimensions_expr 
+							[ 
+							decimal_integer_literal 
+							] 
+				; 
+			field_declaration closestPoint
+				modifiers 
+					private 
+				type_identifier 
+				variable_declarator closestPoint
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration d
+				modifiers 
+					private 
+				type_identifier 
+				variable_declarator d
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration temp
+				modifiers 
+					private 
+				type_identifier 
+				variable_declarator temp
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration normal
+				modifiers 
+					private 
+				type_identifier 
+				variable_declarator normal
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			block_comment 
+			method_declaration distance
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters output
+					( 
+					formal_parameter output
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter cache
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter input
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					) 
+				block GJK_CALLS
+					{ 
+					expression_statement GJK_CALLS
+						update_expression GJK_CALLS
+							identifier 
+							++ 
+						; 
+					local_variable_declaration proxyA
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator proxyA
+							identifier 
+							= 
+							field_access input
+								identifier 
+								. 
+								identifier 
+						; 
+					local_variable_declaration proxyB
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator proxyB
+							identifier 
+							= 
+							field_access input
+								identifier 
+								. 
+								identifier 
+						; 
+					local_variable_declaration transformA
+						type_identifier 
+						variable_declarator transformA
+							identifier 
+							= 
+							field_access input
+								identifier 
+								. 
+								identifier 
+						; 
+					local_variable_declaration transformB
+						type_identifier 
+						variable_declarator transformB
+							identifier 
+							= 
+							field_access input
+								identifier 
+								. 
+								identifier 
+						; 
+					line_comment 
+					expression_statement simplex
+						method_invocation simplex
+							identifier 
+							. 
+							identifier 
+							argument_list cache
+								( 
+								identifier 
+								, 
+								identifier 
+								, 
+								identifier 
+								, 
+								identifier 
+								, 
+								identifier 
+								) 
+						; 
+					line_comment 
+					local_variable_declaration vertices
+						array_type 
+							type_identifier 
+							dimensions 
+								[ 
+								] 
+						variable_declarator vertices
+							identifier 
+							= 
+							field_access simplex
+								identifier 
+								. 
+								identifier 
+						; 
+					line_comment 
+					line_comment 
+					line_comment 
+					local_variable_declaration saveCount
+						integral_type 
+							int 
+						variable_declarator saveCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement simplex
+						method_invocation simplex
+							identifier 
+							. 
+							identifier 
+							argument_list closestPoint
+								( 
+								identifier 
+								) 
+						; 
+					local_variable_declaration distanceSqr1
+						floating_point_type 
+							float 
+						variable_declarator distanceSqr1
+							identifier 
+							= 
+							method_invocation closestPoint
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					local_variable_declaration distanceSqr2
+						floating_point_type 
+							float 
+						variable_declarator distanceSqr2
+							identifier 
+							= 
+							identifier 
+						; 
+					line_comment 
+					local_variable_declaration iter
+						integral_type 
+							int 
+						variable_declarator iter
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					while_statement iter
+						while 
+						parenthesized_expression iter
+							( 
+							binary_expression iter
+								identifier 
+								< 
+								identifier 
+							) 
+						block saveCount
+							{ 
+							line_comment 
+							expression_statement saveCount
+								assignment_expression saveCount
+									identifier 
+									= 
+									field_access simplex
+										identifier 
+										. 
+										identifier 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block saveA
+									{ 
+									expression_statement saveA
+										assignment_expression saveA
+											array_access saveA
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											field_access vertices
+												array_access vertices
+													identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+										; 
+									expression_statement saveB
+										assignment_expression saveB
+											array_access saveB
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											field_access vertices
+												array_access vertices
+													identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+										; 
+									} 
+							switch_expression simplex
+								switch 
+								parenthesized_expression simplex
+									( 
+									field_access simplex
+										identifier 
+										. 
+										identifier 
+									) 
+								switch_block simplex
+									{ 
+									switch_block_statement_group 
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group simplex
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement simplex
+											method_invocation simplex
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group simplex
+										switch_label 
+											case 
+											decimal_integer_literal 
+										: 
+										expression_statement simplex
+											method_invocation simplex
+												identifier 
+												. 
+												identifier 
+												argument_list 
+													( 
+													) 
+											; 
+										break_statement 
+											break 
+											; 
+									switch_block_statement_group 
+										switch_label 
+											default 
+										: 
+										assert_statement 
+											assert 
+											parenthesized_expression 
+												( 
+												false 
+												) 
+											; 
+									} 
+							line_comment 
+							if_statement simplex
+								if 
+								parenthesized_expression simplex
+									( 
+									binary_expression simplex
+										field_access simplex
+											identifier 
+											. 
+											identifier 
+										== 
+										decimal_integer_literal 
+									) 
+								block 
+									{ 
+									break_statement 
+										break 
+										; 
+									} 
+							line_comment 
+							expression_statement simplex
+								method_invocation simplex
+									identifier 
+									. 
+									identifier 
+									argument_list closestPoint
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement distanceSqr2
+								assignment_expression distanceSqr2
+									identifier 
+									= 
+									method_invocation closestPoint
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+								; 
+							line_comment 
+							if_statement distanceSqr2
+								if 
+								parenthesized_expression distanceSqr2
+									( 
+									binary_expression distanceSqr2
+										identifier 
+										>= 
+										identifier 
+									) 
+								block 
+									{ 
+									line_comment 
+									} 
+							expression_statement distanceSqr1
+								assignment_expression distanceSqr1
+									identifier 
+									= 
+									identifier 
+								; 
+							line_comment 
+							expression_statement simplex
+								method_invocation simplex
+									identifier 
+									. 
+									identifier 
+									argument_list d
+										( 
+										identifier 
+										) 
+								; 
+							line_comment 
+							if_statement d
+								if 
+								parenthesized_expression d
+									( 
+									binary_expression d
+										method_invocation d
+											identifier 
+											. 
+											identifier 
+											argument_list 
+												( 
+												) 
+										< 
+										binary_expression Settings
+											field_access Settings
+												identifier 
+												. 
+												identifier 
+											* 
+											field_access Settings
+												identifier 
+												. 
+												identifier 
+									) 
+								block 
+									{ 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									break_statement 
+										break 
+										; 
+									} 
+							block_comment 
+							line_comment 
+							local_variable_declaration vertex
+								type_identifier 
+								variable_declarator vertex
+									identifier 
+									= 
+									array_access vertices
+										identifier 
+										[ 
+										field_access simplex
+											identifier 
+											. 
+											identifier 
+										] 
+								; 
+							expression_statement Rot
+								method_invocation Rot
+									identifier 
+									. 
+									identifier 
+									argument_list transformA
+										( 
+										field_access transformA
+											identifier 
+											. 
+											identifier 
+										, 
+										method_invocation d
+											identifier 
+											. 
+											identifier 
+											argument_list 
+												( 
+												) 
+										, 
+										identifier 
+										) 
+								; 
+							expression_statement vertex
+								assignment_expression vertex
+									field_access vertex
+										identifier 
+										. 
+										identifier 
+									= 
+									method_invocation proxyA
+										identifier 
+										. 
+										identifier 
+										argument_list temp
+											( 
+											identifier 
+											) 
+								; 
+							expression_statement Transform
+								method_invocation Transform
+									identifier 
+									. 
+									identifier 
+									argument_list transformA
+										( 
+										identifier 
+										, 
+										method_invocation proxyA
+											identifier 
+											. 
+											identifier 
+											argument_list vertex
+												( 
+												field_access vertex
+													identifier 
+													. 
+													identifier 
+												) 
+										, 
+										field_access vertex
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							line_comment 
+							expression_statement Rot
+								method_invocation Rot
+									identifier 
+									. 
+									identifier 
+									argument_list transformB
+										( 
+										field_access transformB
+											identifier 
+											. 
+											identifier 
+										, 
+										method_invocation d
+											identifier 
+											. 
+											identifier 
+											argument_list 
+												( 
+												) 
+										, 
+										identifier 
+										) 
+								; 
+							expression_statement vertex
+								assignment_expression vertex
+									field_access vertex
+										identifier 
+										. 
+										identifier 
+									= 
+									method_invocation proxyB
+										identifier 
+										. 
+										identifier 
+										argument_list temp
+											( 
+											identifier 
+											) 
+								; 
+							expression_statement Transform
+								method_invocation Transform
+									identifier 
+									. 
+									identifier 
+									argument_list transformB
+										( 
+										identifier 
+										, 
+										method_invocation proxyB
+											identifier 
+											. 
+											identifier 
+											argument_list vertex
+												( 
+												field_access vertex
+													identifier 
+													. 
+													identifier 
+												) 
+										, 
+										field_access vertex
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement vertex
+								method_invocation vertex
+									method_invocation vertex
+										field_access vertex
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+										argument_list vertex
+											( 
+											field_access vertex
+												identifier 
+												. 
+												identifier 
+											) 
+									. 
+									identifier 
+									argument_list vertex
+										( 
+										field_access vertex
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							line_comment 
+							expression_statement iter
+								update_expression iter
+									++ 
+									identifier 
+								; 
+							expression_statement GJK_ITERS
+								update_expression GJK_ITERS
+									++ 
+									identifier 
+								; 
+							line_comment 
+							local_variable_declaration duplicate
+								boolean_type 
+								variable_declarator duplicate
+									identifier 
+									= 
+									false 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									++ 
+									identifier 
+								) 
+								block vertex
+									{ 
+									if_statement vertex
+										if 
+										parenthesized_expression vertex
+											( 
+											binary_expression vertex
+												binary_expression vertex
+													field_access vertex
+														identifier 
+														. 
+														identifier 
+													== 
+													array_access saveA
+														identifier 
+														[ 
+														identifier 
+														] 
+												&& 
+												binary_expression vertex
+													field_access vertex
+														identifier 
+														. 
+														identifier 
+													== 
+													array_access saveB
+														identifier 
+														[ 
+														identifier 
+														] 
+											) 
+										block duplicate
+											{ 
+											expression_statement duplicate
+												assignment_expression duplicate
+													identifier 
+													= 
+													true 
+												; 
+											break_statement 
+												break 
+												; 
+											} 
+									} 
+							line_comment 
+							if_statement duplicate
+								if 
+								parenthesized_expression duplicate
+									( 
+									identifier 
+									) 
+								block 
+									{ 
+									break_statement 
+										break 
+										; 
+									} 
+							line_comment 
+							expression_statement simplex
+								update_expression simplex
+									++ 
+									field_access simplex
+										identifier 
+										. 
+										identifier 
+								; 
+							} 
+					expression_statement GJK_MAX_ITERS
+						assignment_expression GJK_MAX_ITERS
+							identifier 
+							= 
+							method_invocation MathUtils
+								identifier 
+								. 
+								identifier 
+								argument_list GJK_MAX_ITERS
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+						; 
+					line_comment 
+					expression_statement simplex
+						method_invocation simplex
+							identifier 
+							. 
+							identifier 
+							argument_list output
+								( 
+								field_access output
+									identifier 
+									. 
+									identifier 
+								, 
+								field_access output
+									identifier 
+									. 
+									identifier 
+								) 
+						; 
+					expression_statement output
+						assignment_expression output
+							field_access output
+								identifier 
+								. 
+								identifier 
+							= 
+							method_invocation MathUtils
+								identifier 
+								. 
+								identifier 
+								argument_list output
+									( 
+									field_access output
+										identifier 
+										. 
+										identifier 
+									, 
+									field_access output
+										identifier 
+										. 
+										identifier 
+									) 
+						; 
+					expression_statement output
+						assignment_expression output
+							field_access output
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					line_comment 
+					expression_statement simplex
+						method_invocation simplex
+							identifier 
+							. 
+							identifier 
+							argument_list cache
+								( 
+								identifier 
+								) 
+						; 
+					line_comment 
+					if_statement input
+						if 
+						parenthesized_expression input
+							( 
+							field_access input
+								identifier 
+								. 
+								identifier 
+							) 
+						block rA
+							{ 
+							local_variable_declaration rA
+								floating_point_type 
+									float 
+								variable_declarator rA
+									identifier 
+									= 
+									field_access proxyA
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration rB
+								floating_point_type 
+									float 
+								variable_declarator rB
+									identifier 
+									= 
+									field_access proxyB
+										identifier 
+										. 
+										identifier 
+								; 
+							if_statement output
+								if 
+								parenthesized_expression output
+									( 
+									binary_expression output
+										binary_expression output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											> 
+											binary_expression rA
+												identifier 
+												+ 
+												identifier 
+										&& 
+										binary_expression output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											> 
+											field_access Settings
+												identifier 
+												. 
+												identifier 
+									) 
+								block output
+									{ 
+									line_comment 
+									line_comment 
+									expression_statement output
+										assignment_expression output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											-= 
+											binary_expression rA
+												identifier 
+												+ 
+												identifier 
+										; 
+									expression_statement normal
+										method_invocation normal
+											method_invocation normal
+												identifier 
+												. 
+												identifier 
+												argument_list output
+													( 
+													field_access output
+														identifier 
+														. 
+														identifier 
+													) 
+											. 
+											identifier 
+											argument_list output
+												( 
+												field_access output
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement normal
+										method_invocation normal
+											identifier 
+											. 
+											identifier 
+											argument_list 
+												( 
+												) 
+										; 
+									expression_statement temp
+										method_invocation temp
+											method_invocation temp
+												identifier 
+												. 
+												identifier 
+												argument_list normal
+													( 
+													identifier 
+													) 
+											. 
+											identifier 
+											argument_list rA
+												( 
+												identifier 
+												) 
+										; 
+									expression_statement output
+										method_invocation output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+											argument_list temp
+												( 
+												identifier 
+												) 
+										; 
+									expression_statement temp
+										method_invocation temp
+											method_invocation temp
+												identifier 
+												. 
+												identifier 
+												argument_list normal
+													( 
+													identifier 
+													) 
+											. 
+											identifier 
+											argument_list rB
+												( 
+												identifier 
+												) 
+										; 
+									expression_statement output
+										method_invocation output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+											argument_list temp
+												( 
+												identifier 
+												) 
+										; 
+									} 
+								else 
+								block output
+									{ 
+									line_comment 
+									line_comment 
+									line_comment 
+									expression_statement output
+										method_invocation output
+											method_invocation output
+												field_access output
+													identifier 
+													. 
+													identifier 
+												. 
+												identifier 
+												argument_list output
+													( 
+													field_access output
+														identifier 
+														. 
+														identifier 
+													) 
+											. 
+											identifier 
+											argument_list 
+												( 
+												decimal_floating_point_literal 
+												) 
+										; 
+									expression_statement output
+										method_invocation output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+											argument_list output
+												( 
+												field_access output
+													identifier 
+													. 
+													identifier 
+												) 
+										; 
+									expression_statement output
+										assignment_expression output
+											field_access output
+												identifier 
+												. 
+												identifier 
+											= 
+											decimal_floating_point_literal 
+										; 
+									} 
+							} 
+					} 
+			} 

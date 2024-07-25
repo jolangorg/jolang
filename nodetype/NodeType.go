@@ -48,6 +48,7 @@ const (
 	SUPER_INTERFACES               = NodeType("super_interfaces")
 	TYPE_ARGUMENTS                 = NodeType("type_arguments")
 	OBJECT_CREATION_EXPRESSION     = NodeType("object_creation_expression")
+	ARRAY_INITIALIZER              = NodeType("array_initializer")
 
 	BLOCK_COMMENT = NodeType("block_comment")
 	LINE_COMMENT  = NodeType("line_comment")
