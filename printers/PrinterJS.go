@@ -67,6 +67,7 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
 	for _, methodDeclaration := range methodDeclarations {
 		printer.Println()
+		printer.Println()
 
 		name := methodDeclaration.GetName()
 		if methodDeclaration.IsStatic() {
@@ -121,8 +122,7 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 		for _, variableDeclarator := range variableDeclarators {
 			fieldName := variableDeclarator.FindNodeByType(nodetype.IDENTIFIER).Content()
 
-			static := fieldDeclaration.FindNodeByType(nodetype.STATIC) != nil
-			if static {
+			if fieldDeclaration.IsStatic() {
 				printer.Print("static ")
 			}
 
@@ -171,21 +171,48 @@ func (printer *PrinterJS) printIntegerLiteral(node *jolang2.Node) {
 
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	switch node.Type() {
-	case nodetype.BLOCK:
-		printer.VisitChildrenOf(node)
-	case nodetype.LEFT_BRACE:
-		printer.Println(nodetype.LEFT_BRACE.String())
-	case nodetype.RIGHT_BRACE:
-		printer.Println(nodetype.RIGHT_BRACE.String())
+
+	case nodetype.FIELD_ACCESS, nodetype.IDENTIFIER:
+		printer.Print(node.Content())
+
 	case nodetype.EXPRESSION_STATEMENT:
+		printer.Visit(node.Child(0))
+		printer.Println(";")
+
+	case nodetype.ASSIGNMENT_EXPRESSION:
+		printer.Visit(node.Child(0))
+		printer.Print(" = ")
+		printer.Visit(node.Child(2))
+
+	case nodetype.LEFT_BRACE:
 		printer.Println(node.Content())
+
+	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON, nodetype.EQUAL:
+		printer.Print(node.Content())
+
 	case nodetype.DECIMAL_INTEGER_LITERAL:
 		printer.printIntegerLiteral(node)
+
 	case nodetype.LOCAL_VARIABLE_DECLARATION:
 		printer.Print("let ")
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
 		printer.Println(";")
+
+	case nodetype.CAST_EXPRESSION:
+
+		//fmt.Println(node.Content())
+		//node.PrintAST()
+		//return
+		//todo skip cast right now
+		children := node.Children()
+		for i, child := range children {
+			if child.Type() == nodetype.RIGHT_PAREN {
+				printer.Print(children[i+1].Content())
+				break
+			}
+		}
 	default:
-		printer.Print(node.Content())
+		printer.VisitChildrenOf(node)
+		//printer.Print(node.Content())
 	}
 }

@@ -76,6 +76,15 @@ func (n *Node) FindNodeByType(t nodetype.NodeType) *Node {
 		if child.Type() == t {
 			return child
 		}
+	}
+	return nil
+}
+
+func (n *Node) FindNodeByTypeRecursive(t nodetype.NodeType) *Node {
+	for _, child := range n.Children() {
+		if child.Type() == t {
+			return child
+		}
 		found := child.FindNodeByType(t)
 		if found == nil {
 			continue

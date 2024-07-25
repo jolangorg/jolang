@@ -37,6 +37,8 @@ func resolvePath(path string) (string, error) {
 	return filepath.EvalSymlinks(path)
 }
 
+const JavaExt = ".java"
+
 func (p *Project) AddSourceDir(dirname string) error {
 	dirname, err := resolvePath(dirname)
 	if err != nil {
@@ -48,7 +50,7 @@ func (p *Project) AddSourceDir(dirname string) error {
 	}
 
 	err = filepath.WalkDir(dirname, func(path string, d fs.DirEntry, err error) error {
-		if !strings.HasSuffix(path, ".java") {
+		if filepath.Ext(path) != JavaExt {
 			return nil
 		}
 

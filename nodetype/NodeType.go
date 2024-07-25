@@ -16,10 +16,16 @@ const (
 	EXPRESSION_STATEMENT       = NodeType("expression_statement")
 	DECIMAL_INTEGER_LITERAL    = NodeType("decimal_integer_literal")
 	LOCAL_VARIABLE_DECLARATION = NodeType("local_variable_declaration")
+	CAST_EXPRESSION            = NodeType("cast_expression")
+	ASSIGNMENT_EXPRESSION      = NodeType("assignment_expression")
+	FIELD_ACCESS               = NodeType("field_access")
 
 	EQUAL       = NodeType("=")
 	LEFT_BRACE  = NodeType("{")
 	RIGHT_BRACE = NodeType("}")
+	LEFT_PAREN  = NodeType("(")
+	RIGHT_PAREN = NodeType(")")
+	SEMICOLON   = NodeType(";")
 
 	STATIC            = NodeType("static")
 	FORMAL_PARAMETERS = NodeType("formal_parameters")
