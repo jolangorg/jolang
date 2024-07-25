@@ -36,7 +36,7 @@ func main() {
 		printFilenames(project, printer)
 	}
 
-	unit, ok := project.UnitsByAbsName["org.jbox2d.collision.shapes.ChainShape"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.joints.ConstantVolumeJoint"]
 	if !ok {
 		log.Println("not exists")
 		return

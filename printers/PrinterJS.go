@@ -183,7 +183,9 @@ func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
 	for _, param := range params {
 		for _, paramChild := range param.Children() {
 			if paramChild.Type() != nodetype.MODIFIERS {
-				printer.Print(paramChild.Content())
+				paramType := paramChild.Content()
+				paramType = strings.ReplaceAll(paramType, "[]", "Arr")
+				printer.Print(paramType)
 				break
 			}
 		}
@@ -209,8 +211,9 @@ func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jolang2.Node
 			if paramChild.Type() == nodetype.MODIFIERS {
 				continue
 			}
-			t := paramChild.Content()
-			printer.Print(t)
+			printer.Visit(paramChild)
+			//t := paramChild.Content()
+			//printer.Print(t)
 			break
 		}
 	}
@@ -707,6 +710,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.NOT_EQUAL:
 		printer.Print(" !== ")
 
+	case nodetype.MINUS, nodetype.PLUS:
+		printer.Print("", node.Content(), "")
+
 	case nodetype.SEMICOLON:
 		printer.Print(node.Content())
 
@@ -724,13 +730,22 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		//}
 
 		printer.Print("let ")
+		//varDecls := node.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+		for i, decl := range node.FindNodesByType(nodetype.VARIABLE_DECLARATOR) {
+			if i > 0 {
+				printer.Print(", ")
+			}
+			printer.VisitChildrenOf(decl)
+		}
 
-		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
 		if node.Parent().Type() == nodetype.FOR_STATEMENT {
 			printer.Print(";")
 		} else {
 			printer.Println(";")
 		}
+
+	case nodetype.DIMENSIONS:
+		//just skip
 
 	case nodetype.METHOD_INVOCATION:
 		printer.VisitDefault(node)
@@ -782,6 +797,19 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 			printer.printAnonClass(node)
 		} else {
 			printer.VisitDefault(node)
+		}
+
+	case nodetype.ARRAY_TYPE: // used only for jo.suitable
+		if node.Parent().Type() != nodetype.FORMAL_PARAMETER {
+			break
+		}
+		dims_count := len(node.FindNodeByType(nodetype.DIMENSIONS).FindNodesByType(nodetype.LEFT_SQUARE_BRACKET))
+		for i := 0; i < dims_count; i++ {
+			printer.Print("[")
+		}
+		printer.Visit(node.Child(0))
+		for i := 0; i < dims_count; i++ {
+			printer.Print("]")
 		}
 
 	case nodetype.ARRAY_CREATION_EXPRESSION:
