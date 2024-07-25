@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "jo": "./stdlib/js/jo/index.js",
+          "jo/": "./stdlib/js/jo/",
+          "java/": "./stdlib/js/java/",
+          "org/jbox2d/": "./output/org/jbox2d/"
+        }
+      }
+    </script>
+
+<!--    <script type="importmap">-->
+<!--        {-->
+<!--            ,  , -->
+<!--        }-->
+<!--    </script>-->
+
+    <script type="module">
+        // Static Body
+        import {Vec2} from "org/jbox2d/common/Vec2.js";
+        import {World} from "./output/org/jbox2d/dynamics/World.js";
+        import {BodyDef} from "./output/org/jbox2d/dynamics/BodyDef.js";
+        import {PolygonShape} from "./output/org/jbox2d/collision/shapes/PolygonShape.js";
+        import {BodyType} from "./output/org/jbox2d/dynamics/BodyType.js";
+        import {FixtureDef} from "./output/org/jbox2d/dynamics/FixtureDef.js";
+        import {System} from "java/lang/System.js";
+
+        let gravity = new Vec2(0,-10);
+        let world = new World(gravity);
+        let groundBodyDef = new BodyDef();
+        groundBodyDef.position.set(0, -10);
+        let groundBody = world.createBody(groundBodyDef);
+        let groundBox = new PolygonShape();
+        groundBox.setAsBox(50, 10);
+        groundBody.createFixture(groundBox, 0);
+
+        // Dynamic Body
+        let bodyDef = new BodyDef();
+        bodyDef.type = BodyType.DYNAMIC;
+        bodyDef.position.set(0, 4);
+        let body = world.createBody(bodyDef);
+        let dynamicBox = new PolygonShape();
+        dynamicBox.setAsBox(1, 1);
+        let fixtureDef = new FixtureDef();
+        fixtureDef.shape = dynamicBox;
+        fixtureDef.density = 1;
+        fixtureDef.friction = 0.3;
+        body.createFixture(fixtureDef);
+
+        // Setup world
+        let timeStep = 1.0/60.0;
+        let velocityIterations = 6;
+        let positionIterations = 2;
+
+        // Run loop
+        for (let i = 0; i < 60; ++i) {
+            world.step(timeStep, velocityIterations, positionIterations);
+            let position = body.getPosition();
+            let angle = body.getAngle();
+            System.out.printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+        }
+    </script>
+</body>
+</html>
