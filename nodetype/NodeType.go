@@ -10,6 +10,8 @@ const (
 	ENUM_BODY                      = NodeType("enum_body")
 	INTERFACE_DECLARATION          = NodeType("interface_declaration")
 	CONSTRUCTOR_DECLARATION        = NodeType("constructor_declaration")
+	CONSTRUCTOR_BODY               = NodeType("constructor_body")
+	SUPERCLASS                     = NodeType("superclass")
 	METHOD_DECLARATION             = NodeType("method_declaration")
 	METHOD_INVOCATION              = NodeType("method_invocation")
 	CLASS_BODY                     = NodeType("class_body")

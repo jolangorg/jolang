@@ -29,22 +29,22 @@ func NewPrinterJS(project *jolang2.Project) Printer {
 func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	root := unit.Root
 
-	hasImports := false
-	importDeclarations := root.FindNodesByType(nodetype.IMPORT_DECLARATION)
-	for _, importDeclaration := range importDeclarations {
-		printer.printImport(importDeclaration)
-		hasImports = true
-	}
+	//import core, types
+	printer.Println(`import * as jo from "jo";`)
+	printer.Println(`import {int, float, boolean} from "jo";`)
 
 	//import assert
 	if root.FindNodeByTypeRecursive(nodetype.ASSERT_STATEMENT) != nil {
-		printer.Println("import {assert} from 'jo';")
-		hasImports = true
+		printer.Println(`import {assert} from "jo";`)
 	}
 
 	if len(root.FindNodesByTypeRecursive(nodetype.ENUM_DECLARATION)) > 0 {
-		printer.Println("import {Enum} from 'jo';")
-		hasImports = true
+		printer.Println(`import {Enum} from "jo";`)
+	}
+
+	importDeclarations := root.FindNodesByType(nodetype.IMPORT_DECLARATION)
+	for _, importDeclaration := range importDeclarations {
+		printer.printImport(importDeclaration)
 	}
 
 	siblingUnits := unit.GetSiblingUnits()
@@ -80,9 +80,7 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 		// fmt.Println(s)
 	}
 
-	if hasImports {
-		printer.Println()
-	}
+	printer.Println()
 
 	//main package classes
 	{
@@ -159,9 +157,28 @@ func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
 
 }
 
+func (printer *PrinterJS) printOverloadCheck(methodDeclaration *jolang2.Node) {
+	params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+	printer.Print("if (jo.suitable(arguments")
+	for _, param := range params {
+		printer.Print(", ")
+		for _, paramChild := range param.Children() {
+			if paramChild.Type() == nodetype.MODIFIERS {
+				continue
+			}
+			t := paramChild.Content()
+			printer.Print(t)
+			break
+		}
+	}
+	printer.Print(")) return this.")
+	printer.printOverloadName(methodDeclaration)
+	printer.Println("(...arguments);")
+}
+
 func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
-	methodsByName := map[string]jolang2.NodeList{}
+	methodsByName := jolang2.NodeListMap{}
 
 	for _, methodDeclaration := range methodDeclarations {
 		name := methodDeclaration.GetName()
@@ -183,28 +200,7 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 			printer.Println(name, "(){")
 			printer.Indent++
 			for _, methodDeclaration = range list {
-				params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
-				_, _ = fmt.Fprintf(printer, "if (arguments.length === %d", len(params))
-				for paramNum, param := range params {
-					printer.Print(" && ")
-
-					typ := ""
-
-					for _, paramChild := range param.Children() {
-						if paramChild.Type() != nodetype.MODIFIERS {
-							typ = paramChild.Content()
-							if typeof, ok := typeofTypes[typ]; ok {
-								_, _ = fmt.Fprintf(printer, `typeof arguments[%d] === "%s"`, paramNum, typeof)
-							} else {
-								_, _ = fmt.Fprintf(printer, "arguments[%d] instanceof %s", paramNum, typ)
-							}
-							break
-						}
-					}
-				}
-				printer.Print(") return this.")
-				printer.printOverloadName(methodDeclaration)
-				printer.Println("(...arguments);")
+				printer.printOverloadCheck(methodDeclaration)
 			}
 			printer.Println()
 			printer.Println("return super." + name + "(...arguments);")
@@ -269,23 +265,24 @@ func (printer *PrinterJS) printConstructors(classBody *jolang2.Node) {
 
 	if count == 1 {
 		printer.Print("constructor")
-		params := constructorDeclarations[0].FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+		constructorDeclaration := constructorDeclarations[0]
+		constructorBody := constructorDeclaration.FindNodeByType(nodetype.CONSTRUCTOR_BODY)
+		params := constructorDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
 		printer.printFormalParams(params)
-		printer.Println(" {")
-		printer.Println("}")
+		printer.Indent++
+		printer.Visit(constructorBody)
+		printer.Indent--
 	} else {
 		printer.Println("constructor(){")
+		printer.Indent++
+		for _, constructorDeclaration := range constructorDeclarations {
+			printer.printOverloadCheck(constructorDeclaration)
+		}
+		printer.Println()
+		printer.Println("return super(...arguments);")
+		printer.Indent--
 		printer.Println("}")
 	}
-
-	//for _, constructorDeclaration := range constructorDeclarations {
-	//	printer.Println()
-	//	printer.Println()
-	//
-	//	//name := constructorDeclaration.GetName()
-	//
-	//	//constructorDeclaration.PrintAST()
-	//}
 }
 
 func (printer *PrinterJS) printSubClass(subClass *jolang2.Node) {
@@ -357,6 +354,7 @@ func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport 
 func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExport bool) {
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
+	superclass := classDeclaration.FindNodeByType(nodetype.SUPERCLASS)
 
 	subClassDeclarations := classBody.FindNodesByTypeRecursive(nodetype.CLASS_DECLARATION)
 
@@ -371,10 +369,14 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 	}
 
 	if shouldExport {
-		printer.Println("export class", className, "{")
-	} else {
-		printer.Println("class", className, "{")
+		printer.Print("export ")
 	}
+
+	printer.Print("class", className, "")
+	if superclass != nil {
+		printer.Print(superclass.Content())
+	}
+	printer.Println(" {")
 
 	printer.Indent++
 

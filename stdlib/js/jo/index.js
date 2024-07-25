@@ -1,7 +1,7 @@
-import {Float} from "./Float.js";
+import {numericTypes, int, float, boolean} from "./types.js";
 import {Enum} from "./Enum.js";
 
-window.Float = Float;
+export {int, float, boolean};
 
 String.prototype.equals = function(s){
     return this.toString() === s.toString();
@@ -17,5 +17,30 @@ export function assert(cond) {
     }
 }
 
+export function suitable(args, ...types){
+    if (args.length !== types.length){
+        return false;
+    }
+    let i = 0;
+    for (let t of types){
+        if (numericTypes.indexOf(t) > -1){
+            if (typeof args[i] === "number"){
+                continue;
+            }else{
+                return false
+            }
+        }
+        if (t === boolean){
+            if (typeof args[i] === "boolean"){
+                continue;
+            }else{
+                return false
+            }
+        }
+        args[i].constructor
+    }
+    let result = false;
+
+}
+
 export {Enum};
-export {Float};

@@ -1,0 +1,2153 @@
+program org
+	block_comment 
+	block_comment 
+	package_declaration org
+		package 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	block_comment 
+	class_declaration FrictionJoint
+		modifiers 
+			public 
+		class 
+		identifier 
+		superclass 
+			extends 
+			type_identifier 
+		class_body m_localAnchorA
+			{ 
+			field_declaration m_localAnchorA
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_localAnchorA
+					identifier 
+				; 
+			field_declaration m_localAnchorB
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_localAnchorB
+					identifier 
+				; 
+			line_comment 
+			field_declaration m_linearImpulse
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_linearImpulse
+					identifier 
+				; 
+			field_declaration m_angularImpulse
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_angularImpulse
+					identifier 
+				; 
+			field_declaration m_maxForce
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_maxForce
+					identifier 
+				; 
+			field_declaration m_maxTorque
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_maxTorque
+					identifier 
+				; 
+			line_comment 
+			field_declaration m_indexA
+				modifiers 
+					private 
+				integral_type 
+					int 
+				variable_declarator m_indexA
+					identifier 
+				; 
+			field_declaration m_indexB
+				modifiers 
+					private 
+				integral_type 
+					int 
+				variable_declarator m_indexB
+					identifier 
+				; 
+			field_declaration m_rA
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_rA
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration m_rB
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_rB
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration m_localCenterA
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_localCenterA
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration m_localCenterB
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_localCenterB
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration m_invMassA
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_invMassA
+					identifier 
+				; 
+			field_declaration m_invMassB
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_invMassB
+					identifier 
+				; 
+			field_declaration m_invIA
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_invIA
+					identifier 
+				; 
+			field_declaration m_invIB
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_invIB
+					identifier 
+				; 
+			field_declaration m_linearMass
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator m_linearMass
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration m_angularMass
+				modifiers 
+					private 
+				floating_point_type 
+					float 
+				variable_declarator m_angularMass
+					identifier 
+				; 
+			constructor_declaration FrictionJoint
+				modifiers 
+					protected 
+				identifier 
+				formal_parameters argWorldPool
+					( 
+					formal_parameter argWorldPool
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter def
+						type_identifier 
+						identifier 
+					) 
+				constructor_body argWorldPool
+					{ 
+					explicit_constructor_invocation argWorldPool
+						super 
+						argument_list argWorldPool
+							( 
+							identifier 
+							, 
+							identifier 
+							) 
+						; 
+					expression_statement m_localAnchorA
+						assignment_expression m_localAnchorA
+							identifier 
+							= 
+							object_creation_expression def
+								new 
+								type_identifier 
+								argument_list def
+									( 
+									field_access def
+										identifier 
+										. 
+										identifier 
+									) 
+						; 
+					expression_statement m_localAnchorB
+						assignment_expression m_localAnchorB
+							identifier 
+							= 
+							object_creation_expression def
+								new 
+								type_identifier 
+								argument_list def
+									( 
+									field_access def
+										identifier 
+										. 
+										identifier 
+									) 
+						; 
+					expression_statement m_linearImpulse
+						assignment_expression m_linearImpulse
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					expression_statement m_angularImpulse
+						assignment_expression m_angularImpulse
+							identifier 
+							= 
+							decimal_floating_point_literal 
+						; 
+					expression_statement m_maxForce
+						assignment_expression m_maxForce
+							identifier 
+							= 
+							field_access def
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_maxTorque
+						assignment_expression m_maxTorque
+							identifier 
+							= 
+							field_access def
+								identifier 
+								. 
+								identifier 
+						; 
+					} 
+			method_declaration getLocalAnchorA
+				modifiers 
+					public 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block m_localAnchorA
+					{ 
+					return_statement m_localAnchorA
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getLocalAnchorB
+				modifiers 
+					public 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block m_localAnchorB
+					{ 
+					return_statement m_localAnchorB
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getAnchorA
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				void_type 
+				identifier 
+				formal_parameters argOut
+					( 
+					formal_parameter argOut
+						type_identifier 
+						identifier 
+					) 
+				block m_bodyA
+					{ 
+					expression_statement m_bodyA
+						method_invocation m_bodyA
+							identifier 
+							. 
+							identifier 
+							argument_list m_localAnchorA
+								( 
+								identifier 
+								, 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getAnchorB
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				void_type 
+				identifier 
+				formal_parameters argOut
+					( 
+					formal_parameter argOut
+						type_identifier 
+						identifier 
+					) 
+				block m_bodyB
+					{ 
+					expression_statement m_bodyB
+						method_invocation m_bodyB
+							identifier 
+							. 
+							identifier 
+							argument_list m_localAnchorB
+								( 
+								identifier 
+								, 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getReactionForce
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				void_type 
+				identifier 
+				formal_parameters inv_dt
+					( 
+					formal_parameter inv_dt
+						floating_point_type 
+							float 
+						identifier 
+					, 
+					formal_parameter argOut
+						type_identifier 
+						identifier 
+					) 
+				block argOut
+					{ 
+					expression_statement argOut
+						method_invocation argOut
+							method_invocation argOut
+								identifier 
+								. 
+								identifier 
+								argument_list m_linearImpulse
+									( 
+									identifier 
+									) 
+							. 
+							identifier 
+							argument_list inv_dt
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getReactionTorque
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				floating_point_type 
+					float 
+				identifier 
+				formal_parameters inv_dt
+					( 
+					formal_parameter inv_dt
+						floating_point_type 
+							float 
+						identifier 
+					) 
+				block inv_dt
+					{ 
+					return_statement inv_dt
+						return 
+						binary_expression inv_dt
+							identifier 
+							* 
+							identifier 
+						; 
+					} 
+			method_declaration setMaxForce
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters force
+					( 
+					formal_parameter force
+						floating_point_type 
+							float 
+						identifier 
+					) 
+				block force
+					{ 
+					assert_statement force
+						assert 
+						parenthesized_expression force
+							( 
+							binary_expression force
+								identifier 
+								>= 
+								decimal_floating_point_literal 
+							) 
+						; 
+					expression_statement m_maxForce
+						assignment_expression m_maxForce
+							identifier 
+							= 
+							identifier 
+						; 
+					} 
+			method_declaration getMaxForce
+				modifiers 
+					public 
+				floating_point_type 
+					float 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block m_maxForce
+					{ 
+					return_statement m_maxForce
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration setMaxTorque
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters torque
+					( 
+					formal_parameter torque
+						floating_point_type 
+							float 
+						identifier 
+					) 
+				block torque
+					{ 
+					assert_statement torque
+						assert 
+						parenthesized_expression torque
+							( 
+							binary_expression torque
+								identifier 
+								>= 
+								decimal_floating_point_literal 
+							) 
+						; 
+					expression_statement m_maxTorque
+						assignment_expression m_maxTorque
+							identifier 
+							= 
+							identifier 
+						; 
+					} 
+			method_declaration getMaxTorque
+				modifiers 
+					public 
+				floating_point_type 
+					float 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block m_maxTorque
+					{ 
+					return_statement m_maxTorque
+						return 
+						identifier 
+						; 
+					} 
+			block_comment 
+			method_declaration initVelocityConstraints
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				void_type 
+				identifier 
+				formal_parameters data
+					( 
+					formal_parameter data
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					) 
+				block m_indexA
+					{ 
+					expression_statement m_indexA
+						assignment_expression m_indexA
+							identifier 
+							= 
+							field_access m_bodyA
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_indexB
+						assignment_expression m_indexB
+							identifier 
+							= 
+							field_access m_bodyB
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_localCenterA
+						method_invocation m_localCenterA
+							identifier 
+							. 
+							identifier 
+							argument_list m_bodyA
+								( 
+								field_access m_bodyA
+									field_access m_bodyA
+										identifier 
+										. 
+										identifier 
+									. 
+									identifier 
+								) 
+						; 
+					expression_statement m_localCenterB
+						method_invocation m_localCenterB
+							identifier 
+							. 
+							identifier 
+							argument_list m_bodyB
+								( 
+								field_access m_bodyB
+									field_access m_bodyB
+										identifier 
+										. 
+										identifier 
+									. 
+									identifier 
+								) 
+						; 
+					expression_statement m_invMassA
+						assignment_expression m_invMassA
+							identifier 
+							= 
+							field_access m_bodyA
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_invMassB
+						assignment_expression m_invMassB
+							identifier 
+							= 
+							field_access m_bodyB
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_invIA
+						assignment_expression m_invIA
+							identifier 
+							= 
+							field_access m_bodyA
+								identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_invIB
+						assignment_expression m_invIB
+							identifier 
+							= 
+							field_access m_bodyB
+								identifier 
+								. 
+								identifier 
+						; 
+					local_variable_declaration aA
+						floating_point_type 
+							float 
+						variable_declarator aA
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration vA
+						type_identifier 
+						variable_declarator vA
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration wA
+						floating_point_type 
+							float 
+						variable_declarator wA
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration aB
+						floating_point_type 
+							float 
+						variable_declarator aB
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration vB
+						type_identifier 
+						variable_declarator vB
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration wB
+						floating_point_type 
+							float 
+						variable_declarator wB
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration temp
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator temp
+							identifier 
+							= 
+							method_invocation pool
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					local_variable_declaration qA
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator qA
+							identifier 
+							= 
+							method_invocation pool
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					local_variable_declaration qB
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator qB
+							identifier 
+							= 
+							method_invocation pool
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					expression_statement qA
+						method_invocation qA
+							identifier 
+							. 
+							identifier 
+							argument_list aA
+								( 
+								identifier 
+								) 
+						; 
+					expression_statement qB
+						method_invocation qB
+							identifier 
+							. 
+							identifier 
+							argument_list aB
+								( 
+								identifier 
+								) 
+						; 
+					line_comment 
+					expression_statement Rot
+						method_invocation Rot
+							identifier 
+							. 
+							identifier 
+							argument_list qA
+								( 
+								identifier 
+								, 
+								method_invocation temp
+									method_invocation temp
+										identifier 
+										. 
+										identifier 
+										argument_list m_localAnchorA
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list m_localCenterA
+										( 
+										identifier 
+										) 
+								, 
+								identifier 
+								) 
+						; 
+					expression_statement Rot
+						method_invocation Rot
+							identifier 
+							. 
+							identifier 
+							argument_list qB
+								( 
+								identifier 
+								, 
+								method_invocation temp
+									method_invocation temp
+										identifier 
+										. 
+										identifier 
+										argument_list m_localAnchorB
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list m_localCenterB
+										( 
+										identifier 
+										) 
+								, 
+								identifier 
+								) 
+						; 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					local_variable_declaration mA
+						floating_point_type 
+							float 
+						variable_declarator mA
+							identifier 
+							= 
+							identifier 
+						, 
+						variable_declarator mB
+							identifier 
+							= 
+							identifier 
+						; 
+					local_variable_declaration iA
+						floating_point_type 
+							float 
+						variable_declarator iA
+							identifier 
+							= 
+							identifier 
+						, 
+						variable_declarator iB
+							identifier 
+							= 
+							identifier 
+						; 
+					local_variable_declaration K
+						modifiers 
+							final 
+						type_identifier 
+						variable_declarator K
+							identifier 
+							= 
+							method_invocation pool
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					expression_statement K
+						assignment_expression K
+							field_access K
+								field_access K
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							binary_expression mA
+								binary_expression mA
+									binary_expression mA
+										identifier 
+										+ 
+										identifier 
+									+ 
+									binary_expression iA
+										binary_expression iA
+											identifier 
+											* 
+											field_access m_rA
+												identifier 
+												. 
+												identifier 
+										* 
+										field_access m_rA
+											identifier 
+											. 
+											identifier 
+								+ 
+								binary_expression iB
+									binary_expression iB
+										identifier 
+										* 
+										field_access m_rB
+											identifier 
+											. 
+											identifier 
+									* 
+									field_access m_rB
+										identifier 
+										. 
+										identifier 
+						; 
+					expression_statement K
+						assignment_expression K
+							field_access K
+								field_access K
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							binary_expression iA
+								binary_expression iA
+									binary_expression iA
+										unary_expression iA
+											- 
+											identifier 
+										* 
+										field_access m_rA
+											identifier 
+											. 
+											identifier 
+									* 
+									field_access m_rA
+										identifier 
+										. 
+										identifier 
+								- 
+								binary_expression iB
+									binary_expression iB
+										identifier 
+										* 
+										field_access m_rB
+											identifier 
+											. 
+											identifier 
+									* 
+									field_access m_rB
+										identifier 
+										. 
+										identifier 
+						; 
+					expression_statement K
+						assignment_expression K
+							field_access K
+								field_access K
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							field_access K
+								field_access K
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+						; 
+					expression_statement K
+						assignment_expression K
+							field_access K
+								field_access K
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							binary_expression mA
+								binary_expression mA
+									binary_expression mA
+										identifier 
+										+ 
+										identifier 
+									+ 
+									binary_expression iA
+										binary_expression iA
+											identifier 
+											* 
+											field_access m_rA
+												identifier 
+												. 
+												identifier 
+										* 
+										field_access m_rA
+											identifier 
+											. 
+											identifier 
+								+ 
+								binary_expression iB
+									binary_expression iB
+										identifier 
+										* 
+										field_access m_rB
+											identifier 
+											. 
+											identifier 
+									* 
+									field_access m_rB
+										identifier 
+										. 
+										identifier 
+						; 
+					expression_statement K
+						method_invocation K
+							identifier 
+							. 
+							identifier 
+							argument_list m_linearMass
+								( 
+								identifier 
+								) 
+						; 
+					expression_statement m_angularMass
+						assignment_expression m_angularMass
+							identifier 
+							= 
+							binary_expression iA
+								identifier 
+								+ 
+								identifier 
+						; 
+					if_statement m_angularMass
+						if 
+						parenthesized_expression m_angularMass
+							( 
+							binary_expression m_angularMass
+								identifier 
+								> 
+								decimal_floating_point_literal 
+							) 
+						block m_angularMass
+							{ 
+							expression_statement m_angularMass
+								assignment_expression m_angularMass
+									identifier 
+									= 
+									binary_expression m_angularMass
+										decimal_floating_point_literal 
+										/ 
+										identifier 
+								; 
+							} 
+					if_statement data
+						if 
+						parenthesized_expression data
+							( 
+							field_access data
+								field_access data
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							) 
+						block m_linearImpulse
+							{ 
+							line_comment 
+							expression_statement m_linearImpulse
+								method_invocation m_linearImpulse
+									identifier 
+									. 
+									identifier 
+									argument_list data
+										( 
+										field_access data
+											field_access data
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement m_angularImpulse
+								assignment_expression m_angularImpulse
+									identifier 
+									*= 
+									field_access data
+										field_access data
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration P
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator P
+									identifier 
+									= 
+									method_invocation pool
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+								; 
+							expression_statement P
+								method_invocation P
+									identifier 
+									. 
+									identifier 
+									argument_list m_linearImpulse
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement temp
+								method_invocation temp
+									method_invocation temp
+										identifier 
+										. 
+										identifier 
+										argument_list P
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list mA
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement vA
+								method_invocation vA
+									identifier 
+									. 
+									identifier 
+									argument_list temp
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement wA
+								assignment_expression wA
+									identifier 
+									-= 
+									binary_expression iA
+										identifier 
+										* 
+										parenthesized_expression Vec2
+											( 
+											binary_expression Vec2
+												method_invocation Vec2
+													identifier 
+													. 
+													identifier 
+													argument_list m_rA
+														( 
+														identifier 
+														, 
+														identifier 
+														) 
+												+ 
+												identifier 
+											) 
+								; 
+							expression_statement temp
+								method_invocation temp
+									method_invocation temp
+										identifier 
+										. 
+										identifier 
+										argument_list P
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list mB
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement vB
+								method_invocation vB
+									identifier 
+									. 
+									identifier 
+									argument_list temp
+										( 
+										identifier 
+										) 
+								; 
+							expression_statement wB
+								assignment_expression wB
+									identifier 
+									+= 
+									binary_expression iB
+										identifier 
+										* 
+										parenthesized_expression Vec2
+											( 
+											binary_expression Vec2
+												method_invocation Vec2
+													identifier 
+													. 
+													identifier 
+													argument_list m_rB
+														( 
+														identifier 
+														, 
+														identifier 
+														) 
+												+ 
+												identifier 
+											) 
+								; 
+							expression_statement pool
+								method_invocation pool
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										decimal_integer_literal 
+										) 
+								; 
+							} 
+						else 
+						block m_linearImpulse
+							{ 
+							expression_statement m_linearImpulse
+								method_invocation m_linearImpulse
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							expression_statement m_angularImpulse
+								assignment_expression m_angularImpulse
+									identifier 
+									= 
+									decimal_floating_point_literal 
+								; 
+							} 
+					line_comment 
+					if_statement data
+						if 
+						parenthesized_expression data
+							( 
+							binary_expression data
+								field_access data
+									array_access data
+										field_access data
+											identifier 
+											. 
+											identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								!= 
+								identifier 
+							) 
+						block data
+							{ 
+							assert_statement data
+								assert 
+								parenthesized_expression data
+									( 
+									binary_expression data
+										field_access data
+											array_access data
+												field_access data
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										!= 
+										identifier 
+									) 
+								; 
+							} 
+					expression_statement data
+						assignment_expression data
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					line_comment 
+					expression_statement data
+						assignment_expression data
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement pool
+						method_invocation pool
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								decimal_integer_literal 
+								) 
+						; 
+					expression_statement pool
+						method_invocation pool
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								decimal_integer_literal 
+								) 
+						; 
+					expression_statement pool
+						method_invocation pool
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								decimal_integer_literal 
+								) 
+						; 
+					} 
+			method_declaration solveVelocityConstraints
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				void_type 
+				identifier 
+				formal_parameters data
+					( 
+					formal_parameter data
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					) 
+				block vA
+					{ 
+					local_variable_declaration vA
+						type_identifier 
+						variable_declarator vA
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration wA
+						floating_point_type 
+							float 
+						variable_declarator wA
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration vB
+						type_identifier 
+						variable_declarator vB
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration wB
+						floating_point_type 
+							float 
+						variable_declarator wB
+							identifier 
+							= 
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					local_variable_declaration mA
+						floating_point_type 
+							float 
+						variable_declarator mA
+							identifier 
+							= 
+							identifier 
+						, 
+						variable_declarator mB
+							identifier 
+							= 
+							identifier 
+						; 
+					local_variable_declaration iA
+						floating_point_type 
+							float 
+						variable_declarator iA
+							identifier 
+							= 
+							identifier 
+						, 
+						variable_declarator iB
+							identifier 
+							= 
+							identifier 
+						; 
+					local_variable_declaration h
+						floating_point_type 
+							float 
+						variable_declarator h
+							identifier 
+							= 
+							field_access data
+								field_access data
+									identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+						; 
+					line_comment 
+					block Cdot
+						{ 
+						local_variable_declaration Cdot
+							floating_point_type 
+								float 
+							variable_declarator Cdot
+								identifier 
+								= 
+								binary_expression wB
+									identifier 
+									- 
+									identifier 
+							; 
+						local_variable_declaration impulse
+							floating_point_type 
+								float 
+							variable_declarator impulse
+								identifier 
+								= 
+								binary_expression m_angularMass
+									unary_expression m_angularMass
+										- 
+										identifier 
+									* 
+									identifier 
+							; 
+						local_variable_declaration oldImpulse
+							floating_point_type 
+								float 
+							variable_declarator oldImpulse
+								identifier 
+								= 
+								identifier 
+							; 
+						local_variable_declaration maxImpulse
+							floating_point_type 
+								float 
+							variable_declarator maxImpulse
+								identifier 
+								= 
+								binary_expression h
+									identifier 
+									* 
+									identifier 
+							; 
+						expression_statement m_angularImpulse
+							assignment_expression m_angularImpulse
+								identifier 
+								= 
+								method_invocation MathUtils
+									identifier 
+									. 
+									identifier 
+									argument_list m_angularImpulse
+										( 
+										binary_expression m_angularImpulse
+											identifier 
+											+ 
+											identifier 
+										, 
+										unary_expression maxImpulse
+											- 
+											identifier 
+										, 
+										identifier 
+										) 
+							; 
+						expression_statement impulse
+							assignment_expression impulse
+								identifier 
+								= 
+								binary_expression m_angularImpulse
+									identifier 
+									- 
+									identifier 
+							; 
+						expression_statement wA
+							assignment_expression wA
+								identifier 
+								-= 
+								binary_expression iA
+									identifier 
+									* 
+									identifier 
+							; 
+						expression_statement wB
+							assignment_expression wB
+								identifier 
+								+= 
+								binary_expression iB
+									identifier 
+									* 
+									identifier 
+							; 
+						} 
+					line_comment 
+					block Cdot
+						{ 
+						local_variable_declaration Cdot
+							modifiers 
+								final 
+							type_identifier 
+							variable_declarator Cdot
+								identifier 
+								= 
+								method_invocation pool
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+							; 
+						local_variable_declaration temp
+							modifiers 
+								final 
+							type_identifier 
+							variable_declarator temp
+								identifier 
+								= 
+								method_invocation pool
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+							; 
+						expression_statement Vec2
+							method_invocation Vec2
+								identifier 
+								. 
+								identifier 
+								argument_list wA
+									( 
+									identifier 
+									, 
+									identifier 
+									, 
+									identifier 
+									) 
+							; 
+						expression_statement Vec2
+							method_invocation Vec2
+								identifier 
+								. 
+								identifier 
+								argument_list wB
+									( 
+									identifier 
+									, 
+									identifier 
+									, 
+									identifier 
+									) 
+							; 
+						expression_statement Cdot
+							method_invocation Cdot
+								method_invocation Cdot
+									method_invocation Cdot
+										identifier 
+										. 
+										identifier 
+										argument_list vB
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+									argument_list vA
+										( 
+										identifier 
+										) 
+								. 
+								identifier 
+								argument_list temp
+									( 
+									identifier 
+									) 
+							; 
+						local_variable_declaration impulse
+							modifiers 
+								final 
+							type_identifier 
+							variable_declarator impulse
+								identifier 
+								= 
+								method_invocation pool
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+							; 
+						expression_statement Mat22
+							method_invocation Mat22
+								identifier 
+								. 
+								identifier 
+								argument_list m_linearMass
+									( 
+									identifier 
+									, 
+									identifier 
+									, 
+									identifier 
+									) 
+							; 
+						expression_statement impulse
+							method_invocation impulse
+								identifier 
+								. 
+								identifier 
+								argument_list 
+									( 
+									) 
+							; 
+						local_variable_declaration oldImpulse
+							modifiers 
+								final 
+							type_identifier 
+							variable_declarator oldImpulse
+								identifier 
+								= 
+								method_invocation pool
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+							; 
+						expression_statement oldImpulse
+							method_invocation oldImpulse
+								identifier 
+								. 
+								identifier 
+								argument_list m_linearImpulse
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement m_linearImpulse
+							method_invocation m_linearImpulse
+								identifier 
+								. 
+								identifier 
+								argument_list impulse
+									( 
+									identifier 
+									) 
+							; 
+						local_variable_declaration maxImpulse
+							floating_point_type 
+								float 
+							variable_declarator maxImpulse
+								identifier 
+								= 
+								binary_expression h
+									identifier 
+									* 
+									identifier 
+							; 
+						if_statement m_linearImpulse
+							if 
+							parenthesized_expression m_linearImpulse
+								( 
+								binary_expression m_linearImpulse
+									method_invocation m_linearImpulse
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+									> 
+									binary_expression maxImpulse
+										identifier 
+										* 
+										identifier 
+								) 
+							block m_linearImpulse
+								{ 
+								expression_statement m_linearImpulse
+									method_invocation m_linearImpulse
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+									; 
+								expression_statement m_linearImpulse
+									method_invocation m_linearImpulse
+										identifier 
+										. 
+										identifier 
+										argument_list maxImpulse
+											( 
+											identifier 
+											) 
+									; 
+								} 
+						expression_statement impulse
+							method_invocation impulse
+								method_invocation impulse
+									identifier 
+									. 
+									identifier 
+									argument_list m_linearImpulse
+										( 
+										identifier 
+										) 
+								. 
+								identifier 
+								argument_list oldImpulse
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement temp
+							method_invocation temp
+								method_invocation temp
+									identifier 
+									. 
+									identifier 
+									argument_list impulse
+										( 
+										identifier 
+										) 
+								. 
+								identifier 
+								argument_list mA
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement vA
+							method_invocation vA
+								identifier 
+								. 
+								identifier 
+								argument_list temp
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement wA
+							assignment_expression wA
+								identifier 
+								-= 
+								binary_expression iA
+									identifier 
+									* 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list m_rA
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+							; 
+						expression_statement temp
+							method_invocation temp
+								method_invocation temp
+									identifier 
+									. 
+									identifier 
+									argument_list impulse
+										( 
+										identifier 
+										) 
+								. 
+								identifier 
+								argument_list mB
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement vB
+							method_invocation vB
+								identifier 
+								. 
+								identifier 
+								argument_list temp
+									( 
+									identifier 
+									) 
+							; 
+						expression_statement wB
+							assignment_expression wB
+								identifier 
+								+= 
+								binary_expression iB
+									identifier 
+									* 
+									method_invocation Vec2
+										identifier 
+										. 
+										identifier 
+										argument_list m_rB
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+							; 
+						} 
+					line_comment 
+					if_statement data
+						if 
+						parenthesized_expression data
+							( 
+							binary_expression data
+								field_access data
+									array_access data
+										field_access data
+											identifier 
+											. 
+											identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								!= 
+								identifier 
+							) 
+						block data
+							{ 
+							assert_statement data
+								assert 
+								parenthesized_expression data
+									( 
+									binary_expression data
+										field_access data
+											array_access data
+												field_access data
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										!= 
+										identifier 
+									) 
+								; 
+							} 
+					expression_statement data
+						assignment_expression data
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					line_comment 
+					expression_statement data
+						assignment_expression data
+							field_access data
+								array_access data
+									field_access data
+										identifier 
+										. 
+										identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement pool
+						method_invocation pool
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								decimal_integer_literal 
+								) 
+						; 
+					} 
+			method_declaration solvePositionConstraints
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				boolean_type 
+				identifier 
+				formal_parameters data
+					( 
+					formal_parameter data
+						modifiers 
+							final 
+						type_identifier 
+						identifier 
+					) 
+				block 
+					{ 
+					return_statement 
+						return 
+						true 
+						; 
+					} 
+			} 
