@@ -14,6 +14,8 @@ const (
 	SUPERCLASS                      = NodeType("superclass")
 	EXPLICIT_CONSTRUCTOR_INVOCATION = NodeType("explicit_constructor_invocation")
 	ARGUMENT_LIST                   = NodeType("argument_list")
+	SCOPED_IDENTIFIER               = NodeType("scoped_identifier")
+	ASTERISK                        = NodeType("asterisk")
 	METHOD_DECLARATION              = NodeType("method_declaration")
 	METHOD_INVOCATION               = NodeType("method_invocation")
 	CLASS_BODY                      = NodeType("class_body")

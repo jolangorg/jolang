@@ -43,7 +43,7 @@ func main() {
 	if true {
 		//unit.PrintAST()
 		//unit.WriteASTToFile("txt/tree-World.txt")
-		unit.WriteASTToFile("txt/tree-FrictionJoint.txt")
+		unit.WriteASTToFile("txt/tree-" + unit.Name + ".txt")
 	}
 
 	if true {

@@ -1,17 +1,22 @@
 package printers
 
-import "fmt"
+import (
+	"fmt"
+	"jolang2"
+)
 
 type BasePrinter struct {
+	Project           *jolang2.Project
 	Buffer            string
 	Indent            int
 	ShouldPrintIndent bool
 }
 
-func NewBasePrinter() *BasePrinter {
+func NewBasePrinter(project *jolang2.Project) *BasePrinter {
 	return &BasePrinter{
-		Buffer: "",
-		Indent: 0,
+		Project: project,
+		Buffer:  "",
+		Indent:  0,
 	}
 }
 

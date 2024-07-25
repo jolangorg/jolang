@@ -21,7 +21,7 @@ type PrinterJS struct {
 
 func NewPrinterJS(project *jolang2.Project) Printer {
 	return &PrinterJS{
-		BasePrinter:   NewBasePrinter(),
+		BasePrinter:   NewBasePrinter(project),
 		importedNames: map[string]string{},
 	}
 }
@@ -119,11 +119,27 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 		return
 	}
 	name := ids[len(ids)-1].Content()
-	absName := importDeclaration.Child(1).Content()
-	printer.importedNames[name] = absName
-	path := printer.convertClassNameToPath(absName)
-	_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
-	printer.Println(";")
+	absName := importDeclaration.FindNodeByType(nodetype.SCOPED_IDENTIFIER).Content()
+	//import * stuff
+	if importDeclaration.Contains(nodetype.ASTERISK) {
+		pkg := absName
+		if units, ok := printer.Project.UnitsByPkg[pkg]; ok {
+			for _, unit := range units {
+				absName = unit.AbsName()
+				name = unit.Name
+
+				printer.importedNames[name] = absName
+				path := printer.convertClassNameToPath(absName)
+				_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
+				printer.Println(";")
+			}
+		}
+	} else {
+		printer.importedNames[name] = absName
+		path := printer.convertClassNameToPath(absName)
+		_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
+		printer.Println(";")
+	}
 }
 
 func (printer *PrinterJS) printExpr(exprNode *jolang2.Node) {
