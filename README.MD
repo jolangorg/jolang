@@ -1,6 +1,6 @@
-# Jolang2
+# Jolang
 
-_Jolang2_ is Java transpiler and extender written on [_Go_](https://go.dev/)
+_Jolang_ is Java transpiler and extender written on [_Go_](https://go.dev/)
 
 ## Try it (transpile Java to JS)
 
