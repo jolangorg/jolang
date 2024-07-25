@@ -53,6 +53,8 @@ const (
 	BLOCK_COMMENT = NodeType("block_comment")
 	LINE_COMMENT  = NodeType("line_comment")
 
+	THROW = NodeType("throw")
+
 	NEW    = NodeType("new")
 	RETURN = NodeType("return")
 	IF     = NodeType("if")

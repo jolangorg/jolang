@@ -26,6 +26,10 @@ func NewPrinterJS(project *jolang2.Project) Printer {
 	}
 }
 
+var importJavaLang = map[string]bool{
+	"RuntimeException": true,
+}
+
 func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	root := unit.Root
 
@@ -72,8 +76,14 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 			continue
 		}
 
+		if _, ok := importJavaLang[s]; ok {
+			_, _ = fmt.Fprintf(printer, "import {%s} from 'java/lang/%s.js';", s, s)
+			typeIdentifiersReady[s] = true
+			continue
+		}
+
 		// unknown typeIdentifiers
-		// fmt.Println(s)
+		//fmt.Println(s)
 	}
 
 	printer.Println()
@@ -653,6 +663,10 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 
 	case nodetype.LINE_COMMENT:
 		printer.Println(node.Content())
+
+	case nodetype.THROW:
+		printer.Print(node.Content())
+		printer.Print(" ")
 
 	case nodetype.IDENTIFIER:
 		printer.printFullPath(node)

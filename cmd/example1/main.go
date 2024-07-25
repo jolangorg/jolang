@@ -36,7 +36,7 @@ func main() {
 		printFilenames(project, printer)
 	}
 
-	unit, ok := project.UnitsByAbsName["org.jbox2d.collision.Distance"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.collision.shapes.ChainShape"]
 	if !ok {
 		log.Println("not exists")
 		return
@@ -45,13 +45,13 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	if true {
+	if false {
 		//unit.PrintAST()
 		//unit.WriteASTToFile("txt/tree-World.txt")
 		unit.WriteASTToFile("txt/tree-" + unit.Name + ".txt")
 	}
 
-	if true {
+	if false {
 		err := writeUnit(unit)
 		if err != nil {
 			log.Println(err)
