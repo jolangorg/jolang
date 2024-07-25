@@ -9,5 +9,3 @@ export class Float extends Number{
     }
 
 }
-
-window.Float = Float;

@@ -33,17 +33,16 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 		printer.Println("import {assert} from 'jo';")
 	}
 
-	//for unitName, siblingUnit := range unit.GetSiblingUnits() {
-	//	jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
-	//	_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", unitName, jsPath)
-	//	printer.Println()
-	//}
-
 	siblingUnits := unit.GetSiblingUnits()
 
 	typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
 	typeIdentifiersReady := map[string]bool{}
 	for _, typeIdentifier := range typeIdentifiers {
+		parents := typeIdentifier.Parents()
+		if len(parents) > 1 && parents[1].Type() == nodetype.SUPER_INTERFACES {
+			continue
+		}
+
 		s := typeIdentifier.Content()
 		if _, ok := typeIdentifiersReady[s]; ok {
 			continue

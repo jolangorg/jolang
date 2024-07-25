@@ -149,23 +149,28 @@ func (n *Node) Parents() NodeList {
 
 func (n *Node) FindDeclaration() *Node {
 	parents := n.Parents()
+	isMethod := parents[0].Type() == nodetype.METHOD_INVOCATION
+
 	for _, parent := range parents {
-		fieldDeclarations := parent.FindNodesByType(nodetype.FIELD_DECLARATION)
-		for _, fieldDeclaration := range fieldDeclarations {
-			decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
-			for _, decl := range decls {
-				if decl.GetName() == n.Content() {
-					return decl
+
+		if !isMethod {
+			fieldDeclarations := parent.FindNodesByType(nodetype.FIELD_DECLARATION)
+			for _, fieldDeclaration := range fieldDeclarations {
+				decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+				for _, decl := range decls {
+					if decl.GetName() == n.Content() {
+						return decl
+					}
 				}
 			}
-		}
 
-		localDeclarations := parent.FindNodesByType(nodetype.LOCAL_VARIABLE_DECLARATION)
-		for _, localDeclaration := range localDeclarations {
-			decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
-			for _, decl := range decls {
-				if decl.GetName() == n.Content() {
-					return decl
+			localDeclarations := parent.FindNodesByType(nodetype.LOCAL_VARIABLE_DECLARATION)
+			for _, localDeclaration := range localDeclarations {
+				decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+				for _, decl := range decls {
+					if decl.GetName() == n.Content() {
+						return decl
+					}
 				}
 			}
 		}
