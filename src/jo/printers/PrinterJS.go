@@ -2,8 +2,8 @@ package printers
 
 import (
 	"fmt"
-	"jolang2/src/jo"
-	"jolang2/src/jo/nodetype"
+	"github.com/jolangorg/jolang/src/jo"
+	"github.com/jolangorg/jolang/src/jo/nodetype"
 	"strings"
 )
 

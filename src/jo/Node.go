@@ -3,8 +3,8 @@ package jo
 import "C"
 import (
 	"fmt"
+	"github.com/jolangorg/jolang/src/jo/nodetype"
 	sitter "github.com/smacker/go-tree-sitter"
-	"jolang2/src/jo/nodetype"
 )
 
 type Node struct {

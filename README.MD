@@ -7,17 +7,17 @@ _Jolang2_ is Java transpiler and extender written on [_Go_](https://go.dev/)
 ```shell
 mkdir ~/Projects
 cd ~/Projects
-git clone https://github.com/jolang2/jolang2
+git clone https://github.com/jolangorg/jolang
 git clone https://github.com/jbox2d/jbox2d
-cd jolang2
+cd jolang
 
 # Transpile all Java files
-go run jolang2/cmd/jo \
+go run github.com/jolangorg/jolang/cmd/jo \
   -src="~/Projects/jbox2d/jbox2d-library/src/main/java" \
   -write-all
 
 # You can also write AST files with -write-ast flag
-go run jolang2/cmd/jo \
+go run jolang/cmd/jo \
   -src="~/Projects/jbox2d/jbox2d-library/src/main/java" \
   -write-all
   -write-ast

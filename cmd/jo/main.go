@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"jolang2/src/jo"
-	printers2 "jolang2/src/jo/printers"
+	"github.com/jolangorg/jolang/src/jo"
+	"github.com/jolangorg/jolang/src/jo/printers"
 	"log"
 	"os"
 	"path/filepath"
@@ -53,7 +53,7 @@ func main() {
 
 	//unit, err := project.AddSource("examples/main/Example1.java")
 
-	printer := printers2.NewPrinterJS(project)
+	printer := printers.NewPrinterJS(project)
 
 	if false {
 		printFilenames(project, printer)
@@ -87,7 +87,7 @@ func main() {
 
 func writeUnit(unit *jo.Unit) error {
 	fmt.Println("writeUnit", unit.AbsName())
-	printer := printers2.NewPrinterJS(unit.Project)
+	printer := printers.NewPrinterJS(unit.Project)
 
 	content := printer.PrintUnit(unit)
 	filename := printer.Filename(unit)
@@ -125,7 +125,7 @@ func writeUnit(unit *jo.Unit) error {
 	return nil
 }
 
-func printFilenames(project *jo.Project, printer printers2.Printer) {
+func printFilenames(project *jo.Project, printer printers.Printer) {
 	for _, u := range project.UnitsByAbsName {
 		filename := printer.Filename(u)
 		filename = filepath.Join("output", filename)

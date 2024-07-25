@@ -2,7 +2,7 @@ package printers
 
 import (
 	"fmt"
-	"jolang2/src/jo"
+	"github.com/jolangorg/jolang/src/jo"
 )
 
 type BasePrinter struct {

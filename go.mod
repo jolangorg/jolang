@@ -1,4 +1,4 @@
-module jolang2
+module github.com/jolangorg/jolang
 
 go 1.19
 
