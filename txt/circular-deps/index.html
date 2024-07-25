@@ -1,0 +1,17 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <script type="module">
+        import {A} from "./A.js";
+        import {waitImports} from "./tools.js";
+        await waitImports();
+
+        let a = new A();
+        let b = a.getB();
+        console.log(b);
+    </script>
+</body>
+</html>
