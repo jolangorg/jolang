@@ -2,6 +2,7 @@ package jolang2
 
 import (
 	"context"
+	"errors"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/smacker/go-tree-sitter/java"
 	"io/fs"
@@ -96,14 +97,20 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 	if pkgDecl := unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION); pkgDecl != nil && pkgDecl.ChildCount() > 1 {
 		unit.Package = pkgDecl.Child(1).Content()
 		p.UnitsByPkg[unit.Package] = unit
+	} else {
+		return nil, errors.New("PACKAGE_DECLARATION not found in " + filename)
 	}
-
-	if classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION); classDecl != nil && classDecl.ChildCount() > 2 {
-		unit.Name = classDecl.Child(2).Content()
-		p.UnitsByName[unit.AbsName()] = unit
-	}
-
 	pkgNamedNode := p.AddChild(unit.Package)
+
+	if classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION); classDecl != nil {
+		unit.NameNode = pkgNamedNode.AddChild(classDecl.GetName())
+		//unit.Name = classDecl.Child(2).Content()
+		p.UnitsByName[unit.AbsName()] = unit
+	} else {
+		return nil, nil
+		//return nil, errors.New("CLASS_DECLARATION not found in " + filename)
+	}
+
 	pkgNamedNode.AddChild(unit.Name)
 
 	return unit, nil
@@ -117,6 +124,6 @@ func NewProject() *Project {
 		Units:       []*Unit{},
 		UnitsByPkg:  UnitMap{},
 		UnitsByName: UnitMap{},
-		NameNode:    NewNameNode("."),
+		NameNode:    NewRootNameNode(),
 	}
 }

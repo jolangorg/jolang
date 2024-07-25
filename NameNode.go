@@ -7,6 +7,10 @@ type NameNode struct {
 	Children map[string]*NameNode
 }
 
+func NewRootNameNode() *NameNode {
+	return NewNameNode(".")
+}
+
 func NewNameNode(name string) *NameNode {
 	return &NameNode{
 		Name:     name,
