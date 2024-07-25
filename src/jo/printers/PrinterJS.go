@@ -218,7 +218,7 @@ func (printer *PrinterJS) printOverloadCheck(methodDeclaration *jo.Node) {
 func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jo.Node, forConstructor bool) {
 	params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
 	if forConstructor {
-		printer.Print("case jo.suitable(arguments")
+		printer.Print("case jo.suitable($arguments")
 	} else {
 		printer.Print("if (jo.suitable(arguments")
 	}
@@ -400,7 +400,7 @@ func (printer *PrinterJS) printConstructors(classBody *jo.Node, superclass *jo.N
 	} else {
 		printer.Println("constructor(){")
 		printer.Indent++
-		printer.Println("const $this = () => {")
+		printer.Println("const $this = (...$arguments) => {")
 		printer.Indent++
 		printer.Println("switch (true){")
 		printer.Indent++
@@ -418,7 +418,7 @@ func (printer *PrinterJS) printConstructors(classBody *jo.Node, superclass *jo.N
 					}
 					printer.Print(param.GetName())
 				}
-				printer.Println("] = arguments;")
+				printer.Println("] = $arguments;")
 			}
 
 			block := constructorDeclaration.FindNodeByType(nodetype.CONSTRUCTOR_BODY)
@@ -438,7 +438,7 @@ func (printer *PrinterJS) printConstructors(classBody *jo.Node, superclass *jo.N
 
 		if superclass != nil {
 			printer.Println()
-			printer.Println("default: super(...arguments); break;")
+			printer.Println("default: super(...$arguments); break;")
 		}
 
 		printer.Indent--
