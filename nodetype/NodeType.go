@@ -44,6 +44,7 @@ const (
 	ASSIGNMENT_EXPRESSION          = NodeType("assignment_expression")
 	FIELD_ACCESS                   = NodeType("field_access")
 	ASSERT_STATEMENT               = NodeType("assert_statement")
+	ASSERT                         = NodeType("assert")
 	SUPER_INTERFACES               = NodeType("super_interfaces")
 	TYPE_ARGUMENTS                 = NodeType("type_arguments")
 	OBJECT_CREATION_EXPRESSION     = NodeType("object_creation_expression")
@@ -66,6 +67,7 @@ const (
 	LEFT_PAREN   = NodeType("(")
 	RIGHT_PAREN  = NodeType(")")
 	SEMICOLON    = NodeType(";")
+	COLON        = NodeType(":")
 
 	STATIC            = NodeType("static")
 	FINAL             = NodeType("final")

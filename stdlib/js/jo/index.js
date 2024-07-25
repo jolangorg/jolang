@@ -6,9 +6,9 @@ Object.prototype.hashCode = function(){
     return this.toString();
 }
 
-export function assert(cond) {
+export function assert(cond, msg = "assert failed") {
     if (!cond){
-        throw new Error("assert failed");
+        throw new Error(msg);
     }
 }
 

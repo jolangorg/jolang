@@ -725,9 +725,18 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		}
 
 	case nodetype.ASSERT_STATEMENT:
-		printer.VisitDefault(node)
-		printer.Println()
-
+		for _, child := range node.Children() {
+			switch child.Type() {
+			case nodetype.ASSERT:
+				printer.Print("assert(")
+			case nodetype.SEMICOLON:
+				printer.Println(");")
+			case nodetype.COLON:
+				printer.Print(", ")
+			default:
+				printer.Visit(child)
+			}
+		}
 	case nodetype.ENUM_DECLARATION:
 		printer.printEnum(node, false)
 		printer.Println()
