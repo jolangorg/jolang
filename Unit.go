@@ -6,6 +6,7 @@ import (
 )
 
 type Unit struct {
+	Project    *Project
 	SourceCode []byte
 	*sitter.Tree
 	Root    *Node

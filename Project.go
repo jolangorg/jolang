@@ -74,6 +74,7 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 	}
 
 	unit := &Unit{}
+	unit.Project = p
 
 	unit.SourceCode, err = os.ReadFile(filename)
 	if err != nil {
