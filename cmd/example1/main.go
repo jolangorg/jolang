@@ -36,7 +36,7 @@ func main() {
 		fmt.Println(printer.Buffer)
 	}
 
-	if true {
+	if false {
 		printer := printers.NewPrinterJS(project)
 		content := printer.PrintUnit(unit)
 		filename := printer.Filename(unit)
@@ -54,9 +54,11 @@ func main() {
 			return
 		}
 
-		fmt.Println(filename)
-		fmt.Println(content)
+		//fmt.Println(filename)
+		//fmt.Println(content)
 	}
+
+	project.PrintNameTree(0)
 
 	//
 	//n := unit.Tree.RootNode()

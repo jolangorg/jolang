@@ -16,9 +16,12 @@ type UnitMap map[string]*Unit
 
 type Project struct {
 	*sitter.Parser
+
 	Units       []*Unit
 	UnitsByPkg  UnitMap
 	UnitsByName UnitMap
+
+	*NameNode
 }
 
 func resolvePath(path string) (string, error) {
@@ -100,6 +103,9 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 		p.UnitsByName[unit.AbsName()] = unit
 	}
 
+	pkgNamedNode := p.AddChild(unit.Package)
+	pkgNamedNode.AddChild(unit.Name)
+
 	return unit, nil
 }
 
@@ -111,5 +117,6 @@ func NewProject() *Project {
 		Units:       []*Unit{},
 		UnitsByPkg:  UnitMap{},
 		UnitsByName: UnitMap{},
+		NameNode:    NewNameNode("."),
 	}
 }

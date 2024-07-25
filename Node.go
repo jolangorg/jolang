@@ -16,6 +16,7 @@ func (n *Node) Child(idx int) *Node {
 		idx = int(n.Node.ChildCount()) + idx
 	}
 	child := n.Node.Child(idx)
+
 	if child == nil {
 		return nil
 	}
