@@ -261,6 +261,12 @@ func (printer *PrinterJS) printConstructors(classBody *jolang2.Node) {
 	//}
 }
 
+func (printer *PrinterJS) printSubClass(subClass *jolang2.Node) {
+	name := subClass.GetName()
+	_, _ = fmt.Fprintf(printer, "static %s = %s;", name, name)
+	printer.Println()
+}
+
 func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 	fieldDeclarations := classBody.FindNodesByType(nodetype.FIELD_DECLARATION)
 	for _, fieldDeclaration := range fieldDeclarations {
@@ -290,8 +296,25 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node) {
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
 
+	subClassDeclarations := classBody.FindNodesByTypeRecursive(nodetype.CLASS_DECLARATION)
+
+	if len(subClassDeclarations) > 0 {
+		//fmt.Println(subClassDeclarations)
+	}
+
+	for _, subClassDeclaration := range subClassDeclarations {
+		printer.printClass(subClassDeclaration)
+		printer.Println()
+		printer.Println()
+	}
+
 	printer.Println("export class", className, "{")
 	printer.Indent++
+
+	for _, subClassDeclaration := range subClassDeclarations {
+		printer.printSubClass(subClassDeclaration)
+	}
+
 	printer.printFields(classBody)
 	printer.printConstructors(classBody)
 	printer.printMethods(classBody)
@@ -351,15 +374,19 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 			decl := node.FindDeclaration()
 			if decl != nil {
 				if decl.Type() == nodetype.VARIABLE_DECLARATOR {
-					parent := decl.Parent()
-					if parent != nil && parent.Type() == nodetype.FIELD_DECLARATION {
-						printer.Print("this.")
+					declParent := decl.Parent()
+					if declParent != nil && declParent.Type() == nodetype.FIELD_DECLARATION {
+						if declParent.IsStatic() {
+							clsDecl := declParent.FindParent(nodetype.CLASS_DECLARATION)
+							printer.Print(clsDecl.GetName() + ".")
+						} else {
+							printer.Print("this.")
+						}
 					}
 				} else if decl.Type() == nodetype.METHOD_DECLARATION {
 					printer.Print("this.")
 				}
 			}
-			//printer.firstIdentifier = false
 		}
 
 		printer.Print(node.Content())

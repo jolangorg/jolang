@@ -141,6 +141,25 @@ func (n *Node) Parent() *Node {
 	return n.unit.WrapNode(n.Node.Parent())
 }
 
+func (n *Node) FindParents(t nodetype.NodeType) NodeList {
+	parents := n.Parents()
+	result := NodeList{}
+	for _, p := range parents {
+		if p.Type() == t {
+			result = append(result, p)
+		}
+	}
+	return result
+}
+
+func (n *Node) FindParent(t nodetype.NodeType) *Node {
+	parents := n.FindParents(t)
+	if len(parents) > 0 {
+		return parents[0]
+	}
+	return nil
+}
+
 func (n *Node) Parents() NodeList {
 	parents := NodeList{}
 	node := n

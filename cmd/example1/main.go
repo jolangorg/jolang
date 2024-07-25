@@ -35,7 +35,7 @@ func main() {
 	//	return
 	//}
 
-	unit, ok := project.UnitsByAbsName["org.jbox2d.common.Vec3"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.Profile"]
 	if !ok {
 		log.Println("not exists")
 		return
@@ -48,37 +48,43 @@ func main() {
 		unit.PrintAST()
 	}
 
-	if true {
-		content := printer.PrintUnit(unit)
-		filename := printer.Filename(unit)
-		filename = filepath.Join("output", filename)
-
-		err = os.MkdirAll(filepath.Dir(filename), os.ModePerm)
-		if err != nil {
-			log.Println(err)
-			return
-		}
-
-		err = os.WriteFile(filename, []byte(content), os.ModePerm)
-		if err != nil {
-			log.Println(err)
-			return
-		}
-
-		//fmt.Println(filename)
-		//fmt.Println(content)
+	if false {
+		writeUnit(unit)
 	}
 
-	if false {
-		writeAll(project)
+	if true {
+		writeAllUnits(project)
 	}
 }
 
-func writeAll(project *jolang2.Project) {
-	printer := printers.NewPrinterJS(project)
+func writeUnit(unit *jolang2.Unit) error {
+	printer := printers.NewPrinterJS(unit.Project)
+
+	content := printer.PrintUnit(unit)
+	filename := printer.Filename(unit)
+	filename = filepath.Join("output", filename)
+
+	err := os.MkdirAll(filepath.Dir(filename), os.ModePerm)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	err = os.WriteFile(filename, []byte(content), os.ModePerm)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	return nil
+}
+
+func writeAllUnits(project *jolang2.Project) {
 	var err error
 
 	for _, unit := range project.Units {
+		printer := printers.NewPrinterJS(project)
+
 		content := printer.PrintUnit(unit)
 		filename := printer.Filename(unit)
 		filename = filepath.Join("output", filename)
