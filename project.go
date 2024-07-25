@@ -87,12 +87,12 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 
 	unit.Root = unit.WrapNode(unit.RootNode())
 
-	if pkgDecl := unit.FindNodeByType(unit.Root, nodetype.PACKAGE_DECLARATION); pkgDecl != nil && pkgDecl.ChildCount() > 1 {
+	if pkgDecl := unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION); pkgDecl != nil && pkgDecl.ChildCount() > 1 {
 		unit.Package = pkgDecl.Child(1).Content()
 		p.UnitsByPkg[unit.Package] = unit
 	}
 
-	if classDecl := unit.FindNodeByType(unit.Root, nodetype.CLASS_DECLARATION); classDecl != nil && classDecl.ChildCount() > 2 {
+	if classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION); classDecl != nil && classDecl.ChildCount() > 2 {
 		unit.Name = classDecl.Child(2).Content()
 		p.UnitsByName[unit.AbsName()] = unit
 	}

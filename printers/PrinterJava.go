@@ -2,6 +2,7 @@ package printers
 
 import (
 	"jolang2"
+	"jolang2/nodetype"
 )
 
 type PrinterJava struct {
@@ -97,7 +98,7 @@ func (p *PrinterJava) PrintNode(node *jolang2.Node) {
 }
 
 func (p *PrinterJava) PrintUnit() {
-	package_declaration := p.unit.FindNodeByType(p.unit.Root, "package_declaration")
-	p.Printf("package %s;", package_declaration)
+	packageDeclaration := p.unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION)
+	p.Printf("package %s;", packageDeclaration)
 
 }

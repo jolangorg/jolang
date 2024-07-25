@@ -3,7 +3,6 @@ package jolang2
 import (
 	"fmt"
 	sitter "github.com/smacker/go-tree-sitter"
-	"jolang2/nodetype"
 )
 
 type Unit struct {
@@ -46,29 +45,4 @@ func (u *Unit) NodeContent(node *sitter.Node) string {
 
 func (u *Unit) WrapNode(node *sitter.Node) *Node {
 	return &Node{node, u}
-}
-
-func (u *Unit) FindNodeByType(node *Node, t nodetype.NodeType) *Node {
-	for _, child := range node.Children() {
-		if child.Type() == t {
-			return child
-		}
-		found := u.FindNodeByType(child, t)
-		if found != nil {
-			return found
-		}
-	}
-	return nil
-}
-
-func (u *Unit) FindNodesByType(node *Node, t nodetype.NodeType) []*Node {
-	result := []*Node{}
-	for _, child := range node.Children() {
-		if child.Type() == t {
-			result = append(result, child)
-		}
-		found := u.FindNodesByType(child, t)
-		result = append(result, found...)
-	}
-	return result
 }
