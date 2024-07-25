@@ -763,7 +763,14 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Println()
 
 	case nodetype.EXPLICIT_CONSTRUCTOR_INVOCATION:
-		printer.Print("$this")
+		switch node.Child(0).Type() {
+		case nodetype.THIS:
+			printer.Print("$this")
+		case nodetype.SUPER:
+			printer.Print("super")
+		default:
+			fmt.Println("[WARN] strange EXPLICIT_CONSTRUCTOR_INVOCATION ...")
+		}
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.ARGUMENT_LIST))
 		printer.Print(";")
 

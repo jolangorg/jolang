@@ -53,6 +53,9 @@ const (
 	BLOCK_COMMENT = NodeType("block_comment")
 	LINE_COMMENT  = NodeType("line_comment")
 
+	THIS  = NodeType("this")
+	SUPER = NodeType("super")
+
 	THROW = NodeType("throw")
 
 	NEW    = NodeType("new")
