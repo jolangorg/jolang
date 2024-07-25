@@ -9,6 +9,7 @@ import (
 
 type PrinterJS struct {
 	*BasePrinter
+	firstIdentifier bool
 }
 
 func NewPrinterJS(project *jolang2.Project) Printer {
@@ -175,10 +176,42 @@ func (printer *PrinterJS) printFloatLiteral(node *jolang2.Node) {
 	printer.Print(content)
 }
 
+func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
+	if node.ChildCount() > 0 {
+		printer.VisitChildrenOf(node)
+	} else {
+		printer.Print(node.Content())
+		//printer.Print(" " + node.Content() + " ")
+	}
+}
+
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	switch node.Type() {
+	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE:
+		printer.VisitDefault(node)
+		printer.Print(" ")
 
-	case nodetype.FIELD_ACCESS, nodetype.IDENTIFIER:
+	case nodetype.FIELD_ACCESS:
+		printer.VisitDefault(node)
+
+	case nodetype.IDENTIFIER:
+		prev := node.PrevSibling()
+		firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
+		if firstIdentifier {
+			decl := node.FindDeclaration()
+			if decl != nil {
+				if decl.Type() == nodetype.VARIABLE_DECLARATOR {
+					parent := decl.Parent()
+					if parent != nil && parent.Type() == nodetype.FIELD_DECLARATION {
+						printer.Print("this.")
+					}
+				} else if decl.Type() == nodetype.METHOD_DECLARATION {
+					printer.Print("this.")
+				}
+			}
+			//printer.firstIdentifier = false
+		}
+
 		printer.Print(node.Content())
 
 	case nodetype.EXPRESSION_STATEMENT:
@@ -193,7 +226,12 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.LEFT_BRACE:
 		printer.Println(node.Content())
 
-	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON, nodetype.EQUAL:
+	case nodetype.EQUAL:
+		printer.Print(" ")
+		printer.Print(node.Content())
+		printer.Print(" ")
+
+	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON:
 		printer.Print(node.Content())
 
 	case nodetype.DECIMAL_INTEGER_LITERAL:
@@ -207,11 +245,10 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
 		printer.Println(";")
 
-	case nodetype.CAST_EXPRESSION:
+	case nodetype.METHOD_INVOCATION:
+		printer.VisitDefault(node)
 
-		//fmt.Println(node.Content())
-		//node.PrintAST()
-		//return
+	case nodetype.CAST_EXPRESSION:
 		//todo skip cast right now
 		children := node.Children()
 		for i, child := range children {
@@ -221,10 +258,6 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 			}
 		}
 	default:
-		if node.ChildCount() > 0 {
-			printer.VisitChildrenOf(node)
-		} else {
-			printer.Print(" " + node.Content() + " ")
-		}
+		printer.VisitDefault(node)
 	}
 }

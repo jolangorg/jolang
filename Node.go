@@ -1,5 +1,6 @@
 package jolang2
 
+import "C"
 import (
 	"fmt"
 	sitter "github.com/smacker/go-tree-sitter"
@@ -22,6 +23,13 @@ func (n *Node) Child(idx int) *Node {
 	}
 	return n.unit.WrapNode(child)
 }
+func (n *Node) PrevSibling() *Node {
+	s := n.Node.PrevSibling()
+	if s == nil {
+		return nil
+	}
+	return n.unit.WrapNode(s)
+}
 
 func (n *Node) NextSibling() *Node {
 	s := n.Node.NextSibling()
@@ -33,6 +41,8 @@ func (n *Node) NextSibling() *Node {
 
 func (n *Node) Content() string {
 	return n.Node.Content(n.unit.SourceCode)
+	//s := n.Node.Content(n.unit.SourceCode)
+	//return strings.Trim(s, " ")
 }
 
 func (n *Node) Type() nodetype.NodeType {
@@ -87,11 +97,14 @@ func (n *Node) FindNodeByTypeRecursive(t nodetype.NodeType) *Node {
 	return nil
 }
 
-func (n *Node) FindNodesByType(t nodetype.NodeType) []*Node {
+func (n *Node) FindNodesByType(types ...nodetype.NodeType) []*Node {
 	result := []*Node{}
 	for _, child := range n.Children() {
-		if child.Type() == t {
-			result = append(result, child)
+		for _, t := range types {
+			if child.Type() == t {
+				result = append(result, child)
+				break
+			}
 		}
 	}
 	return result
@@ -110,7 +123,7 @@ func (n *Node) FindNodesByTypeRecursive(t nodetype.NodeType) []*Node {
 }
 
 func (n *Node) GetName() string {
-	id := n.FindNodeByType(nodetype.IDENTIFIER)
+	id := n.FindNodeByTypeRecursive(nodetype.IDENTIFIER)
 	if id == nil {
 		return ""
 	}
@@ -119,6 +132,37 @@ func (n *Node) GetName() string {
 
 func (n *Node) Parent() *Node {
 	return n.unit.WrapNode(n.Node.Parent())
+}
+
+func (n *Node) Parents() []*Node {
+	parents := []*Node{}
+	node := n
+	for {
+		parent := node.Parent()
+		if parent == nil {
+			break
+		}
+		parents = append(parents, parent)
+		node = parent
+	}
+	return parents
+
+}
+
+func (n *Node) FindDeclaration() *Node {
+	parents := n.Parents()
+	for _, parent := range parents {
+		fieldDeclarations := parent.FindNodesByType(nodetype.FIELD_DECLARATION)
+		for _, fieldDeclaration := range fieldDeclarations {
+			decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+			for _, decl := range decls {
+				if decl.GetName() == n.Content() {
+					return decl
+				}
+			}
+		}
+	}
+	return nil
 }
 
 func (n *Node) IsStatic() bool {

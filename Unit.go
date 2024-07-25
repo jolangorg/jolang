@@ -46,6 +46,9 @@ func (u *Unit) NodeContent(node *sitter.Node) string {
 }
 
 func (u *Unit) WrapNode(node *sitter.Node) *Node {
+	if node == nil {
+		return nil
+	}
 	id := uint(node.ID())
 	if result, ok := u.Project.NodesById[id]; ok {
 		return result
