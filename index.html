@@ -31,6 +31,8 @@
         import {FixtureDef} from "./output/org/jbox2d/dynamics/FixtureDef.js";
         import {System} from "java/lang/System.js";
 
+        console.log("Start!!!");
+
         let gravity = new Vec2(0,-10);
         let world = new World(gravity);
         let groundBodyDef = new BodyDef();
@@ -63,7 +65,10 @@
             world.step(timeStep, velocityIterations, positionIterations);
             let position = body.getPosition();
             let angle = body.getAngle();
-            System.out.printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+
+            console.log(position.x, position.y, angle);
+
+            // System.out.printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
         }
     </script>
 </body>
