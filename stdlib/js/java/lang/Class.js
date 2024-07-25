@@ -1,3 +1,3 @@
-export class Class{
+export class Class {
 
 }
