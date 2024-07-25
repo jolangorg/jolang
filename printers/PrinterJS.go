@@ -38,10 +38,6 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 		printer.Println(`import {assert} from "jo";`)
 	}
 
-	if len(root.FindNodesByTypeRecursive(nodetype.ENUM_DECLARATION)) > 0 {
-		printer.Println(`import {Enum} from "jo";`)
-	}
-
 	importDeclarations := root.FindNodesByType(nodetype.IMPORT_DECLARATION)
 	for _, importDeclaration := range importDeclarations {
 		printer.printImport(importDeclaration)
@@ -531,14 +527,29 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
 
-	subClassDeclarations := classBody.FindNodesByTypeRecursive(nodetype.CLASS_DECLARATION)
+	subClassDeclarations := classBody.FindNodesByType(
+		nodetype.CLASS_DECLARATION,
+		nodetype.ENUM_DECLARATION,
+		nodetype.INTERFACE_DECLARATION,
+	)
 
 	if len(subClassDeclarations) > 0 {
 		//fmt.Println(subClassDeclarations)
 	}
 
 	for _, subClassDeclaration := range subClassDeclarations {
-		printer.printClass(subClassDeclaration, false)
+
+		switch subClassDeclaration.Type() {
+		case nodetype.CLASS_DECLARATION:
+			printer.printClass(subClassDeclaration, false)
+
+		case nodetype.ENUM_DECLARATION:
+			printer.printEnum(subClassDeclaration, false)
+
+		case nodetype.INTERFACE_DECLARATION:
+			printer.printInterface(subClassDeclaration, false)
+		}
+
 		printer.Println()
 		printer.Println()
 	}

@@ -27,12 +27,7 @@ func main() {
 		printFilenames(project, printer)
 	}
 
-	//unit, ok := project.UnitsByAbsName["org.jbox2d.collision.shapes.ShapeType"]
-	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.World"]
-	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.Island"]
-	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.FixtureDef"]
-	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.joints.FrictionJoint"]
-	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.BodyType"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.collision.TimeOfImpact"]
 	if !ok {
 		log.Println("not exists")
 		return
