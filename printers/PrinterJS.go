@@ -10,6 +10,7 @@ import (
 type PrinterJS struct {
 	*BasePrinter
 	importedNames map[string]string //shortName -> fullName
+	leftPart      bool
 }
 
 func NewPrinterJS(project *jolang2.Project) Printer {
@@ -242,7 +243,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.IDENTIFIER:
 		prev := node.PrevSibling()
 		firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
-		if firstIdentifier {
+		parent := node.Parent()
+
+		if firstIdentifier && parent.Type() != nodetype.VARIABLE_DECLARATOR {
 			decl := node.FindDeclaration()
 			if decl != nil {
 				if decl.Type() == nodetype.VARIABLE_DECLARATOR {

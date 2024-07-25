@@ -160,6 +160,16 @@ func (n *Node) FindDeclaration() *Node {
 			}
 		}
 
+		localDeclarations := parent.FindNodesByType(nodetype.LOCAL_VARIABLE_DECLARATION)
+		for _, localDeclaration := range localDeclarations {
+			decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+			for _, decl := range decls {
+				if decl.GetName() == n.Content() {
+					return decl
+				}
+			}
+		}
+
 		methodDeclarations := parent.FindNodesByType(nodetype.METHOD_DECLARATION)
 		for _, methodDeclaration := range methodDeclarations {
 			if methodDeclaration.GetName() == n.Content() {
