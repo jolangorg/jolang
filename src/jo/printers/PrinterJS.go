@@ -778,7 +778,8 @@ func (printer *PrinterJS) Visit(node *jo.Node) {
 		children := node.Children()
 		for i, child := range children {
 			if child.Type() == nodetype.RIGHT_PAREN {
-				printer.Print(children[i+1].Content())
+				printer.Visit(children[i+1])
+				//printer.Print(children[i+1].Content())
 				break
 			}
 		}

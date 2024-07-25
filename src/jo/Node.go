@@ -221,6 +221,7 @@ func (n *Node) Parents() NodeList {
 
 func (n *Node) FindDeclaration() *Node {
 	parents := n.Parents()
+	s := n.Content()
 	firstParent := parents[0]
 
 	//check if node n is method that will call now
@@ -230,7 +231,7 @@ func (n *Node) FindDeclaration() *Node {
 		if isMethodInvocation {
 			methodDeclarations := parent.FindNodesByType(nodetype.METHOD_DECLARATION)
 			for _, methodDeclaration := range methodDeclarations {
-				if methodDeclaration.GetName() == n.Content() {
+				if methodDeclaration.GetName() == s {
 					return methodDeclaration
 				}
 			}
@@ -241,7 +242,7 @@ func (n *Node) FindDeclaration() *Node {
 		for _, fieldDeclaration := range fieldDeclarations {
 			decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
 			for _, decl := range decls {
-				if decl.GetName() == n.Content() {
+				if decl.GetName() == s {
 					return decl
 				}
 			}
@@ -251,7 +252,7 @@ func (n *Node) FindDeclaration() *Node {
 		for _, localDeclaration := range localDeclarations {
 			decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
 			for _, decl := range decls {
-				if decl.GetName() == n.Content() {
+				if decl.GetName() == s {
 					return decl
 				}
 			}
@@ -263,7 +264,7 @@ func (n *Node) FindDeclaration() *Node {
 		}
 		params := formalParameters.FindNodesByType(nodetype.FORMAL_PARAMETER)
 		for _, param := range params {
-			if param.GetName() == n.Content() {
+			if param.GetName() == s {
 				return param
 			}
 		}
