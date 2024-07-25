@@ -301,6 +301,20 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 		for _, variableDeclarator := range variableDeclarators {
 			fieldName := variableDeclarator.FindNodeByType(nodetype.IDENTIFIER).Content()
 
+			fieldType := variableDeclarator.PrevSibling()
+			if fieldType != nil {
+				fieldTypeS := fieldType.Content()
+				printer.Println()
+				printer.Println("/**")
+				printer.Printf("* @var {%s}", fieldTypeS)
+				printer.Println()
+				printer.Println("*/")
+			}
+
+			/**
+			 * @var {Shape}
+			 */
+
 			if fieldDeclaration.IsStatic() {
 				printer.Print("static ")
 			}
