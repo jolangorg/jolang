@@ -11,15 +11,17 @@ import (
 	"strings"
 )
 
+var srcPath string
+var unitName string
+var writeAll bool
+var writeAST bool
+
 func main() {
-	var srcPath string
 	flag.StringVar(&srcPath, "src", "", "[required] dirs with java files (separated with ':')")
-
-	var unitName string
 	flag.StringVar(&unitName, "unit", "", "write specific unit e.g. `org.jbox2d.particle.ParticleSystem`")
-
-	var writeAll bool
 	flag.BoolVar(&writeAll, "write-all", false, "write all units")
+
+	flag.BoolVar(&writeAST, "write-ast", false, "write AST")
 
 	flag.Parse()
 
@@ -84,6 +86,7 @@ func main() {
 }
 
 func writeUnit(unit *jolang2.Unit) error {
+	fmt.Println("writeUnit", unit.AbsName())
 	printer := printers.NewPrinterJS(unit.Project)
 
 	content := printer.PrintUnit(unit)
@@ -94,7 +97,7 @@ func writeUnit(unit *jolang2.Unit) error {
 	var err error
 
 	//write ast
-	{
+	if writeAST {
 		err = os.MkdirAll(filepath.Dir(filenameAST), os.ModePerm)
 		if err != nil {
 			return err
@@ -131,22 +134,10 @@ func printFilenames(project *jolang2.Project, printer printers.Printer) {
 }
 
 func writeAllUnits(project *jolang2.Project) {
-	var err error
+	fmt.Println("writeAllUnits")
 
 	for _, unit := range project.Units {
-		printer := printers.NewPrinterJS(project)
-
-		content := printer.PrintUnit(unit)
-		filename := printer.Filename(unit)
-		filename = filepath.Join("output", filename)
-
-		err = os.MkdirAll(filepath.Dir(filename), os.ModePerm)
-		if err != nil {
-			log.Println(err)
-			return
-		}
-
-		err = os.WriteFile(filename, []byte(content), os.ModePerm)
+		err := writeUnit(unit)
 		if err != nil {
 			log.Println(err)
 			return
