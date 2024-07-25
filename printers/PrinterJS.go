@@ -278,11 +278,7 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 
 	for _, methodDeclaration := range methodDeclarations {
 		name := methodDeclaration.GetName()
-		if _, ok := methodsByName[name]; ok {
-			methodsByName[name] = methodsByName[name].Add(methodDeclaration)
-		} else {
-			methodsByName[name] = jolang2.NodeList{methodDeclaration}
-		}
+		methodsByName.AddNode(name, methodDeclaration)
 	}
 
 	//show overloaded methods
@@ -533,12 +529,7 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 		nodetype.INTERFACE_DECLARATION,
 	)
 
-	if len(subClassDeclarations) > 0 {
-		//fmt.Println(subClassDeclarations)
-	}
-
 	for _, subClassDeclaration := range subClassDeclarations {
-
 		switch subClassDeclaration.Type() {
 		case nodetype.CLASS_DECLARATION:
 			printer.printClass(subClassDeclaration, false)
@@ -549,7 +540,6 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 		case nodetype.INTERFACE_DECLARATION:
 			printer.printInterface(subClassDeclaration, false)
 		}
-
 		printer.Println()
 		printer.Println()
 	}

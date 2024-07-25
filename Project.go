@@ -27,6 +27,7 @@ type Project struct {
 	UnitsByAbsName UnitsMap
 
 	NodesById
+	Declarations NodeListMap
 }
 
 func resolvePath(path string) (string, error) {
@@ -71,6 +72,23 @@ func (p *Project) AddSourceDir(dirname string) error {
 	})
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+func (p *Project) IndexDeclarations() error {
+	for _, unit := range p.Units {
+		decls := unit.Root.FindNodesByTypeRecursive(
+			nodetype.CLASS_DECLARATION,
+			nodetype.ENUM_DECLARATION,
+			nodetype.INTERFACE_DECLARATION,
+			nodetype.CONSTRUCTOR_DECLARATION,
+			nodetype.METHOD_DECLARATION,
+			nodetype.FIELD_DECLARATION,
+		)
+		for _, decl := range decls {
+			p.Declarations.AddNode(decl.GetAbsName(), decl)
+		}
 	}
 	return nil
 }
@@ -144,5 +162,6 @@ func NewProject() *Project {
 		UnitsByPkg:     make(UnitsByPkgMap),
 		UnitsByAbsName: make(UnitsMap),
 		NodesById:      make(NodesById),
+		Declarations:   make(NodeListMap),
 	}
 }

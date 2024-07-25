@@ -23,12 +23,25 @@ func (n *Node) Child(idx int) *Node {
 	}
 	return n.unit.WrapNode(child)
 }
+
 func (n *Node) PrevSibling() *Node {
 	s := n.Node.PrevSibling()
 	if s == nil {
 		return nil
 	}
 	return n.unit.WrapNode(s)
+}
+
+func (n *Node) PrevSiblings(types ...nodetype.NodeType) NodeList {
+	result := NodeList{}
+	prev := n.PrevSibling()
+	for prev != nil {
+		if prev.IsType(types...) {
+			result = append(result, prev)
+		}
+		prev = prev.PrevSibling()
+	}
+	return result
 }
 
 func (n *Node) NextSibling() *Node {
@@ -76,10 +89,8 @@ func (n *Node) PrintAST() {
 
 func (n *Node) FindNodeByType(types ...nodetype.NodeType) *Node {
 	for _, child := range n.Children() {
-		for _, t := range types {
-			if child.Type() == t {
-				return child
-			}
+		if child.IsType(types...) {
+			return child
 		}
 	}
 	return nil
@@ -104,29 +115,56 @@ func (n *Node) FindNodeByTypeRecursive(t nodetype.NodeType) *Node {
 func (n *Node) FindNodesByType(types ...nodetype.NodeType) NodeList {
 	result := NodeList{}
 	for _, child := range n.Children() {
-		for _, t := range types {
-			if child.Type() == t {
-				result = append(result, child)
-				break
-			}
+		if child.IsType(types...) {
+			result = append(result, child)
 		}
 	}
 	return result
 }
 
-func (n *Node) FindNodesByTypeRecursive(t nodetype.NodeType) NodeList {
+func (n *Node) FindNodesByTypeRecursive(types ...nodetype.NodeType) NodeList {
 	result := NodeList{}
 	for _, child := range n.Children() {
-		if child.Type() == t {
+		if child.IsType(types...) {
 			result = append(result, child)
 		}
-		found := child.FindNodesByTypeRecursive(t)
+
+		found := child.FindNodesByTypeRecursive(types...)
 		result = append(result, found...)
 	}
 	return result
 }
 
+func (n *Node) IsType(types ...nodetype.NodeType) bool {
+	for _, t := range types {
+		if n.Type() == t {
+			return true
+		}
+	}
+	return false
+}
+
+func (n *Node) GetAbsName() string {
+	name := n.GetName()
+	parents := n.Parents()
+	var parent *Node
+	for _, parent = range parents {
+		if parent.IsType(nodetype.DECLARATIONS...) {
+			name = parent.GetName() + "." + name
+		}
+	}
+	pkg := parent.FindNodeByType(nodetype.PACKAGE_DECLARATION)
+	if pkg != nil {
+		name = pkg.GetName() + "." + name
+	}
+
+	return name
+}
+
 func (n *Node) GetName() string {
+	if n.Type() == nodetype.PACKAGE_DECLARATION {
+		return n.Child(1).Content()
+	}
 
 	if n.Type() == nodetype.METHOD_DECLARATION {
 		id := n.FindNodeByType(nodetype.IDENTIFIER)

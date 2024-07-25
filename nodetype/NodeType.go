@@ -76,6 +76,17 @@ const (
 	BLOCK             = NodeType("block")
 )
 
+var DECLARATIONS = []NodeType{
+	CLASS_DECLARATION,
+	ENUM_DECLARATION,
+	INTERFACE_DECLARATION,
+	CONSTRUCTOR_DECLARATION,
+	METHOD_DECLARATION,
+	IMPORT_DECLARATION,
+	FIELD_DECLARATION,
+	LOCAL_VARIABLE_DECLARATION,
+}
+
 func (n NodeType) String() string {
 	return string(n)
 }

@@ -11,12 +11,21 @@ import (
 
 func main() {
 	project := jolang2.NewProject()
-	var err error
 
-	err = project.AddSourceDir("~/Projects/jbox2d/jbox2d-library/src/main/java")
-	if err != nil {
-		log.Println(err)
-		return
+	{
+		err := project.AddSourceDir("~/Projects/jbox2d/jbox2d-library/src/main/java")
+		if err != nil {
+			log.Println(err)
+			return
+		}
+	}
+
+	{
+		err := project.IndexDeclarations()
+		if err != nil {
+			log.Println(err)
+			return
+		}
 	}
 
 	//unit, err := project.AddSource("examples/main/Example1.java")
@@ -36,14 +45,14 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	if true {
+	if false {
 		//unit.PrintAST()
 		//unit.WriteASTToFile("txt/tree-World.txt")
 		unit.WriteASTToFile("txt/tree-" + unit.Name + ".txt")
 	}
 
-	if true {
-		err = writeUnit(unit)
+	if false {
+		err := writeUnit(unit)
 		if err != nil {
 			log.Println(err)
 			return
