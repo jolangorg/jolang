@@ -8,30 +8,24 @@
     <script type="importmap">
       {
         "imports": {
-          "jo": "./stdlib/js/jo/index.js",
-          "jo/": "./stdlib/js/jo/",
-          "java/": "./stdlib/js/java/",
-          "org/jbox2d/": "./output/org/jbox2d/"
+          "jo": "../stdlib/js/jo/index.js",
+          "jo/": "../stdlib/js/jo/",
+          "java/": "../stdlib/js/java/",
+          "org/jbox2d/": "../output/org/jbox2d/"
         }
       }
     </script>
-
-<!--    <script type="importmap">-->
-<!--        {-->
-<!--            ,  , -->
-<!--        }-->
-<!--    </script>-->
 
     <script type="module">
         import * as jo from "jo";
 
         // Static Body
         import {Vec2} from "org/jbox2d/common/Vec2.js";
-        import {World} from "./output/org/jbox2d/dynamics/World.js";
-        import {BodyDef} from "./output/org/jbox2d/dynamics/BodyDef.js";
-        import {PolygonShape} from "./output/org/jbox2d/collision/shapes/PolygonShape.js";
-        import {BodyType} from "./output/org/jbox2d/dynamics/BodyType.js";
-        import {FixtureDef} from "./output/org/jbox2d/dynamics/FixtureDef.js";
+        import {World} from "../output/org/jbox2d/dynamics/World.js";
+        import {BodyDef} from "../output/org/jbox2d/dynamics/BodyDef.js";
+        import {PolygonShape} from "../output/org/jbox2d/collision/shapes/PolygonShape.js";
+        import {BodyType} from "../output/org/jbox2d/dynamics/BodyType.js";
+        import {FixtureDef} from "../output/org/jbox2d/dynamics/FixtureDef.js";
         import {System} from "java/lang/System.js";
 
         await jo.init();
