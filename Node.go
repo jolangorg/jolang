@@ -159,6 +159,13 @@ func (n *Node) FindDeclaration() *Node {
 				}
 			}
 		}
+
+		methodDeclarations := parent.FindNodesByType(nodetype.METHOD_DECLARATION)
+		for _, methodDeclaration := range methodDeclarations {
+			if methodDeclaration.GetName() == n.Content() {
+				return methodDeclaration
+			}
+		}
 	}
 	return nil
 }

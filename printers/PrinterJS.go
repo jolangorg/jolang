@@ -25,8 +25,16 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	for _, importDeclaration := range importDeclarations {
 		printer.printImport(importDeclaration)
 	}
+
+	//import assert
 	if root.FindNodeByTypeRecursive(nodetype.ASSERT_STATEMENT) != nil {
 		printer.Println("import {assert} from 'jo';")
+	}
+
+	for unitName, siblingUnit := range unit.GetSiblingUnits() {
+		jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
+		_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", unitName, jsPath)
+		printer.Println()
 	}
 
 	if len(importDeclarations) > 0 {
@@ -41,6 +49,10 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	return printer.Buffer
 }
 
+func (printer *PrinterJS) convertClassNameToPath(name string) string {
+	return strings.ReplaceAll(name, ".", "/") + ".js"
+}
+
 func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 	ids := importDeclaration.FindNodesByTypeRecursive(nodetype.IDENTIFIER)
 	if len(ids) < 1 {
@@ -48,7 +60,7 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 	}
 	name := ids[len(ids)-1].Content()
 	path := importDeclaration.Child(1).Content()
-	path = strings.ReplaceAll(path, ".", "/") + ".js"
+	path = printer.convertClassNameToPath(path)
 	_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
 	printer.Println(";")
 }
@@ -261,6 +273,11 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 				break
 			}
 		}
+
+	case nodetype.ASSERT_STATEMENT:
+		printer.VisitDefault(node)
+		printer.Println()
+
 	default:
 		printer.VisitDefault(node)
 	}

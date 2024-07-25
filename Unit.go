@@ -59,6 +59,14 @@ func (u *Unit) WrapNode(node *sitter.Node) *Node {
 	return result
 }
 
-func (u *Unit) BuildIdsTree() {
-
+func (u *Unit) GetSiblingUnits() UnitsMap {
+	result := make(UnitsMap)
+	if unitMap, ok := u.Project.UnitsByPkg[u.Package]; ok {
+		for name, unit := range unitMap {
+			if u.Name != name {
+				result[name] = unit
+			}
+		}
+	}
+	return result
 }
