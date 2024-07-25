@@ -5,6 +5,10 @@ type NodeType string
 const (
 	PACKAGE_DECLARATION            = NodeType("package_declaration")
 	CLASS_DECLARATION              = NodeType("class_declaration")
+	ENUM_DECLARATION               = NodeType("enum_declaration")
+	ENUM_CONSTANT                  = NodeType("enum_constant")
+	ENUM_BODY                      = NodeType("enum_body")
+	INTERFACE_DECLARATION          = NodeType("interface_declaration")
 	CONSTRUCTOR_DECLARATION        = NodeType("constructor_declaration")
 	METHOD_DECLARATION             = NodeType("method_declaration")
 	METHOD_INVOCATION              = NodeType("method_invocation")
@@ -32,6 +36,7 @@ const (
 	RETURN = NodeType("return")
 	IF     = NodeType("if")
 	ELSE   = NodeType("else")
+	CASE   = NodeType("case")
 
 	DOT         = NodeType(".")
 	EQUAL       = NodeType("=")

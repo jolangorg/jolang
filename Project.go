@@ -3,6 +3,7 @@ package jolang2
 import (
 	"context"
 	"errors"
+	"fmt"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/smacker/go-tree-sitter/java"
 	"io/fs"
@@ -96,7 +97,21 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 	p.Units = append(p.Units, unit)
 
 	unit.Root = unit.WrapNode(unit.RootNode())
-	classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION)
+	mainDecls := unit.Root.FindNodesByType(
+		nodetype.CLASS_DECLARATION,
+		nodetype.ENUM_DECLARATION,
+		nodetype.INTERFACE_DECLARATION,
+	)
+
+	if len(mainDecls) > 1 {
+		fmt.Println("[WARN] More than two main declarations in file " + filename)
+	}
+
+	mainDecl := unit.Root.FindNodeByType(
+		nodetype.CLASS_DECLARATION,
+		nodetype.ENUM_DECLARATION,
+		nodetype.INTERFACE_DECLARATION,
+	)
 	pkgDecl := unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION)
 
 	if pkgDecl != nil && pkgDecl.ChildCount() > 1 {
@@ -108,8 +123,8 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 		return nil, errors.New("PACKAGE_DECLARATION not found in " + filename)
 	}
 
-	if classDecl != nil {
-		unit.Name = classDecl.GetName()
+	if mainDecl != nil {
+		unit.Name = mainDecl.GetName()
 		p.UnitsByAbsName[unit.AbsName()] = unit
 		p.UnitsByPkg[unit.Package][unit.Name] = unit
 	} else {

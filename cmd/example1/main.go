@@ -11,7 +11,9 @@ import (
 
 func main() {
 	project := jolang2.NewProject()
-	err := project.AddSourceDir("~/Projects/jbox2d/jbox2d-library/src/main/java")
+	var err error
+
+	err = project.AddSourceDir("~/Projects/jbox2d/jbox2d-library/src/main/java")
 	if err != nil {
 		log.Println(err)
 		return
@@ -22,20 +24,12 @@ func main() {
 	printer := printers.NewPrinterJS(project)
 
 	if false {
-		for _, u := range project.UnitsByAbsName {
-			filename := printer.Filename(u)
-			filename = filepath.Join("output", filename)
-			fmt.Println(filename)
-		}
+		printFilenames(project, printer)
 	}
 
-	//unit, err := project.AddSource("examples/main/Mat33.java")
-	//if err != nil {
-	//	log.Println(err)
-	//	return
-	//}
-
-	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.Profile"]
+	//unit, ok := project.UnitsByAbsName["org.jbox2d.collision.shapes.ShapeType"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.World"]
+	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.BodyType"]
 	if !ok {
 		log.Println("not exists")
 		return
@@ -45,14 +39,19 @@ func main() {
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
 	if false {
-		unit.PrintAST()
-	}
-
-	if false {
-		writeUnit(unit)
+		//unit.PrintAST()
+		unit.WriteASTToFile("txt/tree-World.txt")
 	}
 
 	if true {
+		err = writeUnit(unit)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+	}
+
+	if false {
 		writeAllUnits(project)
 	}
 }
@@ -77,6 +76,14 @@ func writeUnit(unit *jolang2.Unit) error {
 	}
 
 	return nil
+}
+
+func printFilenames(project *jolang2.Project, printer printers.Printer) {
+	for _, u := range project.UnitsByAbsName {
+		filename := printer.Filename(u)
+		filename = filepath.Join("output", filename)
+		fmt.Println(filename)
+	}
 }
 
 func writeAllUnits(project *jolang2.Project) {

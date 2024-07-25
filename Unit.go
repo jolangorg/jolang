@@ -3,6 +3,8 @@ package jolang2
 import (
 	"fmt"
 	sitter "github.com/smacker/go-tree-sitter"
+	"log"
+	"os"
 )
 
 type Unit struct {
@@ -40,6 +42,20 @@ func (u *Unit) PrintAST() {
 		}
 		fmt.Println(node.Type(), node.GetName())
 	})
+}
+
+func (u *Unit) WriteASTToFile(filename string) {
+	s := ""
+	u.TraverseAST(func(node *Node, level int) {
+		for i := 0; i < level; i++ {
+			s += "\t"
+		}
+		s += string(node.Type()) + " " + node.GetName() + "\n"
+	})
+	err := os.WriteFile(filename, []byte(s), os.ModePerm)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func (u *Unit) NodeContent(node *sitter.Node) string {

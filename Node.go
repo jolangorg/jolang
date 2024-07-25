@@ -74,10 +74,12 @@ func (n *Node) PrintAST() {
 	})
 }
 
-func (n *Node) FindNodeByType(t nodetype.NodeType) *Node {
+func (n *Node) FindNodeByType(types ...nodetype.NodeType) *Node {
 	for _, child := range n.Children() {
-		if child.Type() == t {
-			return child
+		for _, t := range types {
+			if child.Type() == t {
+				return child
+			}
 		}
 	}
 	return nil

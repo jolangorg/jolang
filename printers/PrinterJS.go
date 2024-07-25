@@ -29,14 +29,22 @@ func NewPrinterJS(project *jolang2.Project) Printer {
 func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	root := unit.Root
 
+	hasImports := false
 	importDeclarations := root.FindNodesByType(nodetype.IMPORT_DECLARATION)
 	for _, importDeclaration := range importDeclarations {
 		printer.printImport(importDeclaration)
+		hasImports = true
 	}
 
 	//import assert
 	if root.FindNodeByTypeRecursive(nodetype.ASSERT_STATEMENT) != nil {
 		printer.Println("import {assert} from 'jo';")
+		hasImports = true
+	}
+
+	if len(root.FindNodesByTypeRecursive(nodetype.ENUM_DECLARATION)) > 0 {
+		printer.Println("import {Enum} from 'jo';")
+		hasImports = true
 	}
 
 	siblingUnits := unit.GetSiblingUnits()
@@ -72,13 +80,32 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 		// fmt.Println(s)
 	}
 
-	if len(importDeclarations) > 0 {
+	if hasImports {
 		printer.Println()
 	}
 
-	classDeclarations := root.FindNodesByType(nodetype.CLASS_DECLARATION)
-	for _, classDeclaration := range classDeclarations {
-		printer.printClass(classDeclaration)
+	//main package classes
+	{
+		classDeclarations := root.FindNodesByType(nodetype.CLASS_DECLARATION)
+		for _, classDeclaration := range classDeclarations {
+			printer.printClass(classDeclaration, true)
+		}
+	}
+
+	//main package enums
+	{
+		enumDecls := root.FindNodesByType(nodetype.ENUM_DECLARATION)
+		for _, decl := range enumDecls {
+			printer.printEnum(decl, true)
+		}
+	}
+
+	//main  package interfaces
+	{
+		//decls := root.FindNodesByType(nodetype.INTERFACE_DECLARATION)
+		//for _, decl := range decls {
+		//	printer.printInterface(decl, true)
+		//}
 	}
 
 	return printer.Buffer
@@ -292,7 +319,28 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 	}
 }
 
-func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node) {
+func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport bool) {
+	enumName := enumDeclaration.GetName()
+	body := enumDeclaration.FindNodeByType(nodetype.ENUM_BODY)
+	if shouldExport {
+		printer.Print("export ")
+	}
+	_, _ = fmt.Fprintf(printer, `class %s extends Enum {`, enumDeclaration.GetName())
+	printer.Println()
+	if body != nil {
+		printer.Indent++
+		decls := body.FindNodesByType(nodetype.ENUM_CONSTANT)
+		for _, decl := range decls {
+			name := decl.GetName()
+			_, _ = fmt.Fprintf(printer, `static %s = new %s("%s");`, name, enumName, name)
+			printer.Println()
+		}
+		printer.Indent--
+	}
+	printer.Println("}")
+}
+
+func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExport bool) {
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
 
@@ -303,12 +351,17 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node) {
 	}
 
 	for _, subClassDeclaration := range subClassDeclarations {
-		printer.printClass(subClassDeclaration)
+		printer.printClass(subClassDeclaration, false)
 		printer.Println()
 		printer.Println()
 	}
 
-	printer.Println("export class", className, "{")
+	if shouldExport {
+		printer.Println("export class", className, "{")
+	} else {
+		printer.Println("class", className, "{")
+	}
+
 	printer.Indent++
 
 	for _, subClassDeclaration := range subClassDeclarations {
@@ -355,7 +408,7 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	switch node.Type() {
-	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE:
+	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE, nodetype.CASE:
 		printer.VisitDefault(node)
 		printer.Print(" ")
 
@@ -442,6 +495,10 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 
 	case nodetype.ASSERT_STATEMENT:
 		printer.VisitDefault(node)
+		printer.Println()
+
+	case nodetype.ENUM_DECLARATION:
+		printer.printEnum(node, false)
 		printer.Println()
 
 	default:

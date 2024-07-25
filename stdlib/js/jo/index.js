@@ -1,4 +1,5 @@
 import {Float} from "./Float.js";
+import {Enum} from "./Enum.js";
 
 window.Float = Float;
 
@@ -15,3 +16,6 @@ export function assert(cond) {
         throw new Error("assert failed");
     }
 }
+
+export {Enum};
+export {Float};
