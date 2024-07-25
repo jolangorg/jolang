@@ -256,13 +256,24 @@ func (printer *PrinterJS) convertType(t *jolang2.Node) string {
 }
 
 func (printer *PrinterJS) findType(node *jolang2.Node) *jolang2.Node {
-	return node.FindNodeByType(
+	result := node.FindNodeByType(
 		nodetype.TYPE_IDENTIFIER,
 		nodetype.FLOATING_POINT_TYPE,
 		nodetype.VOID_TYPE,
 		nodetype.BOOLEAN_TYPE,
 		nodetype.INTEGRAL_TYPE,
+		nodetype.GENERIC_TYPE,
 	)
+
+	if result == nil {
+		return nil
+	}
+
+	if result.Type() == nodetype.GENERIC_TYPE {
+		return printer.findType(result)
+	}
+
+	return result
 }
 
 func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
@@ -611,6 +622,10 @@ func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
 }
 
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
+	if node == nil {
+		return
+	}
+
 	switch node.Type() {
 	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE, nodetype.CASE:
 		printer.VisitDefault(node)
@@ -700,6 +715,30 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Print(";")
 
 	case nodetype.TYPE_ARGUMENTS:
+		//todo skip generics now
+
+	case nodetype.OBJECT_CREATION_EXPRESSION:
+		if node.Contains(nodetype.CLASS_BODY) {
+			//todo anon class here
+			//todo print anon class content
+			t := printer.findType(node)
+			_, _ = fmt.Fprintf(printer, "new class extends %s {", t.Content())
+			printer.Println()
+			printer.Indent++
+
+			printer.Println("constructor(){")
+			printer.Print("super")
+			printer.Visit(node.FindNodeByType(nodetype.ARGUMENT_LIST))
+			printer.Println(";")
+
+			printer.Indent--
+			printer.Println("}") //constructor end
+
+			printer.Indent--
+			printer.Print("}") //new class end
+		} else {
+			printer.VisitDefault(node)
+		}
 
 	case nodetype.ARRAY_CREATION_EXPRESSION:
 		printer.Print("jo.NewArray(")

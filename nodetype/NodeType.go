@@ -30,6 +30,7 @@ const (
 	VOID_TYPE           = NodeType("void_type")
 	BOOLEAN_TYPE        = NodeType("boolean_type")
 	INTEGRAL_TYPE       = NodeType("integral_type")
+	GENERIC_TYPE        = NodeType("generic_type")
 
 	MODIFIERS                      = NodeType("modifiers")
 	FIELD_DECLARATION              = NodeType("field_declaration")
@@ -45,6 +46,7 @@ const (
 	ASSERT_STATEMENT               = NodeType("assert_statement")
 	SUPER_INTERFACES               = NodeType("super_interfaces")
 	TYPE_ARGUMENTS                 = NodeType("type_arguments")
+	OBJECT_CREATION_EXPRESSION     = NodeType("object_creation_expression")
 
 	BLOCK_COMMENT = NodeType("block_comment")
 	LINE_COMMENT  = NodeType("line_comment")
