@@ -37,7 +37,7 @@ func (u *Unit) PrintAST() {
 		for i := 0; i < level; i++ {
 			fmt.Print("\t")
 		}
-		fmt.Println(node.Type())
+		fmt.Println(node.Type(), node.GetName())
 	})
 }
 
@@ -46,5 +46,13 @@ func (u *Unit) NodeContent(node *sitter.Node) string {
 }
 
 func (u *Unit) WrapNode(node *sitter.Node) *Node {
-	return &Node{node, u}
+	id := uint(node.ID())
+	if result, ok := u.Project.NodesById[id]; ok {
+		return result
+	}
+
+	result := &Node{node, u}
+	u.Project.NodesById[id] = result
+
+	return result
 }

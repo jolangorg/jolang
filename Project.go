@@ -13,16 +13,20 @@ import (
 	"strings"
 )
 
-type UnitMap map[string]*Unit
+type UnitsMap map[string]*Unit
+type UnitsByPkgMap map[string]UnitsMap
+
+type NodesById map[uint]*Node
 
 type Project struct {
 	*sitter.Parser
 
-	Units       []*Unit
-	UnitsByPkg  UnitMap
-	UnitsByName UnitMap
+	Units          []*Unit
+	UnitsByPkg     UnitsByPkgMap
+	UnitsByAbsName UnitsMap
 
 	*NameNode
+	NodesById
 }
 
 func resolvePath(path string) (string, error) {
@@ -93,19 +97,23 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 	p.Units = append(p.Units, unit)
 
 	unit.Root = unit.WrapNode(unit.RootNode())
+	classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION)
+	pkgDecl := unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION)
 
-	if pkgDecl := unit.Root.FindNodeByType(nodetype.PACKAGE_DECLARATION); pkgDecl != nil && pkgDecl.ChildCount() > 1 {
+	if pkgDecl != nil && pkgDecl.ChildCount() > 1 {
 		unit.Package = pkgDecl.Child(1).Content()
-		p.UnitsByPkg[unit.Package] = unit
+		if _, ok := p.UnitsByPkg[unit.Package]; !ok {
+			p.UnitsByPkg[unit.Package] = make(UnitsMap)
+		}
 	} else {
 		return nil, errors.New("PACKAGE_DECLARATION not found in " + filename)
 	}
 	pkgNamedNode := p.AddChild(unit.Package)
 
-	if classDecl := unit.Root.FindNodeByType(nodetype.CLASS_DECLARATION); classDecl != nil {
+	if classDecl != nil {
 		unit.NameNode = pkgNamedNode.AddChild(classDecl.GetName())
-		//unit.Name = classDecl.Child(2).Content()
-		p.UnitsByName[unit.AbsName()] = unit
+		p.UnitsByAbsName[unit.AbsName()] = unit
+		p.UnitsByPkg[unit.Package][unit.Name] = unit
 	} else {
 		return nil, nil
 		//return nil, errors.New("CLASS_DECLARATION not found in " + filename)
@@ -120,10 +128,11 @@ func NewProject() *Project {
 	parser := sitter.NewParser()
 	parser.SetLanguage(java.GetLanguage())
 	return &Project{
-		Parser:      parser,
-		Units:       []*Unit{},
-		UnitsByPkg:  UnitMap{},
-		UnitsByName: UnitMap{},
-		NameNode:    NewRootNameNode(),
+		Parser:         parser,
+		Units:          []*Unit{},
+		UnitsByPkg:     make(UnitsByPkgMap),
+		UnitsByAbsName: make(UnitsMap),
+		NameNode:       NewRootNameNode(),
+		NodesById:      make(NodesById),
 	}
 }

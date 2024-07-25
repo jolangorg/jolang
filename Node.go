@@ -13,7 +13,7 @@ type Node struct {
 
 func (n *Node) Child(idx int) *Node {
 	if idx < 0 {
-		idx = int(n.Node.ChildCount()) + idx
+		idx = int(n.ChildCount()) + idx
 	}
 	child := n.Node.Child(idx)
 
@@ -48,14 +48,6 @@ func (n *Node) Children() []*Node {
 	return children
 }
 
-//func (n *Node) ChildrenFromTo(from, to int) []*Node {
-//	children := n.Children()
-//	if to < 0 {
-//		to = len(children) + to
-//	}
-//	return children[from:to]
-//}
-
 func (n *Node) Traverse(level int, handler NodeHandlerFunc) {
 	handler(n, level)
 	for _, child := range n.Children() {
@@ -68,7 +60,7 @@ func (n *Node) PrintAST() {
 		for i := 0; i < level; i++ {
 			fmt.Print("\t")
 		}
-		fmt.Println(node.Type())
+		fmt.Println(node.Type(), node.GetName())
 	})
 }
 

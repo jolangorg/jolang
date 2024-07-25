@@ -27,8 +27,8 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	//unit.PrintAST()
-	//return
+	unit.PrintAST()
+	return
 
 	if false {
 		printer := printers.NewPrinterJava(unit)
