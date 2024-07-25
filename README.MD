@@ -16,7 +16,7 @@ go run jolang2/cmd/jo \
   -src="~/Projects/jbox2d/jbox2d-library/src/main/java" \
   -write-all
 
-# You can alsa write AST files with -write-ast flag
+# You can also write AST files with -write-ast flag
 go run jolang2/cmd/jo \
   -src="~/Projects/jbox2d/jbox2d-library/src/main/java" \
   -write-all
@@ -26,3 +26,5 @@ python3 -m http.server &
 
 xdg-open http://localhost:8000/html/
 ```
+
+It's totally incomplete ='(
