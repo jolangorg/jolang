@@ -590,6 +590,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Print(node.Content())
 		printer.Print(" ")
 
+	case nodetype.DOUBLE_EQUAL:
+		printer.Print(" === ")
+
 	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON:
 		printer.Print(node.Content())
 
