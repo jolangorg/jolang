@@ -44,14 +44,8 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	if false {
+	if true {
 		unit.PrintAST()
-	}
-
-	if false {
-		printer := printers.NewPrinterJava(unit)
-		printer.PrintNode(unit.Root)
-		fmt.Println(printer.Buffer)
 	}
 
 	if true {
@@ -74,4 +68,32 @@ func main() {
 		//fmt.Println(filename)
 		//fmt.Println(content)
 	}
+
+	if false {
+		writeAll(project)
+	}
+}
+
+func writeAll(project *jolang2.Project) {
+	printer := printers.NewPrinterJS(project)
+	var err error
+
+	for _, unit := range project.Units {
+		content := printer.PrintUnit(unit)
+		filename := printer.Filename(unit)
+		filename = filepath.Join("output", filename)
+
+		err = os.MkdirAll(filepath.Dir(filename), os.ModePerm)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+
+		err = os.WriteFile(filename, []byte(content), os.ModePerm)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+	}
+
 }

@@ -124,9 +124,14 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 		params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
 		block := methodDeclaration.FindNodeByType(nodetype.BLOCK)
 		printer.printFormalParams(params)
-		printer.Indent++
-		printer.Visit(block)
-		printer.Indent--
+
+		if block == nil {
+			printer.Println(";")
+		} else {
+			printer.Indent++
+			printer.Visit(block)
+			printer.Indent--
+		}
 
 		//constructorDeclaration.PrintAST()
 	}
@@ -232,6 +237,9 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 }
 
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
+	if node == nil {
+		fmt.Println(node)
+	}
 	switch node.Type() {
 	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE:
 		printer.VisitDefault(node)
