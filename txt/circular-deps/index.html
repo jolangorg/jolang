@@ -1,17 +1,31 @@
-<html>
+<html lang="">
 <head>
     <meta charset="UTF-8"/>
+    <title>circular-deps</title>
 </head>
 <body>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "jo": "./../../stdlib/js/jo/index.js",
+          "jo/": "./../../stdlib/js/jo/",
+          "java/": "./../../stdlib/js/java/"
+        }
+      }
+    </script>
+
     <script type="module">
+        import * as jo from "jo";
         import {A} from "./A.js";
-        import {waitImports} from "./tools.js";
-        await waitImports();
+        await jo.init();
 
         let a = new A();
         let b = a.getB();
+        let c = a.getC();
+
         console.log(b);
+        console.log(c);
     </script>
 </body>
 </html>

@@ -27,3 +27,22 @@ export {NewArray}
 import {Interface} from "./Interface.js";
 export {Interface}
 
+//Imports
+const importPromises = [];
+
+export function Imports(cb) {
+    let importPromise = cb();
+    importPromises.push(importPromise);
+}
+
+export function Import(importPromise){
+    importPromises.push(importPromise);
+}
+
+export async function waitImports() {
+    await Promise.all(importPromises);
+}
+
+export async function init() {
+    await waitImports();
+}

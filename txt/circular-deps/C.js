@@ -1,6 +1,6 @@
 import {A} from "./A.js";
 
-export class B extends A {
+export class C extends A {
 
     static ASD = 123;
 

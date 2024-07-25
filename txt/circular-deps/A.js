@@ -1,6 +1,16 @@
-import {$import} from "./tools.js";
+import * as jo from "jo";
 
-let B; $import("./B.js").then($module => B = $module.B);
+let B;
+let C;
+// jo.Imports(
+//     import("./B.js").then($m => B = $m.B),
+//     import("./C.js").then($ => C = $.C),
+// );
+
+jo.Imports(async () => {
+    B = (await import("./B.js")).B;
+    C = (await import("./C.js")).C;
+});
 
 export class A{
 
@@ -8,4 +18,7 @@ export class A{
         return new B()
     }
 
+    getC(){
+        return new C()
+    }
 }
