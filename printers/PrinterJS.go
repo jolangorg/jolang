@@ -131,8 +131,17 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 			}
 		}
 	} else {
+		unitName := absName
+		if decls, ok := printer.Project.Declarations[absName]; ok {
+			if len(decls) > 0 {
+				decl := decls[0]
+				unitName = decl.Unit.AbsName()
+				//fmt.Println(name, absName, decl.Unit.AbsName())
+			}
+		}
+
 		printer.importedNames[name] = absName
-		path := printer.convertClassNameToPath(absName)
+		path := printer.convertClassNameToPath(unitName)
 		_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
 		printer.Println(";")
 	}
@@ -460,10 +469,7 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 }
 
 func (printer *PrinterJS) printInterface(interfaceDeclaration *jolang2.Node, shouldExport bool) {
-	if shouldExport {
-		printer.Print("export ")
-	}
-	_, _ = fmt.Fprintf(printer, `class %s extends jo.Interface {`, interfaceDeclaration.GetName())
+	_, _ = fmt.Fprintf(printer, `export class %s extends jo.Interface {`, interfaceDeclaration.GetName())
 	printer.Println()
 
 	body := interfaceDeclaration.FindNodeByType(nodetype.INTERFACE_BODY)
@@ -478,10 +484,7 @@ func (printer *PrinterJS) printInterface(interfaceDeclaration *jolang2.Node, sho
 func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport bool) {
 	enumName := enumDeclaration.GetName()
 	body := enumDeclaration.FindNodeByType(nodetype.ENUM_BODY)
-	if shouldExport {
-		printer.Print("export ")
-	}
-	_, _ = fmt.Fprintf(printer, `class %s extends jo.Enum {`, enumDeclaration.GetName())
+	_, _ = fmt.Fprintf(printer, `export class %s extends jo.Enum {`, enumDeclaration.GetName())
 	printer.Println()
 	if body != nil {
 		printer.Indent++
@@ -544,11 +547,7 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 		printer.Println()
 	}
 
-	if shouldExport {
-		printer.Print("export ")
-	}
-
-	printer.Print("class", className, "")
+	printer.Print("export class", className, "")
 	superclass := classDeclaration.FindNodeByType(nodetype.SUPERCLASS)
 	if superclass != nil {
 		printer.Print(superclass.Content())
@@ -601,12 +600,6 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 
 // print "this." or "ClassName." if needed
 func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
-	if p := node.FindParent(nodetype.METHOD_DECLARATION); p != nil {
-		if p.GetName() == "initializeRegisters" && node.Content() == "pool" {
-			fmt.Println(p.GetName(), node.Content())
-		}
-	}
-
 	prev := node.PrevSibling()
 	firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
 	parent := node.Parent()
@@ -699,11 +692,13 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.printFloatLiteral(node)
 
 	case nodetype.LOCAL_VARIABLE_DECLARATION:
-		if node.IsFinal() {
-			printer.Print("const ")
-		} else {
-			printer.Print("let ")
-		}
+		//if node.IsFinal() { //todo too much problem with "const ". Just use "let " everywhere
+		//	printer.Print("const ")
+		//} else {
+		//printer.Print("let ")
+		//}
+
+		printer.Print("let ")
 
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
 		if node.Parent().Type() == nodetype.FOR_STATEMENT {

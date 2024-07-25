@@ -59,7 +59,7 @@ func main() {
 		}
 	}
 
-	if false {
+	if true {
 		writeAllUnits(project)
 	}
 }

@@ -9,7 +9,7 @@ import (
 
 type Node struct {
 	*sitter.Node
-	unit *Unit
+	Unit *Unit
 }
 
 func (n *Node) Child(idx int) *Node {
@@ -21,7 +21,7 @@ func (n *Node) Child(idx int) *Node {
 	if child == nil {
 		return nil
 	}
-	return n.unit.WrapNode(child)
+	return n.Unit.WrapNode(child)
 }
 
 func (n *Node) PrevSibling() *Node {
@@ -29,7 +29,7 @@ func (n *Node) PrevSibling() *Node {
 	if s == nil {
 		return nil
 	}
-	return n.unit.WrapNode(s)
+	return n.Unit.WrapNode(s)
 }
 
 func (n *Node) PrevSiblings(types ...nodetype.NodeType) NodeList {
@@ -49,12 +49,12 @@ func (n *Node) NextSibling() *Node {
 	if s == nil {
 		return nil
 	}
-	return n.unit.WrapNode(s)
+	return n.Unit.WrapNode(s)
 }
 
 func (n *Node) Content() string {
-	return n.Node.Content(n.unit.SourceCode)
-	//s := n.Node.Content(n.unit.SourceCode)
+	return n.Node.Content(n.Unit.SourceCode)
+	//s := n.Node.Content(n.Unit.SourceCode)
 	//return strings.Trim(s, " ")
 }
 
@@ -182,7 +182,7 @@ func (n *Node) GetName() string {
 }
 
 func (n *Node) Parent() *Node {
-	return n.unit.WrapNode(n.Node.Parent())
+	return n.Unit.WrapNode(n.Node.Parent())
 }
 
 func (n *Node) FindParents(t nodetype.NodeType) NodeList {

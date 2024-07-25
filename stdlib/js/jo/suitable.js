@@ -1,4 +1,4 @@
-import {numericTypes} from "./types";
+import {numericTypes} from "./types.js";
 
 export function suitable(args, ...types){
     if (args.length !== types.length){
