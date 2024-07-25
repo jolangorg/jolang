@@ -23,6 +23,8 @@
 <!--    </script>-->
 
     <script type="module">
+        import * as jo from "jo";
+
         // Static Body
         import {Vec2} from "org/jbox2d/common/Vec2.js";
         import {World} from "./output/org/jbox2d/dynamics/World.js";
@@ -31,6 +33,8 @@
         import {BodyType} from "./output/org/jbox2d/dynamics/BodyType.js";
         import {FixtureDef} from "./output/org/jbox2d/dynamics/FixtureDef.js";
         import {System} from "java/lang/System.js";
+
+        await jo.init();
 
         console.log("Start!!!");
 

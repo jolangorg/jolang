@@ -216,7 +216,16 @@ func (n *Node) Parents() NodeList {
 		node = parent
 	}
 	return parents
+}
 
+func (n *Node) HasParentWithType(types ...nodetype.NodeType) bool {
+	parents := n.Parents()
+	for _, parent := range parents {
+		if parent.IsType(types...) {
+			return true
+		}
+	}
+	return false
 }
 
 func (n *Node) FindDeclaration() *Node {

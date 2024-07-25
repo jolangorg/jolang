@@ -15,16 +15,18 @@ var typeofTypes = map[string]string{ // java -> js
 
 type PrinterJS struct {
 	*BasePrinter
-	importedNames jo.Set[string]
-	leftPart      bool
-	unit          *jo.Unit
-	siblingUnits  jo.UnitsMap
+	importedNames       jo.Set[string]
+	leftPart            bool
+	unit                *jo.Unit
+	siblingUnits        jo.UnitsMap
+	notRequiredImported jo.Set[string]
 }
 
 func NewPrinterJS(project *jo.Project) Printer {
 	return &PrinterJS{
-		BasePrinter:   NewBasePrinter(project),
-		importedNames: jo.NewEmptySet[string](),
+		BasePrinter:         NewBasePrinter(project),
+		importedNames:       jo.NewEmptySet[string](),
+		notRequiredImported: jo.NewEmptySet[string](),
 	}
 }
 
@@ -32,6 +34,9 @@ var JavaLangExcludeImport = jo.NewSet([]string{
 	"Math",
 	"String",
 	"Object",
+
+	//annotations
+	"Override",
 })
 
 func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
@@ -54,26 +59,74 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 
 	printer.siblingUnits = unit.GetSiblingUnits()
 
-	typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
-	for _, typeIdentifier := range typeIdentifiers {
-
+	typeIds := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER).Filter(func(node *jo.Node) bool {
 		//skip interfaces import
-		parents := typeIdentifier.Parents()
+		parents := node.Parents()
 		if len(parents) > 1 && parents[1].Type() == nodetype.SUPER_INTERFACES {
-			continue
+			return false
 		}
-		printer.printImportByString(typeIdentifier.Content())
-	}
 
-	identifiers := root.FindNodesByTypeRecursive(nodetype.IDENTIFIER)
-	for _, identifier := range identifiers {
-		firstIdentifier, decl := printer.analyzeIdentifier(identifier)
+		return true
+	})
+	ids := root.FindNodesByTypeRecursive(nodetype.IDENTIFIER).Filter(func(node *jo.Node) bool {
+		firstIdentifier, decl := printer.analyzeIdentifier(node)
 		if !firstIdentifier || decl != nil {
-			continue
+			return false
 		}
+		return true
+	})
+	ids = ids.Concat(typeIds)
+	requiredIds := ids.Filter(func(node *jo.Node) bool {
+		if jo.JavaLangClasses.Contains(node.Content()) {
+			return true
+		}
+		return !node.HasParentWithType(nodetype.METHOD_DECLARATION)
+	})
+	notRequired := ids.Filter(func(node *jo.Node) bool {
+		return !requiredIds.Contains(node)
+	})
 
-		printer.printImportByString(identifier.Content())
+	for _, node := range requiredIds {
+		printer.printImportByNode(node, true)
 	}
+
+	notRequired = notRequired.Filter(func(node *jo.Node) bool {
+		return !printer.importedNames.Contains(node.Content())
+	})
+	if len(notRequired) > 0 {
+		printer.Println("jo.Imports(async () => {")
+		printer.Indent++
+		for _, node := range notRequired {
+			printer.printImportByNode(node, false)
+		}
+		printer.Indent--
+		printer.Println("});")
+
+		for s := range printer.notRequiredImported {
+			printer.Println("let", s+";")
+		}
+	}
+
+	//typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
+	//for _, typeIdentifier := range typeIdentifiers {
+	//
+	//	//skip interfaces import
+	//	parents := typeIdentifier.Parents()
+	//	if len(parents) > 1 && parents[1].Type() == nodetype.SUPER_INTERFACES {
+	//		continue
+	//	}
+	//	printer.printImportByNode(typeIdentifier)
+	//}
+	//
+	//identifiers := root.FindNodesByTypeRecursive(nodetype.IDENTIFIER)
+	//for _, identifier := range identifiers {
+	//	firstIdentifier, decl := printer.analyzeIdentifier(identifier)
+	//	if !firstIdentifier || decl != nil {
+	//		continue
+	//	}
+	//
+	//	printer.printImportByNode(identifier)
+	//}
 
 	printer.Println()
 
@@ -108,7 +161,9 @@ func (printer *PrinterJS) convertClassNameToPath(name string) string {
 	return strings.ReplaceAll(name, ".", "/") + ".js"
 }
 
-func (printer *PrinterJS) printImportByString(s string) {
+func (printer *PrinterJS) printImportByNode(node *jo.Node, required bool) {
+	s := node.Content()
+
 	//todo (the same unit???)
 	if s == printer.unit.Name {
 		return
@@ -121,7 +176,17 @@ func (printer *PrinterJS) printImportByString(s string) {
 
 	if siblingUnit, ok := printer.siblingUnits[s]; ok {
 		jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
-		_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
+		//_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
+
+		if required {
+			_, _ = fmt.Fprintf(printer, "import {%s} from '%s'; //required", s, jsPath)
+		} else {
+			//_, _ = fmt.Fprintf(printer, "let %s; import('%s').then($m => %s = $m.%s); //not required", s, jsPath, s, s)
+			_, _ = fmt.Fprintf(printer, "%s = (await import('%s')).%s;", s, jsPath, s)
+			printer.notRequiredImported.Add(s)
+		}
+
+		//_, _ = fmt.Fprintf(printer, "let {%s} = await import('%s');", s, jsPath)
 		printer.Println()
 		printer.importedNames.Add(s)
 		return
