@@ -42,6 +42,7 @@ const (
 	SEMICOLON   = NodeType(";")
 
 	STATIC            = NodeType("static")
+	FINAL             = NodeType("final")
 	FORMAL_PARAMETERS = NodeType("formal_parameters")
 	FORMAL_PARAMETER  = NodeType("formal_parameter")
 	BLOCK             = NodeType("block")

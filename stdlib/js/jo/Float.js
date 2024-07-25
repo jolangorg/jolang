@@ -12,7 +12,7 @@ export class Float extends Number{
         return !isFinite(f)
     }
 
-    floatToIntBits(f){
+    static floatToIntBits(f){
         float32Array[0] = f;
         return uint32Array[0];
     }

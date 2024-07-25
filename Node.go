@@ -158,36 +158,47 @@ func (n *Node) Parents() NodeList {
 
 func (n *Node) FindDeclaration() *Node {
 	parents := n.Parents()
-	isMethod := parents[0].Type() == nodetype.METHOD_INVOCATION
+	isMethodInvocation := parents[0].Type() == nodetype.METHOD_INVOCATION
 
 	for _, parent := range parents {
-
-		if !isMethod {
-			fieldDeclarations := parent.FindNodesByType(nodetype.FIELD_DECLARATION)
-			for _, fieldDeclaration := range fieldDeclarations {
-				decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
-				for _, decl := range decls {
-					if decl.GetName() == n.Content() {
-						return decl
-					}
+		if isMethodInvocation {
+			methodDeclarations := parent.FindNodesByType(nodetype.METHOD_DECLARATION)
+			for _, methodDeclaration := range methodDeclarations {
+				if methodDeclaration.GetName() == n.Content() {
+					return methodDeclaration
 				}
 			}
+			continue
+		}
 
-			localDeclarations := parent.FindNodesByType(nodetype.LOCAL_VARIABLE_DECLARATION)
-			for _, localDeclaration := range localDeclarations {
-				decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
-				for _, decl := range decls {
-					if decl.GetName() == n.Content() {
-						return decl
-					}
+		fieldDeclarations := parent.FindNodesByType(nodetype.FIELD_DECLARATION)
+		for _, fieldDeclaration := range fieldDeclarations {
+			decls := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+			for _, decl := range decls {
+				if decl.GetName() == n.Content() {
+					return decl
 				}
 			}
 		}
 
-		methodDeclarations := parent.FindNodesByType(nodetype.METHOD_DECLARATION)
-		for _, methodDeclaration := range methodDeclarations {
-			if methodDeclaration.GetName() == n.Content() {
-				return methodDeclaration
+		localDeclarations := parent.FindNodesByType(nodetype.LOCAL_VARIABLE_DECLARATION)
+		for _, localDeclaration := range localDeclarations {
+			decls := localDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
+			for _, decl := range decls {
+				if decl.GetName() == n.Content() {
+					return decl
+				}
+			}
+		}
+
+		formalParameters := parent.FindNodeByType(nodetype.FORMAL_PARAMETERS)
+		if formalParameters == nil {
+			continue
+		}
+		params := formalParameters.FindNodesByType(nodetype.FORMAL_PARAMETER)
+		for _, param := range params {
+			if param.GetName() == n.Content() {
+				return param
 			}
 		}
 	}
@@ -200,4 +211,12 @@ func (n *Node) IsStatic() bool {
 		return false
 	}
 	return modifiers.FindNodeByType(nodetype.STATIC) != nil
+}
+
+func (n *Node) IsFinal() bool {
+	modifiers := n.FindNodeByType(nodetype.MODIFIERS)
+	if modifiers == nil {
+		return false
+	}
+	return modifiers.FindNodeByType(nodetype.FINAL) != nil
 }

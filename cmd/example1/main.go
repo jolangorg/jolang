@@ -35,7 +35,7 @@ func main() {
 	//	return
 	//}
 
-	unit, ok := project.UnitsByAbsName["org.jbox2d.common.Vec2"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.common.Vec3"]
 	if !ok {
 		log.Println("not exists")
 		return

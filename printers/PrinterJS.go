@@ -391,7 +391,12 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.printFloatLiteral(node)
 
 	case nodetype.LOCAL_VARIABLE_DECLARATION:
-		printer.Print("let ")
+		if node.IsFinal() {
+			printer.Print("const ")
+		} else {
+			printer.Print("let ")
+		}
+
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
 		printer.Println(";")
 
