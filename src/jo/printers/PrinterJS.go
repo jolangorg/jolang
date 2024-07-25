@@ -17,6 +17,8 @@ type PrinterJS struct {
 	*BasePrinter
 	importedNames jo.Set[string]
 	leftPart      bool
+	unit          *jo.Unit
+	siblingUnits  jo.UnitsMap
 }
 
 func NewPrinterJS(project *jo.Project) Printer {
@@ -26,13 +28,15 @@ func NewPrinterJS(project *jo.Project) Printer {
 	}
 }
 
-var importJavaLang = map[string]bool{
-	"Class":            true,
-	"RuntimeException": true,
-}
+var JavaLangExcludeImport = jo.NewSet([]string{
+	"Math",
+	"String",
+	"Object",
+})
 
 func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 	root := unit.Root
+	printer.unit = unit
 
 	//import core, types
 	printer.Println(`import * as jo from "jo";`)
@@ -48,10 +52,9 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 		printer.printImport(importDeclaration)
 	}
 
-	siblingUnits := unit.GetSiblingUnits()
+	printer.siblingUnits = unit.GetSiblingUnits()
 
 	typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
-	typeIdentifiersReady := jo.NewEmptySet[string]()
 	for _, typeIdentifier := range typeIdentifiers {
 
 		//skip interfaces import
@@ -59,41 +62,17 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 		if len(parents) > 1 && parents[1].Type() == nodetype.SUPER_INTERFACES {
 			continue
 		}
+		printer.printImportByString(typeIdentifier.Content())
+	}
 
-		s := typeIdentifier.Content()
-
-		//already imported
-		if typeIdentifiersReady.Contains(s) {
+	identifiers := root.FindNodesByTypeRecursive(nodetype.IDENTIFIER)
+	for _, identifier := range identifiers {
+		firstIdentifier, decl := printer.analyzeIdentifier(identifier)
+		if !firstIdentifier || decl != nil {
 			continue
 		}
 
-		//todo (the same unit???)
-		if s == unit.Name {
-			continue
-		}
-
-		//previously imported
-		if printer.importedNames.Contains(s) {
-			continue
-		}
-
-		if siblingUnit, ok := siblingUnits[s]; ok {
-			jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
-			_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
-			printer.Println()
-			typeIdentifiersReady.Add(s)
-			continue
-		}
-
-		if jo.JavaLangClasses.Contains(s) {
-			_, _ = fmt.Fprintf(printer, "import {%s} from 'java/lang/%s.js';", s, s)
-			printer.Println()
-			typeIdentifiersReady.Add(s)
-			continue
-		}
-
-		// unknown typeIdentifiers
-		//fmt.Println(s)
+		printer.printImportByString(identifier.Content())
 	}
 
 	printer.Println()
@@ -127,6 +106,33 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 
 func (printer *PrinterJS) convertClassNameToPath(name string) string {
 	return strings.ReplaceAll(name, ".", "/") + ".js"
+}
+
+func (printer *PrinterJS) printImportByString(s string) {
+	//todo (the same unit???)
+	if s == printer.unit.Name {
+		return
+	}
+
+	//previously imported
+	if printer.importedNames.Contains(s) {
+		return
+	}
+
+	if siblingUnit, ok := printer.siblingUnits[s]; ok {
+		jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
+		_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
+		printer.Println()
+		printer.importedNames.Add(s)
+		return
+	}
+
+	if jo.JavaLangClasses.Contains(s) && !JavaLangExcludeImport.Contains(s) {
+		_, _ = fmt.Fprintf(printer, "import {%s} from 'java/lang/%s.js';", s, s)
+		printer.Println()
+		printer.importedNames.Add(s)
+		return
+	}
 }
 
 func (printer *PrinterJS) printImport(importDeclaration *jo.Node) {
@@ -624,9 +630,9 @@ func (printer *PrinterJS) VisitDefault(node *jo.Node) {
 }
 
 // print "this." or "ClassName." if needed
-func (printer *PrinterJS) printFullPath(node *jo.Node) {
+func (printer *PrinterJS) analyzeIdentifier(node *jo.Node) (firstIdentifier bool, decl *jo.Node) {
 	prev := node.PrevSibling()
-	firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
+	firstIdentifier = prev == nil || prev.Type() != nodetype.DOT
 	parent := node.Parent()
 
 	if !firstIdentifier {
@@ -637,9 +643,14 @@ func (printer *PrinterJS) printFullPath(node *jo.Node) {
 		return
 	}
 
-	decl := node.FindDeclaration()
-	if decl == nil {
-		fmt.Println(node.Content())
+	decl = node.FindDeclaration()
+
+	return
+}
+
+func (printer *PrinterJS) printFullPath(node *jo.Node) {
+	firstIdentifier, decl := printer.analyzeIdentifier(node)
+	if !firstIdentifier || decl == nil {
 		return
 	}
 
