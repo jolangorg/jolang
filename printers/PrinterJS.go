@@ -504,10 +504,32 @@ func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport 
 	printer.Println("}")
 }
 
+func (printer *PrinterJS) printAnonClass(node *jolang2.Node) {
+	//todo anon class here
+	//todo print anon class content
+	t := printer.findType(node)
+	_, _ = fmt.Fprintf(printer, "($this => new class extends %s {", t.Content())
+	printer.Println()
+	printer.Indent++
+
+	printer.Println("constructor(){")
+	printer.Print("super")
+	printer.Visit(node.FindNodeByType(nodetype.ARGUMENT_LIST))
+	printer.Println(";")
+	printer.Indent--
+	printer.Println("}") //constructor end
+
+	classBody := node.FindNodeByType(nodetype.CLASS_BODY)
+	printer.printFields(classBody)
+	printer.printMethods(classBody)
+
+	printer.Indent--
+	printer.Print("})(this)") //new class end
+}
+
 func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExport bool) {
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
-	superclass := classDeclaration.FindNodeByType(nodetype.SUPERCLASS)
 
 	subClassDeclarations := classBody.FindNodesByTypeRecursive(nodetype.CLASS_DECLARATION)
 
@@ -526,6 +548,7 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 	}
 
 	printer.Print("class", className, "")
+	superclass := classDeclaration.FindNodeByType(nodetype.SUPERCLASS)
 	if superclass != nil {
 		printer.Print(superclass.Content())
 	}
@@ -719,23 +742,7 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 
 	case nodetype.OBJECT_CREATION_EXPRESSION:
 		if node.Contains(nodetype.CLASS_BODY) {
-			//todo anon class here
-			//todo print anon class content
-			t := printer.findType(node)
-			_, _ = fmt.Fprintf(printer, "new class extends %s {", t.Content())
-			printer.Println()
-			printer.Indent++
-
-			printer.Println("constructor(){")
-			printer.Print("super")
-			printer.Visit(node.FindNodeByType(nodetype.ARGUMENT_LIST))
-			printer.Println(";")
-
-			printer.Indent--
-			printer.Println("}") //constructor end
-
-			printer.Indent--
-			printer.Print("}") //new class end
+			printer.printAnonClass(node)
 		} else {
 			printer.VisitDefault(node)
 		}
@@ -751,7 +758,7 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		exprs := node.FindNodesByType(nodetype.DIMENSIONS_EXPR)
 		for _, expr := range exprs {
 			printer.Print(", ")
-			printer.Visit(expr)
+			printer.Visit(expr.Child(1))
 		}
 		printer.Print(")")
 
