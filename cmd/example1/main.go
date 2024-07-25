@@ -28,7 +28,8 @@ func main() {
 	}
 
 	//unit, ok := project.UnitsByAbsName["org.jbox2d.collision.shapes.ShapeType"]
-	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.World"]
+	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.World"]
+	unit, ok := project.UnitsByAbsName["org.jbox2d.callbacks.RayCastCallback"]
 	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.FixtureDef"]
 	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.joints.FrictionJoint"]
 	//unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.BodyType"]
@@ -54,7 +55,7 @@ func main() {
 		}
 	}
 
-	if false {
+	if true {
 		writeAllUnits(project)
 	}
 }

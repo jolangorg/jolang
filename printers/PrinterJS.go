@@ -100,10 +100,10 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 
 	//main  package interfaces
 	{
-		//decls := root.FindNodesByType(nodetype.INTERFACE_DECLARATION)
-		//for _, decl := range decls {
-		//	printer.printInterface(decl, true)
-		//}
+		decls := root.FindNodesByType(nodetype.INTERFACE_DECLARATION)
+		for _, decl := range decls {
+			printer.printInterface(decl, true)
+		}
 	}
 
 	return printer.Buffer
@@ -267,7 +267,7 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 		printer.printFormalParams(params)
 
 		if block == nil {
-			printer.Println(";") //todo strange, need check on abstract methods
+			printer.Println("{}")
 		} else {
 			printer.Indent++
 			printer.Visit(block)
@@ -402,13 +402,29 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 	}
 }
 
+func (printer *PrinterJS) printInterface(interfaceDeclaration *jolang2.Node, shouldExport bool) {
+	if shouldExport {
+		printer.Print("export ")
+	}
+	_, _ = fmt.Fprintf(printer, `class %s extends jo.Interface {`, interfaceDeclaration.GetName())
+	printer.Println()
+
+	body := interfaceDeclaration.FindNodeByType(nodetype.INTERFACE_BODY)
+	if body != nil {
+		printer.Indent++
+		printer.printMethods(body)
+		printer.Indent--
+	}
+	printer.Println("}")
+}
+
 func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport bool) {
 	enumName := enumDeclaration.GetName()
 	body := enumDeclaration.FindNodeByType(nodetype.ENUM_BODY)
 	if shouldExport {
 		printer.Print("export ")
 	}
-	_, _ = fmt.Fprintf(printer, `class %s extends Enum {`, enumDeclaration.GetName())
+	_, _ = fmt.Fprintf(printer, `class %s extends jo.Enum {`, enumDeclaration.GetName())
 	printer.Println()
 	if body != nil {
 		printer.Indent++
@@ -618,6 +634,21 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Print("$this")
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.ARGUMENT_LIST))
 		printer.Print(";")
+
+	case nodetype.ARRAY_CREATION_EXPRESSION:
+		printer.Print("jo.NewArray(")
+		t := node.Child(1)
+		//if t == nil {
+		//	node.PrintAST()
+		//	return
+		//}
+		printer.Print(t.Content())
+		exprs := node.FindNodesByType(nodetype.DIMENSIONS_EXPR)
+		for _, expr := range exprs {
+			printer.Print(", ")
+			printer.Visit(expr)
+		}
+		printer.Print(")")
 
 	default:
 		printer.VisitDefault(node)

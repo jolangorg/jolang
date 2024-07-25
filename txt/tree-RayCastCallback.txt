@@ -1,0 +1,88 @@
+program org
+	block_comment 
+	block_comment 
+	package_declaration org
+		package 
+		scoped_identifier org
+			scoped_identifier org
+				identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	block_comment 
+	interface_declaration RayCastCallback
+		modifiers 
+			public 
+		interface 
+		identifier 
+		interface_body reportFixture
+			{ 
+			block_comment 
+			method_declaration reportFixture
+				modifiers 
+					public 
+				floating_point_type 
+					float 
+				identifier 
+				formal_parameters fixture
+					( 
+					formal_parameter fixture
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter point
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter normal
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter fraction
+						floating_point_type 
+							float 
+						identifier 
+					) 
+				; 
+			} 
