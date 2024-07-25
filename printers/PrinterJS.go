@@ -209,6 +209,62 @@ func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jolang2.Node
 	}
 }
 
+func (printer *PrinterJS) printMethodHint(params jolang2.NodeList, resultType *jolang2.Node) {
+
+	//example:
+
+	/**
+	 *
+	 * @param fixtureA
+	 * @param indexA
+	 * @param fixtureB
+	 * @param indexB
+	 * @returns {null|*}
+	 */
+
+	printResultType := resultType != nil && resultType.Type() != nodetype.VOID_TYPE
+	if len(params) == 0 && !printResultType {
+		return
+	}
+
+	printer.Println("/**")
+	for _, param := range params {
+		t := printer.findType(param)
+		if t == nil {
+			_, _ = fmt.Fprintf(printer, "* @param %s", param.GetName())
+		} else {
+			s := printer.convertType(t)
+			_, _ = fmt.Fprintf(printer, "* @param {%s} %s", s, param.GetName())
+		}
+		printer.Println()
+	}
+
+	if printResultType {
+		_, _ = fmt.Fprintf(printer, "* @returns %s", resultType.Content())
+		printer.Println()
+	}
+
+	printer.Println("*/")
+}
+
+func (printer *PrinterJS) convertType(t *jolang2.Node) string {
+	s := t.Content()
+	if v, ok := typeofTypes[s]; ok {
+		return v
+	}
+	return s
+}
+
+func (printer *PrinterJS) findType(node *jolang2.Node) *jolang2.Node {
+	return node.FindNodeByType(
+		nodetype.TYPE_IDENTIFIER,
+		nodetype.FLOATING_POINT_TYPE,
+		nodetype.VOID_TYPE,
+		nodetype.BOOLEAN_TYPE,
+		nodetype.INTEGRAL_TYPE,
+	)
+}
+
 func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
 	methodsByName := jolang2.NodeListMap{}
@@ -250,12 +306,14 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 
 		name := methodDeclaration.GetName()
 		overloaded := len(methodsByName[name]) > 1
+		params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+		resultType := printer.findType(methodDeclaration)
+
+		printer.printMethodHint(params, resultType)
 
 		if methodDeclaration.IsStatic() {
 			printer.Print("static ")
 		}
-
-		params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
 
 		if overloaded {
 			printer.printOverloadName(methodDeclaration)
@@ -369,13 +427,9 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 
 			fieldType := variableDeclarator.PrevSibling()
 			if fieldType != nil {
-				fieldTypeS := fieldType.Content()
-				if s, ok := typeofTypes[fieldTypeS]; ok {
-					fieldTypeS = s
-				}
 				printer.Println()
 				printer.Println("/**")
-				printer.Printf("* @var {%s}", fieldTypeS)
+				printer.Printf("* @var {%s}", printer.convertType(fieldType))
 				printer.Println()
 				printer.Println("*/")
 			}
@@ -593,6 +647,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.DOUBLE_EQUAL:
 		printer.Print(" === ")
 
+	case nodetype.NOT_EQUAL:
+		printer.Print(" !== ")
+
 	case nodetype.RIGHT_BRACE, nodetype.SEMICOLON:
 		printer.Print(node.Content())
 
@@ -610,7 +667,11 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		}
 
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.VARIABLE_DECLARATOR))
-		printer.Println(";")
+		if node.Parent().Type() == nodetype.FOR_STATEMENT {
+			printer.Print(";")
+		} else {
+			printer.Println(";")
+		}
 
 	case nodetype.METHOD_INVOCATION:
 		printer.VisitDefault(node)
@@ -637,6 +698,8 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 		printer.Print("$this")
 		printer.VisitChildrenOf(node.FindNodeByType(nodetype.ARGUMENT_LIST))
 		printer.Print(";")
+
+	case nodetype.TYPE_ARGUMENTS:
 
 	case nodetype.ARRAY_CREATION_EXPRESSION:
 		printer.Print("jo.NewArray(")

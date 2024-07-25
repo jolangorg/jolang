@@ -1,0 +1,2374 @@
+program org
+	block_comment 
+	block_comment 
+	package_declaration org
+		package 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration java
+		import 
+		scoped_identifier java
+			scoped_identifier java
+				identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	block_comment 
+	class_declaration DefaultWorldPool
+		modifiers 
+			public 
+		class 
+		identifier 
+		super_interfaces 
+			implements 
+			type_list 
+				type_identifier 
+		class_body vecs
+			{ 
+			field_declaration vecs
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator vecs
+					identifier 
+				; 
+			field_declaration vec3s
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator vec3s
+					identifier 
+				; 
+			field_declaration mats
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator mats
+					identifier 
+				; 
+			field_declaration mat33s
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator mat33s
+					identifier 
+				; 
+			field_declaration aabbs
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator aabbs
+					identifier 
+				; 
+			field_declaration rots
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator rots
+					identifier 
+				; 
+			field_declaration afloats
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						, 
+						array_type 
+							floating_point_type 
+								float 
+							dimensions 
+								[ 
+								] 
+						> 
+				variable_declarator afloats
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								, 
+								array_type 
+									floating_point_type 
+										float 
+									dimensions 
+										[ 
+										] 
+								> 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration aints
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						, 
+						array_type 
+							integral_type 
+								int 
+							dimensions 
+								[ 
+								] 
+						> 
+				variable_declarator aints
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								, 
+								array_type 
+									integral_type 
+										int 
+									dimensions 
+										[ 
+										] 
+								> 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration avecs
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						, 
+						array_type 
+							type_identifier 
+							dimensions 
+								[ 
+								] 
+						> 
+				variable_declarator avecs
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								, 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								> 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration world
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator world
+					identifier 
+					= 
+					this 
+				; 
+			field_declaration pcstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator pcstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration ccstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator ccstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration cpstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator cpstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration ecstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator ecstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration epstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator epstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration chcstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator chcstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration chpstack
+				modifiers 
+					private 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				variable_declarator chpstack
+					identifier 
+					= 
+					object_creation_expression Settings
+						new 
+						generic_type 
+							type_identifier 
+							type_arguments 
+								< 
+								type_identifier 
+								> 
+						argument_list Settings
+							( 
+							field_access Settings
+								identifier 
+								. 
+								identifier 
+							) 
+						class_body newInstance
+							{ 
+							method_declaration newInstance
+								modifiers 
+									protected 
+								type_identifier 
+								identifier 
+								formal_parameters 
+									( 
+									) 
+								block world
+									{ 
+									return_statement world
+										return 
+										object_creation_expression world
+											new 
+											type_identifier 
+											argument_list world
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							method_declaration newArray
+								modifiers 
+									protected 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								identifier 
+								formal_parameters size
+									( 
+									formal_parameter size
+										integral_type 
+											int 
+										identifier 
+									) 
+								block size
+									{ 
+									return_statement size
+										return 
+										array_creation_expression size
+											new 
+											type_identifier 
+											dimensions_expr size
+												[ 
+												identifier 
+												] 
+										; 
+									} 
+							} 
+				; 
+			field_declaration collision
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator collision
+					identifier 
+				; 
+			field_declaration toi
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator toi
+					identifier 
+				; 
+			field_declaration dist
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator dist
+					identifier 
+				; 
+			constructor_declaration DefaultWorldPool
+				modifiers 
+					public 
+				identifier 
+				formal_parameters argSize
+					( 
+					formal_parameter argSize
+						integral_type 
+							int 
+						identifier 
+					, 
+					formal_parameter argContainerSize
+						integral_type 
+							int 
+						identifier 
+					) 
+				constructor_body vecs
+					{ 
+					expression_statement vecs
+						assignment_expression vecs
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement vec3s
+						assignment_expression vec3s
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement mats
+						assignment_expression mats
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement aabbs
+						assignment_expression aabbs
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement rots
+						assignment_expression rots
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement mat33s
+						assignment_expression mat33s
+							identifier 
+							= 
+							object_creation_expression argSize
+								new 
+								generic_type 
+									type_identifier 
+									type_arguments 
+										< 
+										type_identifier 
+										> 
+								argument_list argSize
+									( 
+									identifier 
+									, 
+									identifier 
+									) 
+								class_body newInstance
+									{ 
+									method_declaration newInstance
+										modifiers 
+											protected 
+										type_identifier 
+										identifier 
+										formal_parameters 
+											( 
+											) 
+										block 
+											{ 
+											return_statement 
+												return 
+												object_creation_expression 
+													new 
+													type_identifier 
+													argument_list 
+														( 
+														) 
+												; 
+											} 
+									} 
+						; 
+					expression_statement dist
+						assignment_expression dist
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									) 
+						; 
+					expression_statement collision
+						assignment_expression collision
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									this 
+									) 
+						; 
+					expression_statement toi
+						assignment_expression toi
+							identifier 
+							= 
+							object_creation_expression 
+								new 
+								type_identifier 
+								argument_list 
+									( 
+									this 
+									) 
+						; 
+					} 
+			method_declaration getPolyContactStack
+				modifiers 
+					public 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block pcstack
+					{ 
+					return_statement pcstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getCircleContactStack
+				modifiers 
+					public 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block ccstack
+					{ 
+					return_statement ccstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getPolyCircleContactStack
+				modifiers 
+					public 
+					final 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block cpstack
+					{ 
+					return_statement cpstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getEdgeCircleContactStack
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block ecstack
+					{ 
+					return_statement ecstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getEdgePolyContactStack
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block epstack
+					{ 
+					return_statement epstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getChainCircleContactStack
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block chcstack
+					{ 
+					return_statement chcstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getChainPolyContactStack
+				modifiers Override
+					marker_annotation Override
+						@ 
+						identifier 
+					public 
+				generic_type 
+					type_identifier 
+					type_arguments 
+						< 
+						type_identifier 
+						> 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block chpstack
+					{ 
+					return_statement chpstack
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration popVec2
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block vecs
+					{ 
+					return_statement vecs
+						return 
+						method_invocation vecs
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration popVec2
+				modifiers 
+					public 
+					final 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block vecs
+					{ 
+					return_statement vecs
+						return 
+						method_invocation vecs
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration pushVec2
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block vecs
+					{ 
+					expression_statement vecs
+						method_invocation vecs
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration popVec3
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block vec3s
+					{ 
+					return_statement vec3s
+						return 
+						method_invocation vec3s
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration popVec3
+				modifiers 
+					public 
+					final 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block vec3s
+					{ 
+					return_statement vec3s
+						return 
+						method_invocation vec3s
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration pushVec3
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block vec3s
+					{ 
+					expression_statement vec3s
+						method_invocation vec3s
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration popMat22
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block mats
+					{ 
+					return_statement mats
+						return 
+						method_invocation mats
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration popMat22
+				modifiers 
+					public 
+					final 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block mats
+					{ 
+					return_statement mats
+						return 
+						method_invocation mats
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration pushMat22
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block mats
+					{ 
+					expression_statement mats
+						method_invocation mats
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration popMat33
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block mat33s
+					{ 
+					return_statement mat33s
+						return 
+						method_invocation mat33s
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration pushMat33
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block mat33s
+					{ 
+					expression_statement mat33s
+						method_invocation mat33s
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration popAABB
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block aabbs
+					{ 
+					return_statement aabbs
+						return 
+						method_invocation aabbs
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration popAABB
+				modifiers 
+					public 
+					final 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block aabbs
+					{ 
+					return_statement aabbs
+						return 
+						method_invocation aabbs
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration pushAABB
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters argNum
+					( 
+					formal_parameter argNum
+						integral_type 
+							int 
+						identifier 
+					) 
+				block aabbs
+					{ 
+					expression_statement aabbs
+						method_invocation aabbs
+							identifier 
+							. 
+							identifier 
+							argument_list argNum
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration popRot
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block rots
+					{ 
+					return_statement rots
+						return 
+						method_invocation rots
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					} 
+			method_declaration pushRot
+				modifiers 
+					public 
+					final 
+				void_type 
+				identifier 
+				formal_parameters num
+					( 
+					formal_parameter num
+						integral_type 
+							int 
+						identifier 
+					) 
+				block rots
+					{ 
+					expression_statement rots
+						method_invocation rots
+							identifier 
+							. 
+							identifier 
+							argument_list num
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getCollision
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block collision
+					{ 
+					return_statement collision
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getTimeOfImpact
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block toi
+					{ 
+					return_statement toi
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getDistance
+				modifiers 
+					public 
+					final 
+				type_identifier 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block dist
+					{ 
+					return_statement dist
+						return 
+						identifier 
+						; 
+					} 
+			method_declaration getFloatArray
+				modifiers 
+					public 
+					final 
+				array_type 
+					floating_point_type 
+						float 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argLength
+					( 
+					formal_parameter argLength
+						integral_type 
+							int 
+						identifier 
+					) 
+				block afloats
+					{ 
+					if_statement afloats
+						if 
+						parenthesized_expression afloats
+							( 
+							unary_expression afloats
+								! 
+								method_invocation afloats
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										) 
+							) 
+						block afloats
+							{ 
+							expression_statement afloats
+								method_invocation afloats
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										, 
+										array_creation_expression argLength
+											new 
+											floating_point_type 
+												float 
+											dimensions_expr argLength
+												[ 
+												identifier 
+												] 
+										) 
+								; 
+							} 
+					assert_statement afloats
+						assert 
+						parenthesized_expression afloats
+							( 
+							binary_expression afloats
+								field_access afloats
+									method_invocation afloats
+										identifier 
+										. 
+										identifier 
+										argument_list argLength
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+								== 
+								identifier 
+							) 
+						: 
+						string_literal 
+							" 
+							string_fragment 
+							" 
+						; 
+					return_statement afloats
+						return 
+						method_invocation afloats
+							identifier 
+							. 
+							identifier 
+							argument_list argLength
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getIntArray
+				modifiers 
+					public 
+					final 
+				array_type 
+					integral_type 
+						int 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argLength
+					( 
+					formal_parameter argLength
+						integral_type 
+							int 
+						identifier 
+					) 
+				block aints
+					{ 
+					if_statement aints
+						if 
+						parenthesized_expression aints
+							( 
+							unary_expression aints
+								! 
+								method_invocation aints
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										) 
+							) 
+						block aints
+							{ 
+							expression_statement aints
+								method_invocation aints
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										, 
+										array_creation_expression argLength
+											new 
+											integral_type 
+												int 
+											dimensions_expr argLength
+												[ 
+												identifier 
+												] 
+										) 
+								; 
+							} 
+					assert_statement aints
+						assert 
+						parenthesized_expression aints
+							( 
+							binary_expression aints
+								field_access aints
+									method_invocation aints
+										identifier 
+										. 
+										identifier 
+										argument_list argLength
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+								== 
+								identifier 
+							) 
+						: 
+						string_literal 
+							" 
+							string_fragment 
+							" 
+						; 
+					return_statement aints
+						return 
+						method_invocation aints
+							identifier 
+							. 
+							identifier 
+							argument_list argLength
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			method_declaration getVec2Array
+				modifiers 
+					public 
+					final 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				identifier 
+				formal_parameters argLength
+					( 
+					formal_parameter argLength
+						integral_type 
+							int 
+						identifier 
+					) 
+				block avecs
+					{ 
+					if_statement avecs
+						if 
+						parenthesized_expression avecs
+							( 
+							unary_expression avecs
+								! 
+								method_invocation avecs
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										) 
+							) 
+						block ray
+							{ 
+							local_variable_declaration ray
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								variable_declarator ray
+									identifier 
+									= 
+									array_creation_expression argLength
+										new 
+										type_identifier 
+										dimensions_expr argLength
+											[ 
+											identifier 
+											] 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block ray
+									{ 
+									expression_statement ray
+										assignment_expression ray
+											array_access ray
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											object_creation_expression 
+												new 
+												type_identifier 
+												argument_list 
+													( 
+													) 
+										; 
+									} 
+							expression_statement avecs
+								method_invocation avecs
+									identifier 
+									. 
+									identifier 
+									argument_list argLength
+										( 
+										identifier 
+										, 
+										identifier 
+										) 
+								; 
+							} 
+					assert_statement avecs
+						assert 
+						parenthesized_expression avecs
+							( 
+							binary_expression avecs
+								field_access avecs
+									method_invocation avecs
+										identifier 
+										. 
+										identifier 
+										argument_list argLength
+											( 
+											identifier 
+											) 
+									. 
+									identifier 
+								== 
+								identifier 
+							) 
+						: 
+						string_literal 
+							" 
+							string_fragment 
+							" 
+						; 
+					return_statement avecs
+						return 
+						method_invocation avecs
+							identifier 
+							. 
+							identifier 
+							argument_list argLength
+								( 
+								identifier 
+								) 
+						; 
+					} 
+			} 
