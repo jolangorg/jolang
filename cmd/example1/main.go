@@ -44,7 +44,7 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	if true {
+	if false {
 		unit.PrintAST()
 	}
 

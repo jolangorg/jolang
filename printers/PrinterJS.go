@@ -7,6 +7,12 @@ import (
 	"strings"
 )
 
+var typeofTypes = map[string]string{ // java -> js
+	"float":   "number",
+	"int":     "number",
+	"boolean": "boolean",
+}
+
 type PrinterJS struct {
 	*BasePrinter
 	importedNames map[string]string //shortName -> fullName
@@ -62,7 +68,8 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 			continue
 		}
 
-		fmt.Println(s)
+		// unknown typeIdentifiers
+		// fmt.Println(s)
 	}
 
 	if len(importDeclarations) > 0 {
@@ -109,6 +116,22 @@ func (printer *PrinterJS) printFormalParams(params []*jolang2.Node) {
 	printer.Print(")")
 }
 
+func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
+	name := methodDeclaration.GetName()
+	params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+	printer.Print(name)
+	printer.Print("$")
+	for _, param := range params {
+		for _, paramChild := range param.Children() {
+			if paramChild.Type() != nodetype.MODIFIERS {
+				printer.Print(paramChild.Content())
+				break
+			}
+		}
+	}
+
+}
+
 func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
 	methodsByName := map[string]jolang2.NodeList{}
@@ -125,7 +148,43 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	//show overloaded methods
 	for name, list := range methodsByName {
 		if len(list) > 1 {
-			fmt.Println(name)
+			methodDeclaration := list[0]
+			printer.Println()
+			if methodDeclaration.IsStatic() {
+				printer.Print("static ")
+			}
+			printer.Println(name, "(){")
+			printer.Indent++
+			for _, methodDeclaration = range list {
+				params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+				_, _ = fmt.Fprintf(printer, "if (arguments.length === %d", len(params))
+				for paramNum, param := range params {
+					printer.Print(" && ")
+
+					typ := ""
+
+					for _, paramChild := range param.Children() {
+						if paramChild.Type() != nodetype.MODIFIERS {
+							typ = paramChild.Content()
+							if typeof, ok := typeofTypes[typ]; ok {
+								_, _ = fmt.Fprintf(printer, `typeof arguments[%d] === "%s"`, paramNum, typeof)
+							} else {
+								_, _ = fmt.Fprintf(printer, "arguments[%d] instanceof %s", paramNum, typ)
+							}
+							break
+						}
+					}
+				}
+				printer.Print(") return this.")
+				printer.printOverloadName(methodDeclaration)
+				printer.Println("(...arguments);")
+			}
+			printer.Println()
+			printer.Println("return super." + name + "(...arguments);")
+			printer.Indent--
+			printer.Println("}")
+
+			//fmt.Println(name)
 		}
 	}
 
@@ -134,11 +193,29 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 		printer.Println()
 
 		name := methodDeclaration.GetName()
+		overloaded := len(methodsByName[name]) > 1
+
 		if methodDeclaration.IsStatic() {
 			printer.Print("static ")
 		}
-		printer.Print(name)
+
 		params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
+
+		if overloaded {
+			printer.Print(name)
+			printer.Print("$")
+			for _, param := range params {
+				for _, paramChild := range param.Children() {
+					if paramChild.Type() != nodetype.MODIFIERS {
+						printer.Print(paramChild.Content())
+						break
+					}
+				}
+			}
+		} else {
+			printer.Print(name)
+		}
+
 		block := methodDeclaration.FindNodeByType(nodetype.BLOCK)
 		printer.printFormalParams(params)
 
@@ -254,9 +331,6 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 }
 
 func (printer *PrinterJS) Visit(node *jolang2.Node) {
-	if node == nil {
-		fmt.Println(node)
-	}
 	switch node.Type() {
 	case nodetype.NEW, nodetype.RETURN, nodetype.IF, nodetype.ELSE:
 		printer.VisitDefault(node)
