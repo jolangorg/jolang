@@ -1,3 +1,7 @@
+let buf = new ArrayBuffer(4);
+let float32Array = new Float32Array(buf);
+let uint32Array = new Float32Array(buf);
+
 export class Float extends Number{
 
     static isNaN(f){
@@ -9,9 +13,8 @@ export class Float extends Number{
     }
 
     floatToIntBits(f){
-        var buf = new ArrayBuffer(4);
-        (new Float32Array(buf))[0] = f;
-        return (new Uint32Array(buf))[0];
+        float32Array[0] = f;
+        return uint32Array[0];
     }
 
 }
