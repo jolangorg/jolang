@@ -68,8 +68,4 @@ func main() {
 		//fmt.Println(filename)
 		//fmt.Println(content)
 	}
-
-	if false {
-		project.PrintNameTree(0)
-	}
 }

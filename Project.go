@@ -25,7 +25,6 @@ type Project struct {
 	UnitsByPkg     UnitsByPkgMap
 	UnitsByAbsName UnitsMap
 
-	*NameNode
 	NodesById
 }
 
@@ -108,18 +107,15 @@ func (p *Project) AddSource(filename string) (*Unit, error) {
 	} else {
 		return nil, errors.New("PACKAGE_DECLARATION not found in " + filename)
 	}
-	pkgNamedNode := p.AddChild(unit.Package)
 
 	if classDecl != nil {
-		unit.NameNode = pkgNamedNode.AddChild(classDecl.GetName())
+		unit.Name = classDecl.GetName()
 		p.UnitsByAbsName[unit.AbsName()] = unit
 		p.UnitsByPkg[unit.Package][unit.Name] = unit
 	} else {
 		return nil, nil
 		//return nil, errors.New("CLASS_DECLARATION not found in " + filename)
 	}
-
-	pkgNamedNode.AddChild(unit.Name)
 
 	return unit, nil
 }
@@ -132,7 +128,6 @@ func NewProject() *Project {
 		Units:          []*Unit{},
 		UnitsByPkg:     make(UnitsByPkgMap),
 		UnitsByAbsName: make(UnitsMap),
-		NameNode:       NewRootNameNode(),
 		NodesById:      make(NodesById),
 	}
 }

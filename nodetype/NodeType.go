@@ -21,6 +21,7 @@ const (
 	CAST_EXPRESSION                = NodeType("cast_expression")
 	ASSIGNMENT_EXPRESSION          = NodeType("assignment_expression")
 	FIELD_ACCESS                   = NodeType("field_access")
+	ASSERT_STATEMENT               = NodeType("assert_statement")
 
 	NEW    = NodeType("new")
 	RETURN = NodeType("return")

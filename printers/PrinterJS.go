@@ -25,6 +25,10 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 	for _, importDeclaration := range importDeclarations {
 		printer.printImport(importDeclaration)
 	}
+	if root.FindNodeByTypeRecursive(nodetype.ASSERT_STATEMENT) != nil {
+		printer.Println("import {assert} from 'jo';")
+	}
+
 	if len(importDeclarations) > 0 {
 		printer.Println()
 	}

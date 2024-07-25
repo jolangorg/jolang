@@ -11,8 +11,7 @@ type Unit struct {
 	*sitter.Tree
 	Root    *Node
 	Package string
-
-	*NameNode
+	Name    string
 }
 
 type NodeHandlerFunc func(node *Node, level int)
