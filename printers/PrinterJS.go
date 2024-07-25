@@ -185,6 +185,8 @@ func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
 			if paramChild.Type() != nodetype.MODIFIERS {
 				paramType := paramChild.Content()
 				paramType = strings.ReplaceAll(paramType, "[]", "Arr")
+				paramType = strings.ReplaceAll(paramType, "<", "")
+				paramType = strings.ReplaceAll(paramType, ">", "")
 				printer.Print(paramType)
 				break
 			}
