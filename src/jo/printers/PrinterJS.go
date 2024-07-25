@@ -15,14 +15,14 @@ var typeofTypes = map[string]string{ // java -> js
 
 type PrinterJS struct {
 	*BasePrinter
-	importedNames map[string]string //shortName -> fullName
+	importedNames jo.Set[string]
 	leftPart      bool
 }
 
 func NewPrinterJS(project *jo.Project) Printer {
 	return &PrinterJS{
 		BasePrinter:   NewBasePrinter(project),
-		importedNames: map[string]string{},
+		importedNames: jo.NewEmptySet[string](),
 	}
 }
 
@@ -51,21 +51,29 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 	siblingUnits := unit.GetSiblingUnits()
 
 	typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
-	typeIdentifiersReady := map[string]bool{}
+	typeIdentifiersReady := jo.NewEmptySet[string]()
 	for _, typeIdentifier := range typeIdentifiers {
+
+		//skip interfaces import
 		parents := typeIdentifier.Parents()
 		if len(parents) > 1 && parents[1].Type() == nodetype.SUPER_INTERFACES {
 			continue
 		}
 
 		s := typeIdentifier.Content()
-		if _, ok := typeIdentifiersReady[s]; ok {
+
+		//already imported
+		if typeIdentifiersReady.Contains(s) {
 			continue
 		}
+
+		//todo (the same unit???)
 		if s == unit.Name {
 			continue
 		}
-		if _, ok := printer.importedNames[s]; ok {
+
+		//previously imported
+		if printer.importedNames.Contains(s) {
 			continue
 		}
 
@@ -73,14 +81,14 @@ func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 			jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
 			_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
 			printer.Println()
-			typeIdentifiersReady[s] = true
+			typeIdentifiersReady.Add(s)
 			continue
 		}
 
-		if _, ok := importJavaLang[s]; ok {
+		if jo.JavaLangClasses.Contains(s) {
 			_, _ = fmt.Fprintf(printer, "import {%s} from 'java/lang/%s.js';", s, s)
 			printer.Println()
-			typeIdentifiersReady[s] = true
+			typeIdentifiersReady.Add(s)
 			continue
 		}
 
@@ -136,7 +144,7 @@ func (printer *PrinterJS) printImport(importDeclaration *jo.Node) {
 				absName = unit.AbsName()
 				name = unit.Name
 
-				printer.importedNames[name] = absName
+				printer.importedNames.Add(name)
 				path := printer.convertClassNameToPath(absName)
 				_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
 				printer.Println(";")
@@ -152,7 +160,7 @@ func (printer *PrinterJS) printImport(importDeclaration *jo.Node) {
 			}
 		}
 
-		printer.importedNames[name] = absName
+		printer.importedNames.Add(name)
 		path := printer.convertClassNameToPath(unitName)
 		_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
 		printer.Println(";")
@@ -678,7 +686,6 @@ func (printer *PrinterJS) Visit(node *jo.Node) {
 
 	case nodetype.IDENTIFIER:
 		printer.printFullPath(node)
-
 		printer.Print(node.Content())
 
 	case nodetype.EXPRESSION_STATEMENT:
