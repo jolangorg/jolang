@@ -1,0 +1,3929 @@
+program org
+	block_comment 
+	package_declaration org
+		package 
+		scoped_identifier org
+			scoped_identifier org
+				identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						scoped_identifier org
+							identifier 
+							. 
+							identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	import_declaration org
+		import 
+		scoped_identifier org
+			scoped_identifier org
+				scoped_identifier org
+					scoped_identifier org
+						identifier 
+						. 
+						identifier 
+					. 
+					identifier 
+				. 
+				identifier 
+			. 
+			identifier 
+		; 
+	block_comment 
+	block_comment 
+	block_comment 
+	block_comment 
+	class_declaration Island
+		modifiers 
+			public 
+		class 
+		identifier 
+		class_body m_listener
+			{ 
+			field_declaration m_listener
+				modifiers 
+					public 
+				type_identifier 
+				variable_declarator m_listener
+					identifier 
+				; 
+			field_declaration m_bodies
+				modifiers 
+					public 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				variable_declarator m_bodies
+					identifier 
+				; 
+			field_declaration m_contacts
+				modifiers 
+					public 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				variable_declarator m_contacts
+					identifier 
+				; 
+			field_declaration m_joints
+				modifiers 
+					public 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				variable_declarator m_joints
+					identifier 
+				; 
+			field_declaration m_positions
+				modifiers 
+					public 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				variable_declarator m_positions
+					identifier 
+				; 
+			field_declaration m_velocities
+				modifiers 
+					public 
+				array_type 
+					type_identifier 
+					dimensions 
+						[ 
+						] 
+				variable_declarator m_velocities
+					identifier 
+				; 
+			field_declaration m_bodyCount
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_bodyCount
+					identifier 
+				; 
+			field_declaration m_jointCount
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_jointCount
+					identifier 
+				; 
+			field_declaration m_contactCount
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_contactCount
+					identifier 
+				; 
+			field_declaration m_bodyCapacity
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_bodyCapacity
+					identifier 
+				; 
+			field_declaration m_contactCapacity
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_contactCapacity
+					identifier 
+				; 
+			field_declaration m_jointCapacity
+				modifiers 
+					public 
+				integral_type 
+					int 
+				variable_declarator m_jointCapacity
+					identifier 
+				; 
+			constructor_declaration Island
+				modifiers 
+					public 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				constructor_body 
+					{ 
+					} 
+			method_declaration init
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters bodyCapacity
+					( 
+					formal_parameter bodyCapacity
+						integral_type 
+							int 
+						identifier 
+					, 
+					formal_parameter contactCapacity
+						integral_type 
+							int 
+						identifier 
+					, 
+					formal_parameter jointCapacity
+						integral_type 
+							int 
+						identifier 
+					, 
+					formal_parameter listener
+						type_identifier 
+						identifier 
+					) 
+				block m_bodyCapacity
+					{ 
+					line_comment 
+					expression_statement m_bodyCapacity
+						assignment_expression m_bodyCapacity
+							identifier 
+							= 
+							identifier 
+						; 
+					expression_statement m_contactCapacity
+						assignment_expression m_contactCapacity
+							identifier 
+							= 
+							identifier 
+						; 
+					expression_statement m_jointCapacity
+						assignment_expression m_jointCapacity
+							identifier 
+							= 
+							identifier 
+						; 
+					expression_statement m_bodyCount
+						assignment_expression m_bodyCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement m_contactCount
+						assignment_expression m_contactCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement m_jointCount
+						assignment_expression m_jointCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement m_listener
+						assignment_expression m_listener
+							identifier 
+							= 
+							identifier 
+						; 
+					if_statement m_bodies
+						if 
+						parenthesized_expression m_bodies
+							( 
+							binary_expression m_bodies
+								binary_expression m_bodies
+									identifier 
+									== 
+									null_literal 
+								|| 
+								binary_expression m_bodyCapacity
+									identifier 
+									> 
+									field_access m_bodies
+										identifier 
+										. 
+										identifier 
+							) 
+						block m_bodies
+							{ 
+							expression_statement m_bodies
+								assignment_expression m_bodies
+									identifier 
+									= 
+									array_creation_expression m_bodyCapacity
+										new 
+										type_identifier 
+										dimensions_expr m_bodyCapacity
+											[ 
+											identifier 
+											] 
+								; 
+							} 
+					if_statement m_joints
+						if 
+						parenthesized_expression m_joints
+							( 
+							binary_expression m_joints
+								binary_expression m_joints
+									identifier 
+									== 
+									null_literal 
+								|| 
+								binary_expression m_jointCapacity
+									identifier 
+									> 
+									field_access m_joints
+										identifier 
+										. 
+										identifier 
+							) 
+						block m_joints
+							{ 
+							expression_statement m_joints
+								assignment_expression m_joints
+									identifier 
+									= 
+									array_creation_expression m_jointCapacity
+										new 
+										type_identifier 
+										dimensions_expr m_jointCapacity
+											[ 
+											identifier 
+											] 
+								; 
+							} 
+					if_statement m_contacts
+						if 
+						parenthesized_expression m_contacts
+							( 
+							binary_expression m_contacts
+								binary_expression m_contacts
+									identifier 
+									== 
+									null_literal 
+								|| 
+								binary_expression m_contactCapacity
+									identifier 
+									> 
+									field_access m_contacts
+										identifier 
+										. 
+										identifier 
+							) 
+						block m_contacts
+							{ 
+							expression_statement m_contacts
+								assignment_expression m_contacts
+									identifier 
+									= 
+									array_creation_expression m_contactCapacity
+										new 
+										type_identifier 
+										dimensions_expr m_contactCapacity
+											[ 
+											identifier 
+											] 
+								; 
+							} 
+					line_comment 
+					if_statement m_velocities
+						if 
+						parenthesized_expression m_velocities
+							( 
+							binary_expression m_velocities
+								binary_expression m_velocities
+									identifier 
+									== 
+									null_literal 
+								|| 
+								binary_expression m_bodyCapacity
+									identifier 
+									> 
+									field_access m_velocities
+										identifier 
+										. 
+										identifier 
+							) 
+						block old
+							{ 
+							local_variable_declaration old
+								modifiers 
+									final 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								variable_declarator old
+									identifier 
+									= 
+									ternary_expression m_velocities
+										binary_expression m_velocities
+											identifier 
+											== 
+											null_literal 
+										? 
+										array_creation_expression 
+											new 
+											type_identifier 
+											dimensions_expr 
+												[ 
+												decimal_integer_literal 
+												] 
+										: 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									identifier 
+									= 
+									array_creation_expression m_bodyCapacity
+										new 
+										type_identifier 
+										dimensions_expr m_bodyCapacity
+											[ 
+											identifier 
+											] 
+								; 
+							expression_statement System
+								method_invocation System
+									identifier 
+									. 
+									identifier 
+									argument_list old
+										( 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										field_access old
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										field_access old
+											identifier 
+											. 
+											identifier 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									field_access m_velocities
+										identifier 
+										. 
+										identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block m_velocities
+									{ 
+									expression_statement m_velocities
+										assignment_expression m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											object_creation_expression 
+												new 
+												type_identifier 
+												argument_list 
+													( 
+													) 
+										; 
+									} 
+							} 
+					line_comment 
+					if_statement m_positions
+						if 
+						parenthesized_expression m_positions
+							( 
+							binary_expression m_positions
+								binary_expression m_positions
+									identifier 
+									== 
+									null_literal 
+								|| 
+								binary_expression m_bodyCapacity
+									identifier 
+									> 
+									field_access m_positions
+										identifier 
+										. 
+										identifier 
+							) 
+						block old
+							{ 
+							local_variable_declaration old
+								modifiers 
+									final 
+								array_type 
+									type_identifier 
+									dimensions 
+										[ 
+										] 
+								variable_declarator old
+									identifier 
+									= 
+									ternary_expression m_positions
+										binary_expression m_positions
+											identifier 
+											== 
+											null_literal 
+										? 
+										array_creation_expression 
+											new 
+											type_identifier 
+											dimensions_expr 
+												[ 
+												decimal_integer_literal 
+												] 
+										: 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									identifier 
+									= 
+									array_creation_expression m_bodyCapacity
+										new 
+										type_identifier 
+										dimensions_expr m_bodyCapacity
+											[ 
+											identifier 
+											] 
+								; 
+							expression_statement System
+								method_invocation System
+									identifier 
+									. 
+									identifier 
+									argument_list old
+										( 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										identifier 
+										, 
+										decimal_integer_literal 
+										, 
+										field_access old
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										field_access old
+											identifier 
+											. 
+											identifier 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									field_access m_positions
+										identifier 
+										. 
+										identifier 
+								; 
+								update_expression i
+									identifier 
+									++ 
+								) 
+								block m_positions
+									{ 
+									expression_statement m_positions
+										assignment_expression m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											object_creation_expression 
+												new 
+												type_identifier 
+												argument_list 
+													( 
+													) 
+										; 
+									} 
+							} 
+					} 
+			method_declaration clear
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters 
+					( 
+					) 
+				block m_bodyCount
+					{ 
+					expression_statement m_bodyCount
+						assignment_expression m_bodyCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement m_contactCount
+						assignment_expression m_contactCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					expression_statement m_jointCount
+						assignment_expression m_jointCount
+							identifier 
+							= 
+							decimal_integer_literal 
+						; 
+					} 
+			field_declaration contactSolver
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator contactSolver
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration timer
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator timer
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration solverData
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator solverData
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration solverDef
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator solverDef
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			method_declaration solve
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters profile
+					( 
+					formal_parameter profile
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter step
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter gravity
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter allowSleep
+						boolean_type 
+						identifier 
+					) 
+				block h
+					{ 
+					line_comment 
+					local_variable_declaration h
+						floating_point_type 
+							float 
+						variable_declarator h
+							identifier 
+							= 
+							field_access step
+								identifier 
+								. 
+								identifier 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block b
+							{ 
+							local_variable_declaration b
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator b
+									identifier 
+									= 
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+								; 
+							local_variable_declaration bm_sweep
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator bm_sweep
+									identifier 
+									= 
+									field_access b
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration c
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator c
+									identifier 
+									= 
+									field_access bm_sweep
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration a
+								floating_point_type 
+									float 
+								variable_declarator a
+									identifier 
+									= 
+									field_access bm_sweep
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration v
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator v
+									identifier 
+									= 
+									field_access b
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration w
+								floating_point_type 
+									float 
+								variable_declarator w
+									identifier 
+									= 
+									field_access b
+										identifier 
+										. 
+										identifier 
+								; 
+							line_comment 
+							expression_statement bm_sweep
+								method_invocation bm_sweep
+									field_access bm_sweep
+										identifier 
+										. 
+										identifier 
+									. 
+									identifier 
+									argument_list bm_sweep
+										( 
+										field_access bm_sweep
+											identifier 
+											. 
+											identifier 
+										) 
+								; 
+							expression_statement bm_sweep
+								assignment_expression bm_sweep
+									field_access bm_sweep
+										identifier 
+										. 
+										identifier 
+									= 
+									field_access bm_sweep
+										identifier 
+										. 
+										identifier 
+								; 
+							if_statement b
+								if 
+								parenthesized_expression b
+									( 
+									binary_expression b
+										field_access b
+											identifier 
+											. 
+											identifier 
+										== 
+										field_access BodyType
+											identifier 
+											. 
+											identifier 
+									) 
+								block v
+									{ 
+									line_comment 
+									line_comment 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											+= 
+											binary_expression h
+												identifier 
+												* 
+												parenthesized_expression b
+													( 
+													binary_expression b
+														binary_expression b
+															field_access b
+																identifier 
+																. 
+																identifier 
+															* 
+															field_access gravity
+																identifier 
+																. 
+																identifier 
+														+ 
+														binary_expression b
+															field_access b
+																identifier 
+																. 
+																identifier 
+															* 
+															field_access b
+																field_access b
+																	identifier 
+																	. 
+																	identifier 
+																. 
+																identifier 
+													) 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											+= 
+											binary_expression h
+												identifier 
+												* 
+												parenthesized_expression b
+													( 
+													binary_expression b
+														binary_expression b
+															field_access b
+																identifier 
+																. 
+																identifier 
+															* 
+															field_access gravity
+																identifier 
+																. 
+																identifier 
+														+ 
+														binary_expression b
+															field_access b
+																identifier 
+																. 
+																identifier 
+															* 
+															field_access b
+																field_access b
+																	identifier 
+																	. 
+																	identifier 
+																. 
+																identifier 
+													) 
+										; 
+									expression_statement w
+										assignment_expression w
+											identifier 
+											+= 
+											binary_expression h
+												binary_expression h
+													identifier 
+													* 
+													field_access b
+														identifier 
+														. 
+														identifier 
+												* 
+												field_access b
+													identifier 
+													. 
+													identifier 
+										; 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									line_comment 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											*=
+											binary_expression h
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression h
+													( 
+													binary_expression h
+														decimal_floating_point_literal 
+														+ 
+														binary_expression h
+															identifier 
+															* 
+															field_access b
+																identifier 
+																. 
+																identifier 
+													) 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											*= 
+											binary_expression h
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression h
+													( 
+													binary_expression h
+														decimal_floating_point_literal 
+														+ 
+														binary_expression h
+															identifier 
+															* 
+															field_access b
+																identifier 
+																. 
+																identifier 
+													) 
+										; 
+									expression_statement w
+										assignment_expression w
+											identifier 
+											*= 
+											binary_expression h
+												decimal_floating_point_literal 
+												/ 
+												parenthesized_expression h
+													( 
+													binary_expression h
+														decimal_floating_point_literal 
+														+ 
+														binary_expression h
+															identifier 
+															* 
+															field_access b
+																identifier 
+																. 
+																identifier 
+													) 
+										; 
+									} 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							} 
+					expression_statement timer
+						method_invocation timer
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					line_comment 
+					expression_statement solverData
+						assignment_expression solverData
+							field_access solverData
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverData
+						assignment_expression solverData
+							field_access solverData
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverData
+						assignment_expression solverData
+							field_access solverData
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					line_comment 
+					expression_statement solverDef
+						assignment_expression solverDef
+							field_access solverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverDef
+						assignment_expression solverDef
+							field_access solverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverDef
+						assignment_expression solverDef
+							field_access solverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverDef
+						assignment_expression solverDef
+							field_access solverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement solverDef
+						assignment_expression solverDef
+							field_access solverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement contactSolver
+						method_invocation contactSolver
+							identifier 
+							. 
+							identifier 
+							argument_list solverDef
+								( 
+								identifier 
+								) 
+						; 
+					line_comment 
+					expression_statement contactSolver
+						method_invocation contactSolver
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					if_statement step
+						if 
+						parenthesized_expression step
+							( 
+							field_access step
+								identifier 
+								. 
+								identifier 
+							) 
+						block contactSolver
+							{ 
+							line_comment 
+							expression_statement contactSolver
+								method_invocation contactSolver
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							} 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block m_joints
+							{ 
+							expression_statement m_joints
+								method_invocation m_joints
+									array_access m_joints
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+									argument_list solverData
+										( 
+										identifier 
+										) 
+								; 
+							} 
+					expression_statement profile
+						method_invocation profile
+							field_access profile
+								identifier 
+								. 
+								identifier 
+							. 
+							identifier 
+							argument_list timer
+								( 
+								method_invocation timer
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								) 
+						; 
+					line_comment 
+					expression_statement timer
+						method_invocation timer
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							field_access step
+								identifier 
+								. 
+								identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block j
+							{ 
+							for_statement j
+								for 
+								( 
+								local_variable_declaration j
+									integral_type 
+										int 
+									variable_declarator j
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression j
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression j
+									++ 
+									identifier 
+								) 
+								block m_joints
+									{ 
+									expression_statement m_joints
+										method_invocation m_joints
+											array_access m_joints
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+											argument_list solverData
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							expression_statement contactSolver
+								method_invocation contactSolver
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							} 
+					line_comment 
+					expression_statement contactSolver
+						method_invocation contactSolver
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					expression_statement profile
+						method_invocation profile
+							field_access profile
+								identifier 
+								. 
+								identifier 
+							. 
+							identifier 
+							argument_list timer
+								( 
+								method_invocation timer
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								) 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block c
+							{ 
+							local_variable_declaration c
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator c
+									identifier 
+									= 
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration a
+								floating_point_type 
+									float 
+								variable_declarator a
+									identifier 
+									= 
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration v
+								modifiers 
+									final 
+								type_identifier 
+								variable_declarator v
+									identifier 
+									= 
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration w
+								floating_point_type 
+									float 
+								variable_declarator w
+									identifier 
+									= 
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							line_comment 
+							local_variable_declaration translationx
+								floating_point_type 
+									float 
+								variable_declarator translationx
+									identifier 
+									= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							local_variable_declaration translationy
+								floating_point_type 
+									float 
+								variable_declarator translationy
+									identifier 
+									= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							if_statement translationx
+								if 
+								parenthesized_expression translationx
+									( 
+									binary_expression translationx
+										binary_expression translationx
+											binary_expression translationx
+												identifier 
+												* 
+												identifier 
+											+ 
+											binary_expression translationy
+												identifier 
+												* 
+												identifier 
+										> 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+									) 
+								block ratio
+									{ 
+									local_variable_declaration ratio
+										floating_point_type 
+											float 
+										variable_declarator ratio
+											identifier 
+											= 
+											binary_expression Settings
+												field_access Settings
+													identifier 
+													. 
+													identifier 
+												/ 
+												method_invocation MathUtils
+													identifier 
+													. 
+													identifier 
+													argument_list translationx
+														( 
+														binary_expression translationx
+															binary_expression translationx
+																identifier 
+																* 
+																identifier 
+															+ 
+															binary_expression translationy
+																identifier 
+																* 
+																identifier 
+														) 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											*= 
+											identifier 
+										; 
+									expression_statement v
+										assignment_expression v
+											field_access v
+												identifier 
+												. 
+												identifier 
+											*= 
+											identifier 
+										; 
+									} 
+							local_variable_declaration rotation
+								floating_point_type 
+									float 
+								variable_declarator rotation
+									identifier 
+									= 
+									binary_expression h
+										identifier 
+										* 
+										identifier 
+								; 
+							if_statement rotation
+								if 
+								parenthesized_expression rotation
+									( 
+									binary_expression rotation
+										binary_expression rotation
+											identifier 
+											* 
+											identifier 
+										> 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+									) 
+								block ratio
+									{ 
+									local_variable_declaration ratio
+										floating_point_type 
+											float 
+										variable_declarator ratio
+											identifier 
+											= 
+											binary_expression Settings
+												field_access Settings
+													identifier 
+													. 
+													identifier 
+												/ 
+												method_invocation MathUtils
+													identifier 
+													. 
+													identifier 
+													argument_list rotation
+														( 
+														identifier 
+														) 
+										; 
+									expression_statement w
+										assignment_expression w
+											identifier 
+											*= 
+											identifier 
+										; 
+									} 
+							line_comment 
+							expression_statement c
+								assignment_expression c
+									field_access c
+										identifier 
+										. 
+										identifier 
+									+= 
+									binary_expression h
+										identifier 
+										* 
+										field_access v
+											identifier 
+											. 
+											identifier 
+								; 
+							expression_statement c
+								assignment_expression c
+									field_access c
+										identifier 
+										. 
+										identifier 
+									+= 
+									binary_expression h
+										identifier 
+										* 
+										field_access v
+											identifier 
+											. 
+											identifier 
+								; 
+							expression_statement a
+								assignment_expression a
+									identifier 
+									+= 
+									binary_expression h
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							} 
+					line_comment 
+					expression_statement timer
+						method_invocation timer
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					local_variable_declaration positionSolved
+						boolean_type 
+						variable_declarator positionSolved
+							identifier 
+							= 
+							false 
+						; 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							field_access step
+								identifier 
+								. 
+								identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block contactsOkay
+							{ 
+							local_variable_declaration contactsOkay
+								boolean_type 
+								variable_declarator contactsOkay
+									identifier 
+									= 
+									method_invocation contactSolver
+										identifier 
+										. 
+										identifier 
+										argument_list 
+											( 
+											) 
+								; 
+							local_variable_declaration jointsOkay
+								boolean_type 
+								variable_declarator jointsOkay
+									identifier 
+									= 
+									true 
+								; 
+							for_statement j
+								for 
+								( 
+								local_variable_declaration j
+									integral_type 
+										int 
+									variable_declarator j
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression j
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression j
+									++ 
+									identifier 
+								) 
+								block jointOkay
+									{ 
+									local_variable_declaration jointOkay
+										boolean_type 
+										variable_declarator jointOkay
+											identifier 
+											= 
+											method_invocation m_joints
+												array_access m_joints
+													identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+												argument_list solverData
+													( 
+													identifier 
+													) 
+										; 
+									expression_statement jointsOkay
+										assignment_expression jointsOkay
+											identifier 
+											= 
+											binary_expression jointsOkay
+												identifier 
+												&& 
+												identifier 
+										; 
+									} 
+							if_statement contactsOkay
+								if 
+								parenthesized_expression contactsOkay
+									( 
+									binary_expression contactsOkay
+										identifier 
+										&& 
+										identifier 
+									) 
+								block positionSolved
+									{ 
+									line_comment 
+									expression_statement positionSolved
+										assignment_expression positionSolved
+											identifier 
+											= 
+											true 
+										; 
+									break_statement 
+										break 
+										; 
+									} 
+							} 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block body
+							{ 
+							local_variable_declaration body
+								type_identifier 
+								variable_declarator body
+									identifier 
+									= 
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											field_access body
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											field_access body
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										identifier 
+										. 
+										identifier 
+									= 
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								method_invocation body
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							} 
+					expression_statement profile
+						method_invocation profile
+							field_access profile
+								identifier 
+								. 
+								identifier 
+							. 
+							identifier 
+							argument_list timer
+								( 
+								method_invocation timer
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								) 
+						; 
+					expression_statement report
+						method_invocation report
+							identifier 
+							argument_list contactSolver
+								( 
+								field_access contactSolver
+									identifier 
+									. 
+									identifier 
+								) 
+						; 
+					if_statement allowSleep
+						if 
+						parenthesized_expression allowSleep
+							( 
+							identifier 
+							) 
+						block minSleepTime
+							{ 
+							local_variable_declaration minSleepTime
+								floating_point_type 
+									float 
+								variable_declarator minSleepTime
+									identifier 
+									= 
+									field_access Float
+										identifier 
+										. 
+										identifier 
+								; 
+							local_variable_declaration linTolSqr
+								modifiers 
+									final 
+								floating_point_type 
+									float 
+								variable_declarator linTolSqr
+									identifier 
+									= 
+									binary_expression Settings
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+										* 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+								; 
+							local_variable_declaration angTolSqr
+								modifiers 
+									final 
+								floating_point_type 
+									float 
+								variable_declarator angTolSqr
+									identifier 
+									= 
+									binary_expression Settings
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+										* 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+								; 
+							for_statement i
+								for 
+								( 
+								local_variable_declaration i
+									integral_type 
+										int 
+									variable_declarator i
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression i
+									identifier 
+									< 
+									identifier 
+								; 
+								update_expression i
+									++ 
+									identifier 
+								) 
+								block b
+									{ 
+									local_variable_declaration b
+										type_identifier 
+										variable_declarator b
+											identifier 
+											= 
+											array_access m_bodies
+												identifier 
+												[ 
+												identifier 
+												] 
+										; 
+									if_statement b
+										if 
+										parenthesized_expression b
+											( 
+											binary_expression b
+												method_invocation b
+													identifier 
+													. 
+													identifier 
+													argument_list 
+														( 
+														) 
+												== 
+												field_access BodyType
+													identifier 
+													. 
+													identifier 
+											) 
+										block 
+											{ 
+											continue_statement 
+												continue 
+												; 
+											} 
+									if_statement b
+										if 
+										parenthesized_expression b
+											( 
+											binary_expression b
+												binary_expression b
+													binary_expression b
+														parenthesized_expression b
+															( 
+															binary_expression b
+																field_access b
+																	identifier 
+																	. 
+																	identifier 
+																& 
+																field_access Body
+																	identifier 
+																	. 
+																	identifier 
+															) 
+														== 
+														decimal_integer_literal 
+													|| 
+													binary_expression b
+														binary_expression b
+															field_access b
+																identifier 
+																. 
+																identifier 
+															* 
+															field_access b
+																identifier 
+																. 
+																identifier 
+														> 
+														identifier 
+												|| 
+												binary_expression Vec2
+													method_invocation Vec2
+														identifier 
+														. 
+														identifier 
+														argument_list b
+															( 
+															field_access b
+																identifier 
+																. 
+																identifier 
+															, 
+															field_access b
+																identifier 
+																. 
+																identifier 
+															) 
+													> 
+													identifier 
+											) 
+										block b
+											{ 
+											expression_statement b
+												assignment_expression b
+													field_access b
+														identifier 
+														. 
+														identifier 
+													= 
+													decimal_floating_point_literal 
+												; 
+											expression_statement minSleepTime
+												assignment_expression minSleepTime
+													identifier 
+													= 
+													decimal_floating_point_literal 
+												; 
+											} 
+										else 
+										block b
+											{ 
+											expression_statement b
+												assignment_expression b
+													field_access b
+														identifier 
+														. 
+														identifier 
+													+= 
+													identifier 
+												; 
+											expression_statement minSleepTime
+												assignment_expression minSleepTime
+													identifier 
+													= 
+													method_invocation MathUtils
+														identifier 
+														. 
+														identifier 
+														argument_list minSleepTime
+															( 
+															identifier 
+															, 
+															field_access b
+																identifier 
+																. 
+																identifier 
+															) 
+												; 
+											} 
+									} 
+							if_statement minSleepTime
+								if 
+								parenthesized_expression minSleepTime
+									( 
+									binary_expression minSleepTime
+										binary_expression minSleepTime
+											identifier 
+											>= 
+											field_access Settings
+												identifier 
+												. 
+												identifier 
+										&& 
+										identifier 
+									) 
+								block i
+									{ 
+									for_statement i
+										for 
+										( 
+										local_variable_declaration i
+											integral_type 
+												int 
+											variable_declarator i
+												identifier 
+												= 
+												decimal_integer_literal 
+											; 
+										binary_expression i
+											identifier 
+											< 
+											identifier 
+										; 
+										update_expression i
+											++ 
+											identifier 
+										) 
+										block b
+											{ 
+											local_variable_declaration b
+												type_identifier 
+												variable_declarator b
+													identifier 
+													= 
+													array_access m_bodies
+														identifier 
+														[ 
+														identifier 
+														] 
+												; 
+											expression_statement b
+												method_invocation b
+													identifier 
+													. 
+													identifier 
+													argument_list 
+														( 
+														false 
+														) 
+												; 
+											} 
+									} 
+							} 
+					} 
+			field_declaration toiContactSolver
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator toiContactSolver
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			field_declaration toiSolverDef
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator toiSolverDef
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			method_declaration solveTOI
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters subStep
+					( 
+					formal_parameter subStep
+						type_identifier 
+						identifier 
+					, 
+					formal_parameter toiIndexA
+						integral_type 
+							int 
+						identifier 
+					, 
+					formal_parameter toiIndexB
+						integral_type 
+							int 
+						identifier 
+					) 
+				block toiIndexA
+					{ 
+					assert_statement toiIndexA
+						assert 
+						parenthesized_expression toiIndexA
+							( 
+							binary_expression toiIndexA
+								identifier 
+								< 
+								identifier 
+							) 
+						; 
+					assert_statement toiIndexB
+						assert 
+						parenthesized_expression toiIndexB
+							( 
+							binary_expression toiIndexB
+								identifier 
+								< 
+								identifier 
+							) 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block m_positions
+							{ 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										field_access m_bodies
+											field_access m_bodies
+												array_access m_bodies
+													identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										field_access m_bodies
+											field_access m_bodies
+												array_access m_bodies
+													identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										field_access m_bodies
+											array_access m_bodies
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										field_access m_bodies
+											array_access m_bodies
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										field_access m_bodies
+											array_access m_bodies
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									field_access m_bodies
+										array_access m_bodies
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							} 
+					expression_statement toiSolverDef
+						assignment_expression toiSolverDef
+							field_access toiSolverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement toiSolverDef
+						assignment_expression toiSolverDef
+							field_access toiSolverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement toiSolverDef
+						assignment_expression toiSolverDef
+							field_access toiSolverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement toiSolverDef
+						assignment_expression toiSolverDef
+							field_access toiSolverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement toiSolverDef
+						assignment_expression toiSolverDef
+							field_access toiSolverDef
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement toiContactSolver
+						method_invocation toiContactSolver
+							identifier 
+							. 
+							identifier 
+							argument_list toiSolverDef
+								( 
+								identifier 
+								) 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							field_access subStep
+								identifier 
+								. 
+								identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block contactsOkay
+							{ 
+							local_variable_declaration contactsOkay
+								boolean_type 
+								variable_declarator contactsOkay
+									identifier 
+									= 
+									method_invocation toiContactSolver
+										identifier 
+										. 
+										identifier 
+										argument_list toiIndexA
+											( 
+											identifier 
+											, 
+											identifier 
+											) 
+								; 
+							if_statement contactsOkay
+								if 
+								parenthesized_expression contactsOkay
+									( 
+									identifier 
+									) 
+								block 
+									{ 
+									break_statement 
+										break 
+										; 
+									} 
+							} 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					line_comment 
+					expression_statement m_bodies
+						assignment_expression m_bodies
+							field_access m_bodies
+								field_access m_bodies
+									field_access m_bodies
+										array_access m_bodies
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							field_access m_positions
+								field_access m_positions
+									array_access m_positions
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_bodies
+						assignment_expression m_bodies
+							field_access m_bodies
+								field_access m_bodies
+									field_access m_bodies
+										array_access m_bodies
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							field_access m_positions
+								field_access m_positions
+									array_access m_positions
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								. 
+								identifier 
+						; 
+					expression_statement m_bodies
+						assignment_expression m_bodies
+							field_access m_bodies
+								field_access m_bodies
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							field_access m_positions
+								array_access m_positions
+									identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					expression_statement m_bodies
+						method_invocation m_bodies
+							field_access m_bodies
+								field_access m_bodies
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								. 
+								identifier 
+							. 
+							identifier 
+							argument_list m_positions
+								( 
+								field_access m_positions
+									array_access m_positions
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								) 
+						; 
+					expression_statement m_bodies
+						assignment_expression m_bodies
+							field_access m_bodies
+								field_access m_bodies
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+									. 
+									identifier 
+								. 
+								identifier 
+							= 
+							field_access m_positions
+								array_access m_positions
+									identifier 
+									[ 
+									identifier 
+									] 
+								. 
+								identifier 
+						; 
+					line_comment 
+					line_comment 
+					expression_statement toiContactSolver
+						method_invocation toiContactSolver
+							identifier 
+							. 
+							identifier 
+							argument_list 
+								( 
+								) 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							field_access subStep
+								identifier 
+								. 
+								identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block toiContactSolver
+							{ 
+							expression_statement toiContactSolver
+								method_invocation toiContactSolver
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							} 
+					line_comment 
+					line_comment 
+					local_variable_declaration h
+						floating_point_type 
+							float 
+						variable_declarator h
+							identifier 
+							= 
+							field_access subStep
+								identifier 
+								. 
+								identifier 
+						; 
+					line_comment 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block c
+							{ 
+							local_variable_declaration c
+								type_identifier 
+								variable_declarator c
+									identifier 
+									= 
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration a
+								floating_point_type 
+									float 
+								variable_declarator a
+									identifier 
+									= 
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration v
+								type_identifier 
+								variable_declarator v
+									identifier 
+									= 
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							local_variable_declaration w
+								floating_point_type 
+									float 
+								variable_declarator w
+									identifier 
+									= 
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+								; 
+							line_comment 
+							local_variable_declaration translationx
+								floating_point_type 
+									float 
+								variable_declarator translationx
+									identifier 
+									= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							local_variable_declaration translationy
+								floating_point_type 
+									float 
+								variable_declarator translationy
+									identifier 
+									= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							if_statement translationx
+								if 
+								parenthesized_expression translationx
+									( 
+									binary_expression translationx
+										binary_expression translationx
+											binary_expression translationx
+												identifier 
+												* 
+												identifier 
+											+ 
+											binary_expression translationy
+												identifier 
+												* 
+												identifier 
+										> 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+									) 
+								block ratio
+									{ 
+									local_variable_declaration ratio
+										floating_point_type 
+											float 
+										variable_declarator ratio
+											identifier 
+											= 
+											binary_expression Settings
+												field_access Settings
+													identifier 
+													. 
+													identifier 
+												/ 
+												method_invocation MathUtils
+													identifier 
+													. 
+													identifier 
+													argument_list translationx
+														( 
+														binary_expression translationx
+															binary_expression translationx
+																identifier 
+																* 
+																identifier 
+															+ 
+															binary_expression translationy
+																identifier 
+																* 
+																identifier 
+														) 
+										; 
+									expression_statement v
+										method_invocation v
+											identifier 
+											. 
+											identifier 
+											argument_list ratio
+												( 
+												identifier 
+												) 
+										; 
+									} 
+							local_variable_declaration rotation
+								floating_point_type 
+									float 
+								variable_declarator rotation
+									identifier 
+									= 
+									binary_expression h
+										identifier 
+										* 
+										identifier 
+								; 
+							if_statement rotation
+								if 
+								parenthesized_expression rotation
+									( 
+									binary_expression rotation
+										binary_expression rotation
+											identifier 
+											* 
+											identifier 
+										> 
+										field_access Settings
+											identifier 
+											. 
+											identifier 
+									) 
+								block ratio
+									{ 
+									local_variable_declaration ratio
+										floating_point_type 
+											float 
+										variable_declarator ratio
+											identifier 
+											= 
+											binary_expression Settings
+												field_access Settings
+													identifier 
+													. 
+													identifier 
+												/ 
+												method_invocation MathUtils
+													identifier 
+													. 
+													identifier 
+													argument_list rotation
+														( 
+														identifier 
+														) 
+										; 
+									expression_statement w
+										assignment_expression w
+											identifier 
+											*= 
+											identifier 
+										; 
+									} 
+							line_comment 
+							expression_statement c
+								assignment_expression c
+									field_access c
+										identifier 
+										. 
+										identifier 
+									+= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							expression_statement c
+								assignment_expression c
+									field_access c
+										identifier 
+										. 
+										identifier 
+									+= 
+									binary_expression v
+										field_access v
+											identifier 
+											. 
+											identifier 
+										* 
+										identifier 
+								; 
+							expression_statement a
+								assignment_expression a
+									identifier 
+									+= 
+									binary_expression h
+										identifier 
+										* 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										field_access m_positions
+											array_access m_positions
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_positions
+								assignment_expression m_positions
+									field_access m_positions
+										array_access m_positions
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										field_access m_velocities
+											array_access m_velocities
+												identifier 
+												[ 
+												identifier 
+												] 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement m_velocities
+								assignment_expression m_velocities
+									field_access m_velocities
+										array_access m_velocities
+											identifier 
+											[ 
+											identifier 
+											] 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							line_comment 
+							local_variable_declaration body
+								type_identifier 
+								variable_declarator body
+									identifier 
+									= 
+									array_access m_bodies
+										identifier 
+										[ 
+										identifier 
+										] 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											field_access body
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											field_access body
+												identifier 
+												. 
+												identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access c
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										field_access body
+											identifier 
+											. 
+											identifier 
+										. 
+										identifier 
+									= 
+									field_access v
+										identifier 
+										. 
+										identifier 
+								; 
+							expression_statement body
+								assignment_expression body
+									field_access body
+										identifier 
+										. 
+										identifier 
+									= 
+									identifier 
+								; 
+							expression_statement body
+								method_invocation body
+									identifier 
+									. 
+									identifier 
+									argument_list 
+										( 
+										) 
+								; 
+							} 
+					expression_statement report
+						method_invocation report
+							identifier 
+							argument_list toiContactSolver
+								( 
+								field_access toiContactSolver
+									identifier 
+									. 
+									identifier 
+								) 
+						; 
+					} 
+			method_declaration add
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters body
+					( 
+					formal_parameter body
+						type_identifier 
+						identifier 
+					) 
+				block m_bodyCount
+					{ 
+					assert_statement m_bodyCount
+						assert 
+						parenthesized_expression m_bodyCount
+							( 
+							binary_expression m_bodyCount
+								identifier 
+								< 
+								identifier 
+							) 
+						; 
+					expression_statement body
+						assignment_expression body
+							field_access body
+								identifier 
+								. 
+								identifier 
+							= 
+							identifier 
+						; 
+					expression_statement m_bodies
+						assignment_expression m_bodies
+							array_access m_bodies
+								identifier 
+								[ 
+								identifier 
+								] 
+							= 
+							identifier 
+						; 
+					expression_statement m_bodyCount
+						update_expression m_bodyCount
+							++ 
+							identifier 
+						; 
+					} 
+			method_declaration add
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters contact
+					( 
+					formal_parameter contact
+						type_identifier 
+						identifier 
+					) 
+				block m_contactCount
+					{ 
+					assert_statement m_contactCount
+						assert 
+						parenthesized_expression m_contactCount
+							( 
+							binary_expression m_contactCount
+								identifier 
+								< 
+								identifier 
+							) 
+						; 
+					expression_statement m_contacts
+						assignment_expression m_contacts
+							array_access m_contacts
+								identifier 
+								[ 
+								update_expression m_contactCount
+									identifier 
+									++ 
+								] 
+							= 
+							identifier 
+						; 
+					} 
+			method_declaration add
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters joint
+					( 
+					formal_parameter joint
+						type_identifier 
+						identifier 
+					) 
+				block m_jointCount
+					{ 
+					assert_statement m_jointCount
+						assert 
+						parenthesized_expression m_jointCount
+							( 
+							binary_expression m_jointCount
+								identifier 
+								< 
+								identifier 
+							) 
+						; 
+					expression_statement m_joints
+						assignment_expression m_joints
+							array_access m_joints
+								identifier 
+								[ 
+								update_expression m_jointCount
+									identifier 
+									++ 
+								] 
+							= 
+							identifier 
+						; 
+					} 
+			field_declaration impulse
+				modifiers 
+					private 
+					final 
+				type_identifier 
+				variable_declarator impulse
+					identifier 
+					= 
+					object_creation_expression 
+						new 
+						type_identifier 
+						argument_list 
+							( 
+							) 
+				; 
+			method_declaration report
+				modifiers 
+					public 
+				void_type 
+				identifier 
+				formal_parameters constraints
+					( 
+					formal_parameter constraints
+						array_type 
+							type_identifier 
+							dimensions 
+								[ 
+								] 
+						identifier 
+					) 
+				block m_listener
+					{ 
+					if_statement m_listener
+						if 
+						parenthesized_expression m_listener
+							( 
+							binary_expression m_listener
+								identifier 
+								== 
+								null_literal 
+							) 
+						block 
+							{ 
+							return_statement 
+								return 
+								; 
+							} 
+					for_statement i
+						for 
+						( 
+						local_variable_declaration i
+							integral_type 
+								int 
+							variable_declarator i
+								identifier 
+								= 
+								decimal_integer_literal 
+							; 
+						binary_expression i
+							identifier 
+							< 
+							identifier 
+						; 
+						update_expression i
+							++ 
+							identifier 
+						) 
+						block c
+							{ 
+							local_variable_declaration c
+								type_identifier 
+								variable_declarator c
+									identifier 
+									= 
+									array_access m_contacts
+										identifier 
+										[ 
+										identifier 
+										] 
+								; 
+							local_variable_declaration vc
+								type_identifier 
+								variable_declarator vc
+									identifier 
+									= 
+									array_access constraints
+										identifier 
+										[ 
+										identifier 
+										] 
+								; 
+							expression_statement impulse
+								assignment_expression impulse
+									field_access impulse
+										identifier 
+										. 
+										identifier 
+									= 
+									field_access vc
+										identifier 
+										. 
+										identifier 
+								; 
+							for_statement j
+								for 
+								( 
+								local_variable_declaration j
+									integral_type 
+										int 
+									variable_declarator j
+										identifier 
+										= 
+										decimal_integer_literal 
+									; 
+								binary_expression j
+									identifier 
+									< 
+									field_access vc
+										identifier 
+										. 
+										identifier 
+								; 
+								update_expression j
+									++ 
+									identifier 
+								) 
+								block impulse
+									{ 
+									expression_statement impulse
+										assignment_expression impulse
+											array_access impulse
+												field_access impulse
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											field_access vc
+												array_access vc
+													field_access vc
+														identifier 
+														. 
+														identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+										; 
+									expression_statement impulse
+										assignment_expression impulse
+											array_access impulse
+												field_access impulse
+													identifier 
+													. 
+													identifier 
+												[ 
+												identifier 
+												] 
+											= 
+											field_access vc
+												array_access vc
+													field_access vc
+														identifier 
+														. 
+														identifier 
+													[ 
+													identifier 
+													] 
+												. 
+												identifier 
+										; 
+									} 
+							expression_statement m_listener
+								method_invocation m_listener
+									identifier 
+									. 
+									identifier 
+									argument_list c
+										( 
+										identifier 
+										, 
+										identifier 
+										) 
+								; 
+							} 
+					} 
+			} 
