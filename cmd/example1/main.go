@@ -18,6 +18,17 @@ func main() {
 	}
 
 	//unit, err := project.AddSource("examples/main/Example1.java")
+
+	printer := printers.NewPrinterJS(project)
+
+	if false {
+		for _, u := range project.UnitsByAbsName {
+			filename := printer.Filename(u)
+			filename = filepath.Join("output", filename)
+			fmt.Println(filename)
+		}
+	}
+
 	unit, err := project.AddSource("examples/main/Mat33.java")
 	if err != nil {
 		log.Println(err)
@@ -27,8 +38,9 @@ func main() {
 	//node := unit.FindNodeByType(unit.Root, "class_body")
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 
-	unit.PrintAST()
-	return
+	if true {
+		unit.PrintAST()
+	}
 
 	if false {
 		printer := printers.NewPrinterJava(unit)
@@ -37,7 +49,6 @@ func main() {
 	}
 
 	if false {
-		printer := printers.NewPrinterJS(project)
 		content := printer.PrintUnit(unit)
 		filename := printer.Filename(unit)
 		filename = filepath.Join("output", filename)
@@ -58,9 +69,7 @@ func main() {
 		//fmt.Println(content)
 	}
 
-	project.PrintNameTree(0)
-
-	//
-	//n := unit.Tree.RootNode()
-	//unit.printNode(0, n)
+	if false {
+		project.PrintNameTree(0)
+	}
 }

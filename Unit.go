@@ -56,3 +56,7 @@ func (u *Unit) WrapNode(node *sitter.Node) *Node {
 
 	return result
 }
+
+func (u *Unit) BuildIdsTree() {
+
+}

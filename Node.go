@@ -117,6 +117,10 @@ func (n *Node) GetName() string {
 	return id.Content()
 }
 
+func (n *Node) Parent() *Node {
+	return n.unit.WrapNode(n.Node.Parent())
+}
+
 func (n *Node) IsStatic() bool {
 	modifiers := n.FindNodeByType(nodetype.MODIFIERS)
 	if modifiers == nil {
