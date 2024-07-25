@@ -1,4 +1,4 @@
-package jolang2
+package jo
 
 type NodeList []*Node
 type NodeListMap map[string]NodeList

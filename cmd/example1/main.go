@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"jolang2"
-	"jolang2/printers"
+	"jolang2/src/jo"
+	printers2 "jolang2/src/jo/printers"
 	"log"
 	"os"
 	"path/filepath"
@@ -32,7 +32,7 @@ func main() {
 
 	srcDirs := strings.Split(srcPath, ":")
 
-	project := jolang2.NewProject()
+	project := jo.NewProject()
 
 	//Add src dirs
 	for _, srcDir := range srcDirs {
@@ -53,7 +53,7 @@ func main() {
 
 	//unit, err := project.AddSource("examples/main/Example1.java")
 
-	printer := printers.NewPrinterJS(project)
+	printer := printers2.NewPrinterJS(project)
 
 	if false {
 		printFilenames(project, printer)
@@ -85,9 +85,9 @@ func main() {
 	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 }
 
-func writeUnit(unit *jolang2.Unit) error {
+func writeUnit(unit *jo.Unit) error {
 	fmt.Println("writeUnit", unit.AbsName())
-	printer := printers.NewPrinterJS(unit.Project)
+	printer := printers2.NewPrinterJS(unit.Project)
 
 	content := printer.PrintUnit(unit)
 	filename := printer.Filename(unit)
@@ -125,7 +125,7 @@ func writeUnit(unit *jolang2.Unit) error {
 	return nil
 }
 
-func printFilenames(project *jolang2.Project, printer printers.Printer) {
+func printFilenames(project *jo.Project, printer printers2.Printer) {
 	for _, u := range project.UnitsByAbsName {
 		filename := printer.Filename(u)
 		filename = filepath.Join("output", filename)
@@ -133,7 +133,7 @@ func printFilenames(project *jolang2.Project, printer printers.Printer) {
 	}
 }
 
-func writeAllUnits(project *jolang2.Project) {
+func writeAllUnits(project *jo.Project) {
 	fmt.Println("writeAllUnits")
 
 	for _, unit := range project.Units {

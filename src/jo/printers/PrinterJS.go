@@ -2,8 +2,8 @@ package printers
 
 import (
 	"fmt"
-	"jolang2"
-	"jolang2/nodetype"
+	"jolang2/src/jo"
+	"jolang2/src/jo/nodetype"
 	"strings"
 )
 
@@ -19,7 +19,7 @@ type PrinterJS struct {
 	leftPart      bool
 }
 
-func NewPrinterJS(project *jolang2.Project) Printer {
+func NewPrinterJS(project *jo.Project) Printer {
 	return &PrinterJS{
 		BasePrinter:   NewBasePrinter(project),
 		importedNames: map[string]string{},
@@ -31,7 +31,7 @@ var importJavaLang = map[string]bool{
 	"RuntimeException": true,
 }
 
-func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
+func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 	root := unit.Root
 
 	//import core, types
@@ -121,7 +121,7 @@ func (printer *PrinterJS) convertClassNameToPath(name string) string {
 	return strings.ReplaceAll(name, ".", "/") + ".js"
 }
 
-func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
+func (printer *PrinterJS) printImport(importDeclaration *jo.Node) {
 	ids := importDeclaration.FindNodesByTypeRecursive(nodetype.IDENTIFIER)
 	if len(ids) < 1 {
 		return
@@ -159,11 +159,11 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 	}
 }
 
-func (printer *PrinterJS) printExpr(exprNode *jolang2.Node) {
+func (printer *PrinterJS) printExpr(exprNode *jo.Node) {
 	printer.Print(exprNode.Content())
 }
 
-func (printer *PrinterJS) printFormalParams(params []*jolang2.Node) {
+func (printer *PrinterJS) printFormalParams(params []*jo.Node) {
 	printer.Print("(")
 	for i, param := range params {
 		if i != 0 {
@@ -174,7 +174,7 @@ func (printer *PrinterJS) printFormalParams(params []*jolang2.Node) {
 	printer.Print(")")
 }
 
-func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
+func (printer *PrinterJS) printOverloadName(methodDeclaration *jo.Node) {
 	name := methodDeclaration.GetName()
 	if methodDeclaration.Type() == nodetype.CONSTRUCTOR_DECLARATION {
 		name = "constructor"
@@ -197,11 +197,11 @@ func (printer *PrinterJS) printOverloadName(methodDeclaration *jolang2.Node) {
 
 }
 
-func (printer *PrinterJS) printOverloadCheck(methodDeclaration *jolang2.Node) {
+func (printer *PrinterJS) printOverloadCheck(methodDeclaration *jo.Node) {
 	printer.printOverloadCheckFull(methodDeclaration, methodDeclaration.Type() == nodetype.CONSTRUCTOR_DECLARATION)
 }
 
-func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jolang2.Node, forConstructor bool) {
+func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jo.Node, forConstructor bool) {
 	params := methodDeclaration.FindNodeByType(nodetype.FORMAL_PARAMETERS).FindNodesByType(nodetype.FORMAL_PARAMETER)
 	if forConstructor {
 		printer.Print("case jo.suitable(arguments")
@@ -231,7 +231,7 @@ func (printer *PrinterJS) printOverloadCheckFull(methodDeclaration *jolang2.Node
 	}
 }
 
-func (printer *PrinterJS) printMethodHint(params jolang2.NodeList, resultType *jolang2.Node) {
+func (printer *PrinterJS) printMethodHint(params jo.NodeList, resultType *jo.Node) {
 
 	//example:
 
@@ -269,7 +269,7 @@ func (printer *PrinterJS) printMethodHint(params jolang2.NodeList, resultType *j
 	printer.Println("*/")
 }
 
-func (printer *PrinterJS) convertType(t *jolang2.Node) string {
+func (printer *PrinterJS) convertType(t *jo.Node) string {
 	s := t.Content()
 	if v, ok := typeofTypes[s]; ok {
 		return v
@@ -277,7 +277,7 @@ func (printer *PrinterJS) convertType(t *jolang2.Node) string {
 	return s
 }
 
-func (printer *PrinterJS) findType(node *jolang2.Node) *jolang2.Node {
+func (printer *PrinterJS) findType(node *jo.Node) *jo.Node {
 	result := node.FindNodeByType(
 		nodetype.TYPE_IDENTIFIER,
 		nodetype.FLOATING_POINT_TYPE,
@@ -298,9 +298,9 @@ func (printer *PrinterJS) findType(node *jolang2.Node) *jolang2.Node {
 	return result
 }
 
-func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
+func (printer *PrinterJS) printMethods(classBody *jo.Node) {
 	methodDeclarations := classBody.FindNodesByType(nodetype.METHOD_DECLARATION)
-	methodsByName := jolang2.NodeListMap{}
+	methodsByName := jo.NodeListMap{}
 
 	for _, methodDeclaration := range methodDeclarations {
 		name := methodDeclaration.GetName()
@@ -365,7 +365,7 @@ func (printer *PrinterJS) printMethods(classBody *jolang2.Node) {
 	}
 }
 
-func (printer *PrinterJS) printConstructors(classBody *jolang2.Node, superclass *jolang2.Node) {
+func (printer *PrinterJS) printConstructors(classBody *jo.Node, superclass *jo.Node) {
 	constructorDeclarations := classBody.FindNodesByType(nodetype.CONSTRUCTOR_DECLARATION)
 	count := len(constructorDeclarations)
 	if count == 0 {
@@ -441,13 +441,13 @@ func (printer *PrinterJS) printConstructors(classBody *jolang2.Node, superclass 
 	}
 }
 
-func (printer *PrinterJS) printSubClass(subClass *jolang2.Node) {
+func (printer *PrinterJS) printSubClass(subClass *jo.Node) {
 	name := subClass.GetName()
 	_, _ = fmt.Fprintf(printer, "static %s = %s;", name, name)
 	printer.Println()
 }
 
-func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
+func (printer *PrinterJS) printFields(classBody *jo.Node) {
 	fieldDeclarations := classBody.FindNodesByType(nodetype.FIELD_DECLARATION)
 	for _, fieldDeclaration := range fieldDeclarations {
 		variableDeclarators := fieldDeclaration.FindNodesByType(nodetype.VARIABLE_DECLARATOR)
@@ -485,7 +485,7 @@ func (printer *PrinterJS) printFields(classBody *jolang2.Node) {
 	}
 }
 
-func (printer *PrinterJS) printInterface(interfaceDeclaration *jolang2.Node, shouldExport bool) {
+func (printer *PrinterJS) printInterface(interfaceDeclaration *jo.Node, shouldExport bool) {
 	_, _ = fmt.Fprintf(printer, `export class %s extends jo.Interface {`, interfaceDeclaration.GetName())
 	printer.Println()
 
@@ -498,7 +498,7 @@ func (printer *PrinterJS) printInterface(interfaceDeclaration *jolang2.Node, sho
 	printer.Println("}")
 }
 
-func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport bool) {
+func (printer *PrinterJS) printEnum(enumDeclaration *jo.Node, shouldExport bool) {
 	enumName := enumDeclaration.GetName()
 	body := enumDeclaration.FindNodeByType(nodetype.ENUM_BODY)
 	_, _ = fmt.Fprintf(printer, `export class %s extends jo.Enum {`, enumDeclaration.GetName())
@@ -516,7 +516,7 @@ func (printer *PrinterJS) printEnum(enumDeclaration *jolang2.Node, shouldExport 
 	printer.Println("}")
 }
 
-func (printer *PrinterJS) printAnonClass(node *jolang2.Node) {
+func (printer *PrinterJS) printAnonClass(node *jo.Node) {
 	//todo anon class here
 	//todo print anon class content
 	t := printer.findType(node)
@@ -539,7 +539,7 @@ func (printer *PrinterJS) printAnonClass(node *jolang2.Node) {
 	printer.Print("})(this)") //new class end
 }
 
-func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExport bool) {
+func (printer *PrinterJS) printClass(classDeclaration *jo.Node, shouldExport bool) {
 	className := classDeclaration.FindNodeByType(nodetype.IDENTIFIER).Content()
 	classBody := classDeclaration.FindNodeByType(nodetype.CLASS_BODY)
 
@@ -584,29 +584,29 @@ func (printer *PrinterJS) printClass(classDeclaration *jolang2.Node, shouldExpor
 	printer.Println("}")
 }
 
-func (printer *PrinterJS) Filename(unit *jolang2.Unit) string {
+func (printer *PrinterJS) Filename(unit *jo.Unit) string {
 	return strings.ReplaceAll(unit.AbsName(), ".", "/") + ".js"
 }
 
-func (printer *PrinterJS) VisitChildrenOf(node *jolang2.Node) {
+func (printer *PrinterJS) VisitChildrenOf(node *jo.Node) {
 	for _, child := range node.Children() {
 		printer.Visit(child)
 	}
 }
 
-func (printer *PrinterJS) printIntegerLiteral(node *jolang2.Node) {
+func (printer *PrinterJS) printIntegerLiteral(node *jo.Node) {
 	content := node.Content()
 	content = strings.ReplaceAll(content, "L", "")
 	printer.Print(content)
 }
 
-func (printer *PrinterJS) printFloatLiteral(node *jolang2.Node) {
+func (printer *PrinterJS) printFloatLiteral(node *jo.Node) {
 	content := node.Content()
 	content = strings.ReplaceAll(content, "f", "")
 	printer.Print(content)
 }
 
-func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
+func (printer *PrinterJS) VisitDefault(node *jo.Node) {
 	if node.ChildCount() > 0 {
 		printer.VisitChildrenOf(node)
 	} else {
@@ -616,7 +616,7 @@ func (printer *PrinterJS) VisitDefault(node *jolang2.Node) {
 }
 
 // print "this." or "ClassName." if needed
-func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
+func (printer *PrinterJS) printFullPath(node *jo.Node) {
 	prev := node.PrevSibling()
 	firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
 	parent := node.Parent()
@@ -631,6 +631,7 @@ func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
 
 	decl := node.FindDeclaration()
 	if decl == nil {
+		fmt.Println(node.Content())
 		return
 	}
 
@@ -655,7 +656,7 @@ func (printer *PrinterJS) printFullPath(node *jolang2.Node) {
 	}
 }
 
-func (printer *PrinterJS) Visit(node *jolang2.Node) {
+func (printer *PrinterJS) Visit(node *jo.Node) {
 	if node == nil {
 		return
 	}

@@ -1,10 +1,10 @@
-package jolang2
+package jo
 
 import "C"
 import (
 	"fmt"
 	sitter "github.com/smacker/go-tree-sitter"
-	"jolang2/nodetype"
+	"jolang2/src/jo/nodetype"
 )
 
 type Node struct {

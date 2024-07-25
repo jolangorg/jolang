@@ -1,4 +1,4 @@
-package jolang2
+package jo
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/smacker/go-tree-sitter/java"
 	"io/fs"
-	"jolang2/nodetype"
+	"jolang2/src/jo/nodetype"
 	"os"
 	"os/user"
 	"path/filepath"

@@ -1,4 +1,4 @@
-package jolang2
+package jo
 
 import (
 	"fmt"
