@@ -17,7 +17,7 @@ go run github.com/jolangorg/jolang/cmd/jo \
   -write-all
 
 # You can also write AST files with -write-ast flag
-go run jolang/cmd/jo \
+go run github.com/jolangorg/jolang/cmd/jo \
   -src="~/Projects/jbox2d/jbox2d-library/src/main/java" \
   -write-all
   -write-ast
