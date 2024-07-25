@@ -12,6 +12,8 @@ type Unit struct {
 	Root    *Node
 	Package string
 	Name    string
+
+	SiblingUnits UnitsMap
 }
 
 type NodeHandlerFunc func(node *Node, level int)
@@ -60,13 +62,16 @@ func (u *Unit) WrapNode(node *sitter.Node) *Node {
 }
 
 func (u *Unit) GetSiblingUnits() UnitsMap {
-	result := make(UnitsMap)
-	if unitMap, ok := u.Project.UnitsByPkg[u.Package]; ok {
-		for name, unit := range unitMap {
-			if u.Name != name {
-				result[name] = unit
+	if u.SiblingUnits == nil {
+		u.SiblingUnits = make(UnitsMap)
+		if unitMap, ok := u.Project.UnitsByPkg[u.Package]; ok {
+			for name, unit := range unitMap {
+				if u.Name != name {
+					u.SiblingUnits[name] = unit
+				}
 			}
 		}
 	}
-	return result
+
+	return u.SiblingUnits
 }

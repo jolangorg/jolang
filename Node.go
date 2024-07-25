@@ -49,9 +49,9 @@ func (n *Node) Type() nodetype.NodeType {
 	return nodetype.NodeType(n.Node.Type())
 }
 
-func (n *Node) Children() []*Node {
+func (n *Node) Children() NodeList {
 	count := int(n.ChildCount())
-	children := make([]*Node, count)
+	children := make(NodeList, count)
 	for i := 0; i < count; i++ {
 		children[i] = n.Child(i)
 	}
@@ -95,8 +95,8 @@ func (n *Node) FindNodeByTypeRecursive(t nodetype.NodeType) *Node {
 	return nil
 }
 
-func (n *Node) FindNodesByType(types ...nodetype.NodeType) []*Node {
-	result := []*Node{}
+func (n *Node) FindNodesByType(types ...nodetype.NodeType) NodeList {
+	result := NodeList{}
 	for _, child := range n.Children() {
 		for _, t := range types {
 			if child.Type() == t {
@@ -108,13 +108,13 @@ func (n *Node) FindNodesByType(types ...nodetype.NodeType) []*Node {
 	return result
 }
 
-func (n *Node) FindNodesByTypeRecursive(t nodetype.NodeType) []*Node {
-	result := []*Node{}
+func (n *Node) FindNodesByTypeRecursive(t nodetype.NodeType) NodeList {
+	result := NodeList{}
 	for _, child := range n.Children() {
 		if child.Type() == t {
 			result = append(result, child)
 		}
-		found := child.FindNodesByType(t)
+		found := child.FindNodesByTypeRecursive(t)
 		result = append(result, found...)
 	}
 	return result
@@ -132,8 +132,8 @@ func (n *Node) Parent() *Node {
 	return n.unit.WrapNode(n.Node.Parent())
 }
 
-func (n *Node) Parents() []*Node {
-	parents := []*Node{}
+func (n *Node) Parents() NodeList {
+	parents := NodeList{}
 	node := n
 	for {
 		parent := node.Parent()

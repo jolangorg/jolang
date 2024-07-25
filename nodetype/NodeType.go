@@ -11,6 +11,7 @@ const (
 	CLASS_BODY                     = NodeType("class_body")
 	IMPORT_DECLARATION             = NodeType("import_declaration")
 	IDENTIFIER                     = NodeType("identifier")
+	TYPE_IDENTIFIER                = NodeType("type_identifier")
 	MODIFIERS                      = NodeType("modifiers")
 	FIELD_DECLARATION              = NodeType("field_declaration")
 	VARIABLE_DECLARATOR            = NodeType("variable_declarator")
@@ -22,6 +23,7 @@ const (
 	ASSIGNMENT_EXPRESSION          = NodeType("assignment_expression")
 	FIELD_ACCESS                   = NodeType("field_access")
 	ASSERT_STATEMENT               = NodeType("assert_statement")
+	SUPER_INTERFACES               = NodeType("super_interfaces")
 
 	NEW    = NodeType("new")
 	RETURN = NodeType("return")

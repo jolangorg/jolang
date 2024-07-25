@@ -9,12 +9,13 @@ import (
 
 type PrinterJS struct {
 	*BasePrinter
-	firstIdentifier bool
+	importedNames map[string]string //shortName -> fullName
 }
 
 func NewPrinterJS(project *jolang2.Project) Printer {
 	return &PrinterJS{
-		BasePrinter: NewBasePrinter(),
+		BasePrinter:   NewBasePrinter(),
+		importedNames: map[string]string{},
 	}
 }
 
@@ -31,10 +32,37 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 		printer.Println("import {assert} from 'jo';")
 	}
 
-	for unitName, siblingUnit := range unit.GetSiblingUnits() {
-		jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
-		_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", unitName, jsPath)
-		printer.Println()
+	//for unitName, siblingUnit := range unit.GetSiblingUnits() {
+	//	jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
+	//	_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", unitName, jsPath)
+	//	printer.Println()
+	//}
+
+	siblingUnits := unit.GetSiblingUnits()
+
+	typeIdentifiers := root.FindNodesByTypeRecursive(nodetype.TYPE_IDENTIFIER)
+	typeIdentifiersReady := map[string]bool{}
+	for _, typeIdentifier := range typeIdentifiers {
+		s := typeIdentifier.Content()
+		if _, ok := typeIdentifiersReady[s]; ok {
+			continue
+		}
+		if s == unit.Name {
+			continue
+		}
+		if _, ok := printer.importedNames[s]; ok {
+			continue
+		}
+
+		if siblingUnit, ok := siblingUnits[s]; ok {
+			jsPath := printer.convertClassNameToPath(siblingUnit.AbsName())
+			_, _ = fmt.Fprintf(printer, "import {%s} from '%s';", s, jsPath)
+			printer.Println()
+			typeIdentifiersReady[s] = true
+			continue
+		}
+
+		fmt.Println(s)
 	}
 
 	if len(importDeclarations) > 0 {
@@ -59,8 +87,9 @@ func (printer *PrinterJS) printImport(importDeclaration *jolang2.Node) {
 		return
 	}
 	name := ids[len(ids)-1].Content()
-	path := importDeclaration.Child(1).Content()
-	path = printer.convertClassNameToPath(path)
+	absName := importDeclaration.Child(1).Content()
+	printer.importedNames[name] = absName
+	path := printer.convertClassNameToPath(absName)
 	_, _ = fmt.Fprintf(printer, `import {%s} from "%s"`, name, path)
 	printer.Println(";")
 }

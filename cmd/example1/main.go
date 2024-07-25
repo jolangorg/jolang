@@ -29,9 +29,15 @@ func main() {
 		}
 	}
 
-	unit, err := project.AddSource("examples/main/Mat33.java")
-	if err != nil {
-		log.Println(err)
+	//unit, err := project.AddSource("examples/main/Mat33.java")
+	//if err != nil {
+	//	log.Println(err)
+	//	return
+	//}
+
+	unit, ok := project.UnitsByAbsName["org.jbox2d.common.Vec3"]
+	if !ok {
+		log.Println("not exists")
 		return
 	}
 
