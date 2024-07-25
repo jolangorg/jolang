@@ -25,6 +25,9 @@ const (
 	ASSERT_STATEMENT               = NodeType("assert_statement")
 	SUPER_INTERFACES               = NodeType("super_interfaces")
 
+	BLOCK_COMMENT = NodeType("block_comment")
+	LINE_COMMENT  = NodeType("line_comment")
+
 	NEW    = NodeType("new")
 	RETURN = NodeType("return")
 	IF     = NodeType("if")

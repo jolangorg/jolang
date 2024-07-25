@@ -265,6 +265,9 @@ func (printer *PrinterJS) Visit(node *jolang2.Node) {
 	case nodetype.FIELD_ACCESS:
 		printer.VisitDefault(node)
 
+	case nodetype.LINE_COMMENT:
+		printer.Println(node.Content())
+
 	case nodetype.IDENTIFIER:
 		prev := node.PrevSibling()
 		firstIdentifier := prev == nil || prev.Type() != nodetype.DOT
