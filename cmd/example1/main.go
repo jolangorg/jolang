@@ -1,19 +1,40 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"jolang2"
 	"jolang2/printers"
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 func main() {
+	var srcPath string
+	flag.StringVar(&srcPath, "src", "", "[required] dirs with java files (separated with ':')")
+
+	var unitName string
+	flag.StringVar(&unitName, "unit", "", "write specific unit e.g. `org.jbox2d.particle.ParticleSystem`")
+
+	var writeAll bool
+	flag.BoolVar(&writeAll, "write-all", false, "write all units")
+
+	flag.Parse()
+
+	if unitName == "" && !writeAll || srcPath == "" {
+		flag.Usage()
+		return
+	}
+
+	srcDirs := strings.Split(srcPath, ":")
+
 	project := jolang2.NewProject()
 
-	{
-		err := project.AddSourceDir("~/Projects/jbox2d/jbox2d-library/src/main/java")
+	//Add src dirs
+	for _, srcDir := range srcDirs {
+		err := project.AddSourceDir(srcDir)
 		if err != nil {
 			log.Println(err)
 			return
@@ -36,22 +57,17 @@ func main() {
 		printFilenames(project, printer)
 	}
 
-	unit, ok := project.UnitsByAbsName["org.jbox2d.dynamics.joints.ConstantVolumeJoint"]
-	if !ok {
-		log.Println("not exists")
-		return
-	}
+	if unitName != "" {
+		unit, ok := project.UnitsByAbsName[unitName]
+		if !ok {
+			log.Println("unit `" + unitName + "` not exists")
+			return
+		}
 
-	//node := unit.FindNodeByType(unit.Root, "class_body")
-	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
-
-	if false {
 		//unit.PrintAST()
 		//unit.WriteASTToFile("txt/tree-World.txt")
-		unit.WriteASTToFile("txt/tree-" + unit.Name + ".txt")
-	}
+		//unit.WriteASTToFile("txt/tree-" + unit.Name + ".txt")
 
-	if false {
 		err := writeUnit(unit)
 		if err != nil {
 			log.Println(err)
@@ -59,9 +75,12 @@ func main() {
 		}
 	}
 
-	if true {
+	if writeAll {
 		writeAllUnits(project)
 	}
+
+	//node := unit.FindNodeByType(unit.Root, "class_body")
+	//fmt.Printf("Found: row: %d, column: %d", node.StartPoint().Row, node.StartPoint().Column)
 }
 
 func writeUnit(unit *jolang2.Unit) error {
@@ -69,18 +88,35 @@ func writeUnit(unit *jolang2.Unit) error {
 
 	content := printer.PrintUnit(unit)
 	filename := printer.Filename(unit)
+	filenameAST := filepath.Join("output-ast", filename+".txt")
 	filename = filepath.Join("output", filename)
 
-	err := os.MkdirAll(filepath.Dir(filename), os.ModePerm)
-	if err != nil {
-		log.Println(err)
-		return err
+	var err error
+
+	//write ast
+	{
+		err = os.MkdirAll(filepath.Dir(filenameAST), os.ModePerm)
+		if err != nil {
+			return err
+		}
+
+		err = unit.WriteASTToFile(filenameAST)
+		if err != nil {
+			return err
+		}
 	}
 
-	err = os.WriteFile(filename, []byte(content), os.ModePerm)
-	if err != nil {
-		log.Println(err)
-		return err
+	//write code
+	{
+		err = os.MkdirAll(filepath.Dir(filename), os.ModePerm)
+		if err != nil {
+			return err
+		}
+
+		err = os.WriteFile(filename, []byte(content), os.ModePerm)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil

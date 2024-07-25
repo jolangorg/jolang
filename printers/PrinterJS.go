@@ -27,6 +27,7 @@ func NewPrinterJS(project *jolang2.Project) Printer {
 }
 
 var importJavaLang = map[string]bool{
+	"Class":            true,
 	"RuntimeException": true,
 }
 
@@ -78,6 +79,7 @@ func (printer *PrinterJS) PrintUnit(unit *jolang2.Unit) string {
 
 		if _, ok := importJavaLang[s]; ok {
 			_, _ = fmt.Fprintf(printer, "import {%s} from 'java/lang/%s.js';", s, s)
+			printer.Println()
 			typeIdentifiersReady[s] = true
 			continue
 		}
