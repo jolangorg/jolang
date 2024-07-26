@@ -8,7 +8,7 @@ export class System {
         }
     }
 
-    nanoTime(){
+    static nanoTime(){
         return (performance.now() * 1000 + performance.timeOrigin * 1000);
     }
 
