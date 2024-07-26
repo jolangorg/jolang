@@ -28,6 +28,8 @@ type Project struct {
 
 	NodesById
 	Declarations NodeListMap
+
+	ExcludeDirs Set[string]
 }
 
 func resolvePath(path string) (string, error) {
@@ -48,6 +50,31 @@ func resolvePath(path string) (string, error) {
 
 const JavaExt = ".java"
 
+func (p *Project) AddExcludeDir(dirname string) error {
+	dirname, err := resolvePath(dirname)
+	if err != nil {
+		return err
+	}
+
+	if _, err = os.Stat(dirname); err != nil {
+		return err
+	}
+
+	p.ExcludeDirs.Add(dirname)
+
+	return nil
+}
+
+func (p *Project) inExcludeDirs(path string) bool {
+	for excludeDir := range p.ExcludeDirs {
+		s, _ := filepath.Rel(excludeDir, path)
+		if !strings.HasPrefix(s, "..") {
+			return true
+		}
+	}
+	return false
+}
+
 func (p *Project) AddSourceDir(dirname string) error {
 	dirname, err := resolvePath(dirname)
 	if err != nil {
@@ -60,6 +87,10 @@ func (p *Project) AddSourceDir(dirname string) error {
 
 	err = filepath.WalkDir(dirname, func(path string, d fs.DirEntry, err error) error {
 		if filepath.Ext(path) != JavaExt {
+			return nil
+		}
+
+		if p.inExcludeDirs(path) {
 			return nil
 		}
 
@@ -163,5 +194,6 @@ func NewProject() *Project {
 		UnitsByAbsName: make(UnitsMap),
 		NodesById:      make(NodesById),
 		Declarations:   make(NodeListMap),
+		ExcludeDirs:    make(Set[string]),
 	}
 }

@@ -12,12 +12,14 @@ import (
 )
 
 var srcPath string
+var excludePath string
 var unitName string
 var writeAll bool
 var writeAST bool
 
 func main() {
 	flag.StringVar(&srcPath, "src", "", "[required] dirs with java files (separated with ':')")
+	flag.StringVar(&excludePath, "exclude", "", "excluded dirs with java files (separated with ':')")
 	flag.StringVar(&unitName, "unit", "", "write specific unit e.g. `org.jbox2d.particle.ParticleSystem`")
 	flag.BoolVar(&writeAll, "write-all", false, "write all units")
 
@@ -31,8 +33,21 @@ func main() {
 	}
 
 	srcDirs := strings.Split(srcPath, ":")
+	excludeDirs := []string{}
+	if excludePath != "" {
+		excludeDirs = strings.Split(excludePath, ":")
+	}
 
 	project := jo.NewProject()
+
+	//Add src dirs
+	for _, excludeDir := range excludeDirs {
+		err := project.AddExcludeDir(excludeDir)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+	}
 
 	//Add src dirs
 	for _, srcDir := range srcDirs {

@@ -2,11 +2,7 @@ package jo
 
 type Set[T comparable] map[T]struct{}
 
-func NewEmptySet[T comparable]() Set[T] {
-	return make(Set[T])
-}
-
-func NewSet[T comparable](elems []T) Set[T] {
+func NewSet[T comparable](elems ...T) Set[T] {
 	s := make(Set[T])
 	s.AddMany(elems)
 	return s

@@ -25,19 +25,19 @@ type PrinterJS struct {
 func NewPrinterJS(project *jo.Project) Printer {
 	return &PrinterJS{
 		BasePrinter:         NewBasePrinter(project),
-		importedNames:       jo.NewEmptySet[string](),
-		notRequiredImported: jo.NewEmptySet[string](),
+		importedNames:       jo.NewSet[string](),
+		notRequiredImported: jo.NewSet[string](),
 	}
 }
 
-var JavaLangExcludeImport = jo.NewSet([]string{
+var JavaLangExcludeImport = jo.NewSet(
 	"Math",
 	"String",
 	"Object",
 
 	//annotations
 	"Override",
-})
+)
 
 func (printer *PrinterJS) PrintUnit(unit *jo.Unit) string {
 	root := unit.Root

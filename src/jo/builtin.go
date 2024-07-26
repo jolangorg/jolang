@@ -1,6 +1,6 @@
 package jo
 
-var JavaLangClasses = NewSet([]string{
+var JavaLangClasses = NewSet(
 	"AbstractMethodError",
 	"AbstractStringBuilder",
 	"Appendable",
@@ -138,4 +138,4 @@ var JavaLangClasses = NewSet([]string{
 	"VirtualMachineError",
 	"Void",
 	"WeakPairMap",
-})
+)
