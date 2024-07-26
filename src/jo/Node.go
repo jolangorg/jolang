@@ -1,6 +1,5 @@
 package jo
 
-import "C"
 import (
 	"fmt"
 	"github.com/jolangorg/jolang/src/jo/nodetype"
